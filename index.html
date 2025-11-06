@@ -63,7 +63,10 @@
     onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- ✅ CSS Principal -->
-  <link rel="stylesheet" href="assets/css/main.min.css">
+  <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/main.min.css">
+  </noscript>
 
   <!-- ✅ Prefetch de JS (carregamento antecipado em background) -->
   <link rel="prefetch" href="assets/js/main.min.js" as="script">
