@@ -1,0 +1,26 @@
+{
+    "name": "Anpha Web - Desenvolvimento de Sites e Sistemas",
+    "short_name": "Anpha Web",
+    "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados para empresas.",
+    "start_url": "https://anphaweb.com.br/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0d6efd",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "assets/img/favicon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/img/apple-touch-icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "contact_email": "contato@anphaweb.com.br"
+  }
+  
