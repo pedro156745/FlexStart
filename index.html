@@ -2,80 +2,88 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- ✅ Configurações básicas -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anpha Web - Desenvolvimento de Sites e Sistemas</title>
 
-  <!-- SEO -->
-  <meta name="description"
-    content="Desenvolvimento de sites, sistemas web e aplicativos personalizados. Soluções completas, modernas e de alta performance para sua empresa.">
-  <meta name="keywords"
-    content="desenvolvimento web, sites, sistemas, aplicativos, e-commerce, anpha web, criação de sites, programador, web design, hospedagem">
+  <!-- ✅ SEO principal -->
+  <meta name="description" content="Desenvolvimento de sites, sistemas web e aplicativos personalizados. Soluções completas, modernas e de alta performance para sua empresa.">
+  <meta name="keywords" content="desenvolvimento web, sites, sistemas, aplicativos, e-commerce, anpha web, criação de sites, programador, web design, hospedagem, londrina">
   <meta name="author" content="Anpha Web">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anphaweb.com.br/">
 
-  <!-- Open Graph / Facebook -->
+  <!-- ✅ Open Graph / Facebook -->
   <meta property="og:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
-  <meta property="og:description"
-    content="Desenvolvimento de sites, sistemas web e aplicativos. Soluções completas para sua empresa.">
+  <meta property="og:description" content="Desenvolvimento de sites, sistemas web e aplicativos. Soluções completas para sua empresa.">
   <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
-  <meta property="og:url" content="https://anphaweb.com.br">
+  <meta property="og:url" content="https://anphaweb.com.br/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
 
-  <!-- Twitter -->
+  <!-- ✅ Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
-  <meta name="twitter:description"
-    content="Soluções digitais completas — sites, sistemas e aplicativos que impulsionam o seu negócio.">
-  <meta name="twitter:image" content="https://pedro156745.github.io/FlexStart/assets/img/hero-img.png">
+  <meta name="twitter:description" content="Soluções digitais completas — sites, sistemas e aplicativos que impulsionam o seu negócio.">
+  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
 
-  <!-- Favicons -->
-  <link rel="icon" href="assets/img/favicon.png">
+  <!-- ✅ Favicons -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- Preconnect (Google Fonts + CDN) -->
+  <!-- ✅ Manifest (para SEO e compatibilidade PWA futura) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+
+  <!-- ✅ Preconnect e DNS-prefetch para reduzir latência -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-  <!-- Google Fonts (carregamento assíncrono com fallback local opcional) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
-    rel="stylesheet">
+  <!-- ✅ Google Fonts (carregamento não-bloqueante) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
 
-  <!-- Vendor CSS (carregamento assíncrono + minificação recomendada) -->
-  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+  <!-- ✅ Vendor CSS (carregamento assíncrono via preload) -->
+  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-  <!-- CSS Principal (carregamento otimizado) -->
+  <!-- ✅ CSS Principal -->
   <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="assets/css/main.css">
-  </noscript>
+  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
 
-  <!-- Prefetch de JS principais (carrega em background) -->
-  <link rel="prefetch" href="assets/js/main.js" as="script">
+  <!-- ✅ Prefetch de JS (carregamento antecipado em background) -->
+  <link rel="prefetch" href="assets/js/main.min.js" as="script">
   <link rel="prefetch" href="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" as="script">
 
-  <!-- SEO Extra -->
-  <link rel="canonical" href="https://anphaweb.com.br/">
-  <meta name="robots" content="index, follow">
-  <link rel="manifest" href="manifest.json">
+  <!-- ✅ Dados estruturados (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anpha Web",
+    "url": "https://anphaweb.com.br",
+    "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados, com foco em performance e tecnologia moderna.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Anpha Web"
+    }
+  }
+  </script>
 
   <!-- =======================================================
     * Template: FlexStart (customizado por Anpha Web)
     * Base: Bootstrap v5.3.3
     * Autor: Pedro Lapa (Anpha Web)
     * License: https://bootstrapmade.com/license/
+    * Última otimização: Novembro 2025
   ======================================================== -->
 </head>
+
 
 
 <body class="index-page">
