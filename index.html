@@ -8,15 +8,18 @@
   <title>Anpha Web - Desenvolvimento de Sites e Sistemas</title>
 
   <!-- ✅ SEO principal -->
-  <meta name="description" content="Desenvolvimento de sites, sistemas web e aplicativos personalizados. Soluções completas, modernas e de alta performance para sua empresa.">
-  <meta name="keywords" content="desenvolvimento web, sites, sistemas, aplicativos, e-commerce, anpha web, criação de sites, programador, web design, hospedagem, londrina">
+  <meta name="description"
+    content="Desenvolvimento de sites, sistemas web e aplicativos personalizados. Soluções completas, modernas e de alta performance para sua empresa.">
+  <meta name="keywords"
+    content="desenvolvimento web, sites, sistemas, aplicativos, e-commerce, anpha web, criação de sites, programador, web design, hospedagem, londrina">
   <meta name="author" content="Anpha Web">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://anphaweb.com.br/">
 
   <!-- ✅ Open Graph / Facebook -->
   <meta property="og:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
-  <meta property="og:description" content="Desenvolvimento de sites, sistemas web e aplicativos. Soluções completas para sua empresa.">
+  <meta property="og:description"
+    content="Desenvolvimento de sites, sistemas web e aplicativos. Soluções completas para sua empresa.">
   <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
   <meta property="og:url" content="https://anphaweb.com.br/">
   <meta property="og:type" content="website">
@@ -25,7 +28,8 @@
   <!-- ✅ Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
-  <meta name="twitter:description" content="Soluções digitais completas — sites, sistemas e aplicativos que impulsionam o seu negócio.">
+  <meta name="twitter:description"
+    content="Soluções digitais completas — sites, sistemas e aplicativos que impulsionam o seu negócio.">
   <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
 
   <!-- ✅ Favicons -->
@@ -43,18 +47,26 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- ✅ Google Fonts (carregamento não-bloqueante) -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
+    media="print" onload="this.media='all'">
 
   <!-- ✅ Vendor CSS (carregamento assíncrono via preload) -->
-  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- ✅ CSS Principal -->
   <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </noscript>
 
   <!-- ✅ Prefetch de JS (carregamento antecipado em background) -->
   <link rel="prefetch" href="assets/js/main.min.js" as="script">
@@ -1012,44 +1024,61 @@
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- Vendor JS Files (carregamento com defer para performance) -->
+  <!-- =======================================================
+   * Vendor JS Files (carregamento não bloqueante)
+   * Ordem de execução otimizada
+ ======================================================== -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
   <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
 
-  <!-- Script Principal -->
-  <!-- <script src="assets/js/main.js" defer></script> -->
+  <!-- =======================================================
+   * Script principal (versão minificada e otimizada)
+ ======================================================== -->
   <script src="assets/js/main.min.js" defer></script>
 
-  <!-- Fallback: executa inicialização do AOS e GLightbox caso o defer atrase -->
+  <!-- =======================================================
+   * Inicialização fallback (garantia de execução dos plugins)
+   * Executa apenas se algum defer atrasar ou for bloqueado
+ ======================================================== -->
   <script>
-    window.addEventListener('load', () => {
-      if (typeof AOS !== 'undefined') AOS.init({ once: true, duration: 800 });
-      if (typeof GLightbox !== 'undefined') GLightbox({ selector: '.glightbox' });
-      if (typeof PureCounter !== 'undefined') new PureCounter();
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        if (typeof AOS !== 'undefined') AOS.init({ once: true, duration: 800, easing: 'ease-in-out' });
+        if (typeof GLightbox !== 'undefined') GLightbox({ selector: '.glightbox' });
+        if (typeof PureCounter !== 'undefined') new PureCounter();
+      } catch (err) {
+        console.warn('Fallback de inicialização:', err);
+      }
     });
   </script>
 
-  <!-- JSON-LD (SEO Avançado - Google Rich Snippets) -->
+  <!-- =======================================================
+   * Dados estruturados (Google Rich Snippets - SEO Avançado)
+ ======================================================== -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Anpha Web",
-        "url": "https://anphaweb.com.br",
-        "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Anpha Web"
-        }
-      }
-      </script>
+ {
+   "@context": "https://schema.org",
+   "@type": "WebSite",
+   "name": "Anpha Web",
+   "url": "https://anphaweb.com.br",
+   "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados.",
+   "publisher": {
+     "@type": "Organization",
+     "name": "Anpha Web"
+   }
+ }
+ </script>
 
+  <!-- =======================================================
+   * Site desenvolvido e otimizado por Anpha Web © 2025
+   * https://anphaweb.com.br
+ ======================================================== -->
 </body>
 
 </html>
