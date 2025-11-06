@@ -1075,6 +1075,23 @@
  }
  </script>
 
+  <script>
+    // Força o header a ganhar fundo ao rolar
+    document.addEventListener('scroll', () => {
+      const header = document.querySelector('#header');
+      if (!header) return;
+      if (window.scrollY > 100) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
+    window.addEventListener('load', () => {
+      if (window.scrollY > 100) document.body.classList.add('scrolled');
+    });
+  </script>
+
+
   <!-- =======================================================
    * Site desenvolvido e otimizado por Anpha Web © 2025
    * https://anphaweb.com.br
