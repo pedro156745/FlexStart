@@ -2766,12 +2766,3 @@ section,
   font-size: 14px;
 }
 
-#header {
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.scrolled #header {
-  background: rgba(25, 25, 25, 0.9) !important;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-}
