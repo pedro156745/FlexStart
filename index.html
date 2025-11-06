@@ -18,22 +18,963 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c3eef;
+      --secondary-color: #6c63ff;
+      --accent-color: #ff6b6b;
+      --dark-color: #1a1a2e;
+      --light-color: #f8f9fa;
+      --text-color: #333;
+      --text-light: #6c757d;
+      --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
 
-  <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Nov 01 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      overflow-x: hidden;
+      background-color: #fff;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 10px 0;
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .sitename {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .navmenu ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navmenu li {
+      position: relative;
+    }
+
+    .navmenu a {
+      padding: 10px 15px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .navmenu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: var(--transition);
+    }
+
+    .navmenu a:hover::after,
+    .navmenu a.active::after {
+      width: calc(100% - 30px);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 180px 0 100px;
+      background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path fill="%232c3eef" opacity="0.1" d="M0,0 L1000,0 L1000,1000 L0,1000 Z M800,800 C800,800 600,400 400,600 C200,800 200,400 0,600 L0,1000 L800,1000 Z"></path></svg>');
+      background-size: cover;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: var(--text-light);
+    }
+
+    .hero-img {
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* About Section */
+    .about {
+      background: #fff;
+    }
+
+    .about .content h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .about .content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about .content p {
+      margin-bottom: 30px;
+    }
+
+    /* Values Section */
+    .values {
+      background: #f8f9fa;
+    }
+
+    .values .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      border: none;
+    }
+
+    .values .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .values .card img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .values .card h3 {
+      margin-bottom: 15px;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .stats-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .stats-item i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+
+    .stats-item span {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    /* Services Section */
+    .services {
+      background: #fff;
+    }
+
+    .service-item {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--gradient);
+      transition: var(--transition);
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item:hover::before {
+      width: 100%;
+      opacity: 0.1;
+    }
+
+    .service-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .service-item h3 {
+      margin-bottom: 15px;
+    }
+
+    .service-item .read-more {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .service-item .read-more i {
+      margin-left: 5px;
+      transition: var(--transition);
+    }
+
+    .service-item .read-more:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Features Section */
+    .features {
+      background: #f8f9fa;
+    }
+
+    .feature-box {
+      margin-bottom: 20px;
+    }
+
+    .feature-box i {
+      color: var(--primary-color);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      background: #fff;
+    }
+
+    .pricing-item {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-item.featured {
+      transform: scale(1.05);
+      border: 2px solid var(--primary-color);
+    }
+
+    .pricing-item.featured::before {
+      content: 'Mais Popular';
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--primary-color);
+      color: white;
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .pricing-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-item.featured:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+
+    .pricing-item h3 {
+      margin-bottom: 20px;
+    }
+
+    .pricing-item .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .pricing-item .price sup {
+      font-size: 1.5rem;
+      top: -1rem;
+    }
+
+    .pricing-item .icon {
+      margin-bottom: 20px;
+    }
+
+    .pricing-item .icon i {
+      font-size: 3rem;
+    }
+
+    .pricing-item ul {
+      margin-bottom: 30px;
+    }
+
+    .pricing-item ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .pricing-item ul li.na {
+      color: #ccc;
+      text-decoration: line-through;
+    }
+
+    .pricing-item .btn-buy {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .pricing-item .btn-buy:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      background: #f8f9fa;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-filters li {
+      padding: 8px 20px;
+      margin: 0 5px 10px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .portfolio-filters li.filter-active,
+    .portfolio-filters li:hover {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .portfolio-item {
+      margin-bottom: 30px;
+    }
+
+    .portfolio-content {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .portfolio-content:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .portfolio-content:hover .portfolio-info {
+      transform: translateY(0);
+    }
+
+    .portfolio-info h4 {
+      margin-bottom: 5px;
+    }
+
+    .portfolio-info p {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .portfolio-info a {
+      display: inline-block;
+      margin-right: 10px;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: #fff;
+    }
+
+    .testimonial-item {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin: 15px;
+    }
+
+    .testimonial-item .stars {
+      color: #ffc107;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-item p {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-item .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-item .testimonial-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+
+    /* FAQ Section */
+    .faq {
+      background: #f8f9fa;
+    }
+
+    .faq-container {
+      max-width: 100%;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-item h3 {
+      padding: 20px;
+      margin: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item .faq-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.faq-active .faq-content {
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+
+    .faq-item .faq-toggle {
+      transition: var(--transition);
+    }
+
+    .faq-item.faq-active .faq-toggle {
+      transform: rotate(90deg);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: #fff;
+    }
+
+    .info-item {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-item i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .php-email-form .form-control {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .php-email-form .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(44, 62, 239, 0.25);
+    }
+
+    .php-email-form button {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .php-email-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-color);
+      color: white;
+    }
+
+    .footer-newsletter {
+      padding: 60px 0;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-newsletter h4 {
+      margin-bottom: 15px;
+    }
+
+    .footer-newsletter p {
+      margin-bottom: 30px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 50px 0 0 50px;
+    }
+
+    .newsletter-form input[type="submit"] {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 0 50px 50px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-form input[type="submit"]:hover {
+      background: var(--primary-color);
+    }
+
+    .footer-top {
+      padding: 60px 0 30px;
+    }
+
+    .footer-about .sitename {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-links h4,
+    .footer-about h4 {
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after,
+    .footer-about h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--gradient);
+    }
+
+    .footer-links ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-links ul li:last-child {
+      border-bottom: none;
+    }
+
+    .footer-links ul li i {
+      margin-right: 5px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Scroll Top */
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    .scroll-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1199.98px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .navmenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        padding: 60px 20px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+
+      .navmenu.active {
+        right: 0;
+      }
+
+      .navmenu ul {
+        flex-direction: column;
+      }
+
+      .navmenu li {
+        margin-bottom: 15px;
+      }
+
+      .navmenu a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .pricing-item.featured {
+        transform: scale(1);
+      }
+
+      .pricing-item.featured:hover {
+        transform: scale(1) translateY(-10px);
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 150px 0 80px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero::before {
+        width: 100%;
+        opacity: 0.3;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input[type="email"] {
+        border-radius: 50px;
+        margin-bottom: 10px;
+      }
+
+      .newsletter-form input[type="submit"] {
+        border-radius: 50px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="index-page">
@@ -43,7 +984,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" alt="DevSolutions">
+        <!-- <img src="assets/img/logo.png" alt="DevSolutions"> -->
         <h1 class="sitename">DevSolutions</h1>
       </a>
 
@@ -59,7 +1000,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted flex-md-shrink-0" href="#contact">Solicitar Orçamento</a>
+      <a class="btn btn-primary flex-md-shrink-0" href="#contact">Solicitar Orçamento</a>
 
     </div>
   </header>
@@ -75,12 +1016,12 @@
             <h1 data-aos="fade-up">Soluções digitais para impulsionar seu negócio</h1>
             <p data-aos="fade-up" data-aos-delay="100">Desenvolvemos sites, sistemas e aplicativos personalizados com tecnologia de ponta e design moderno.</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-              <a href="#services" class="btn-get-started">Nossos Serviços <i class="bi bi-arrow-right"></i></a>
-              <a href="#portfolio" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-play-circle"></i><span>Ver Portfólio</span></a>
+              <a href="#services" class="btn btn-primary me-0 me-md-3 mb-3 mb-md-0">Nossos Serviços <i class="bi bi-arrow-right"></i></a>
+              <a href="#portfolio" class="btn btn-outline d-flex align-items-center justify-content-center"><i class="bi bi-play-circle me-2"></i><span>Ver Portfólio</span></a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="Desenvolvimento Web">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Desenvolvimento Web">
           </div>
         </div>
       </div>
@@ -101,16 +1042,16 @@
                 Somos uma equipe de desenvolvedores apaixonados por tecnologia, focada em criar soluções que realmente resolvem problemas e impulsionam negócios. Combinamos design moderno, tecnologia de ponta e experiência do usuário para entregar produtos de alta qualidade.
               </p>
               <div class="text-center text-lg-start">
-                <a href="#services" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <a href="#services" class="btn btn-primary d-inline-flex align-items-center justify-content-center align-self-center">
                   <span>Conheça nossos serviços</span>
-                  <i class="bi bi-arrow-right"></i>
+                  <i class="bi bi-arrow-right ms-2"></i>
                 </a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="Equipe de desenvolvimento">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid rounded" alt="Equipe de desenvolvimento">
           </div>
 
         </div>
@@ -124,7 +1065,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Nossos Valores</h2>
-        <p>O que nos move e diferencia<br></p>
+        <p>O que nos move e diferencia</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -133,7 +1074,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/values-1.png" class="img-fluid" alt="">
+              <i class="bi bi-award-fill" style="font-size: 3rem; color: #2c3eef;"></i>
               <h3>Qualidade Garantida</h3>
               <p>Entregamos produtos com código limpo, performance otimizada e seguindo as melhores práticas do mercado.</p>
             </div>
@@ -141,7 +1082,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
-              <img src="assets/img/values-2.png" class="img-fluid" alt="">
+              <i class="bi bi-headset" style="font-size: 3rem; color: #2c3eef;"></i>
               <h3>Suporte Contínuo</h3>
               <p>Oferecemos suporte técnico após a entrega para garantir que tudo funcione perfeitamente.</p>
             </div>
@@ -149,7 +1090,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
-              <img src="assets/img/values-3.png" class="img-fluid" alt="">
+              <i class="bi bi-clock-fill" style="font-size: 3rem; color: #2c3eef;"></i>
               <h3>Prazos Cumpridos</h3>
               <p>Respeitamos os prazos combinados e mantemos você informado sobre cada etapa do projeto.</p>
             </div>
@@ -170,9 +1111,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
+              <i class="bi bi-emoji-smile flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="152" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="152" data-purecounter-duration="1" class="purecounter">152</span>
                 <p>Clientes Satisfeitos</p>
               </div>
             </div>
@@ -180,9 +1121,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-journal-richtext color-orange flex-shrink-0" style="color: #ee6c20;"></i>
+              <i class="bi bi-journal-richtext flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="243" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="243" data-purecounter-duration="1" class="purecounter">243</span>
                 <p>Projetos Entregues</p>
               </div>
             </div>
@@ -190,9 +1131,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-headset color-green flex-shrink-0" style="color: #15be56;"></i>
+              <i class="bi bi-headset flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="1863" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="1863" data-purecounter-duration="1" class="purecounter">1863</span>
                 <p>Horas de Suporte</p>
               </div>
             </div>
@@ -200,9 +1141,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-award color-pink flex-shrink-0" style="color: #bb0852;"></i>
+              <i class="bi bi-award flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter">8</span>
                 <p>Anos de Experiência</p>
               </div>
             </div>
@@ -220,7 +1161,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Serviços</h2>
-        <p>Nossas Soluções Digitais<br></p>
+        <p>Nossas Soluções Digitais</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -228,7 +1169,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-laptop icon"></i>
               <h3>Sites Institucionais</h3>
               <p>Desenvolvemos sites modernos e responsivos que representam sua marca e convertem visitantes em clientes.</p>
@@ -237,7 +1178,7 @@
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-cart-check icon"></i>
               <h3>E-commerce</h3>
               <p>Lojas virtuais completas com painel administrativo, gateway de pagamento e integração com correios.</p>
@@ -246,7 +1187,7 @@
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-gear icon"></i>
               <h3>Sistemas Personalizados</h3>
               <p>Desenvolvemos sistemas sob medida para atender necessidades específicas do seu negócio.</p>
@@ -255,7 +1196,7 @@
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-phone icon"></i>
               <h3>Aplicativos Mobile</h3>
               <p>Aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta performance.</p>
@@ -264,7 +1205,7 @@
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-search icon"></i>
               <h3>SEO e Marketing Digital</h3>
               <p>Otimização para mecanismos de busca e estratégias para aumentar sua visibilidade online.</p>
@@ -273,7 +1214,7 @@
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
+            <div class="service-item position-relative">
               <i class="bi bi-shield-check icon"></i>
               <h3>Hospedagem e Manutenção</h3>
               <p>Serviços de hospedagem confiável e manutenção preventiva para manter seu site sempre funcionando.</p>
@@ -293,7 +1234,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Tecnologias</h2>
-        <p>Tecnologias que utilizamos<br></p>
+        <p>Tecnologias que utilizamos</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -301,7 +1242,7 @@
         <div class="row gy-5">
 
           <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
-            <img src="assets/img/features.png" class="img-fluid" alt="Tecnologias de desenvolvimento">
+            <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" class="img-fluid rounded" alt="Tecnologias de desenvolvimento">
           </div>
 
           <div class="col-xl-6 d-flex">
@@ -364,7 +1305,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Planos e Preços</h2>
-        <p>Opções para diferentes necessidades<br></p>
+        <p>Opções para diferentes necessidades</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -372,11 +1313,11 @@
         <div class="row gy-4">
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-tem">
-              <h3 style="color: #20c997;">Site Básico</h3>
-              <div class="price"><sup>R$</sup>1.299<span></span></div>
+            <div class="pricing-item">
+              <h3>Site Básico</h3>
+              <div class="price"><sup>R$</sup>1.299</div>
               <div class="icon">
-                <i class="bi bi-laptop" style="color: #20c997;"></i>
+                <i class="bi bi-laptop"></i>
               </div>
               <ul>
                 <li>Até 5 páginas</li>
@@ -390,12 +1331,11 @@
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-tem">
-              <span class="featured">Mais Popular</span>
-              <h3 style="color: #0dcaf0;">Site Profissional</h3>
-              <div class="price"><sup>R$</sup>2.499<span></span></div>
+            <div class="pricing-item featured">
+              <h3>Site Profissional</h3>
+              <div class="price"><sup>R$</sup>2.499</div>
               <div class="icon">
-                <i class="bi bi-briefcase" style="color: #0dcaf0;"></i>
+                <i class="bi bi-briefcase"></i>
               </div>
               <ul>
                 <li>Até 10 páginas</li>
@@ -409,11 +1349,11 @@
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-tem">
-              <h3 style="color: #fd7e14;">E-commerce</h3>
-              <div class="price"><sup>R$</sup>3.999<span></span></div>
+            <div class="pricing-item">
+              <h3>E-commerce</h3>
+              <div class="price"><sup>R$</sup>3.999</div>
               <div class="icon">
-                <i class="bi bi-cart" style="color: #fd7e14;"></i>
+                <i class="bi bi-cart"></i>
               </div>
               <ul>
                 <li>Loja virtual completa</li>
@@ -427,11 +1367,11 @@
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="pricing-tem">
-              <h3 style="color: #0d6efd;">Sistema Personalizado</h3>
+            <div class="pricing-item">
+              <h3>Sistema Personalizado</h3>
               <div class="price"><span>Sob consulta</span></div>
               <div class="icon">
-                <i class="bi bi-gear" style="color: #0d6efd;"></i>
+                <i class="bi bi-gear"></i>
               </div>
               <ul>
                 <li>Análise de requisitos</li>
@@ -474,11 +1414,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="Site Institucional">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" class="img-fluid" alt="Site Institucional">
                 <div class="portfolio-info">
                   <h4>Site Corporativo</h4>
                   <p>Empresa do setor de consultoria</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="Site Corporativo" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" title="Site Corporativo" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -486,11 +1426,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="Loja Virtual">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Loja Virtual">
                 <div class="portfolio-info">
                   <h4>Loja de Moda</h4>
                   <p>E-commerce completo com integração</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Loja de Moda" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" title="Loja de Moda" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -498,11 +1438,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sistema">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="Sistema de Gestão">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Sistema de Gestão">
                 <div class="portfolio-info">
                   <h4>Sistema de Gestão</h4>
                   <p>Controle de estoque e vendas</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Sistema de Gestão" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" title="Sistema de Gestão" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -510,11 +1450,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="Site Educacional">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" class="img-fluid" alt="Site Educacional">
                 <div class="portfolio-info">
                   <h4>Portal Educacional</h4>
                   <p>Plataforma de cursos online</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Portal Educacional" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" title="Portal Educacional" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -522,11 +1462,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="Loja de Eletrônicos">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Loja de Eletrônicos">
                 <div class="portfolio-info">
                   <h4>Loja de Eletrônicos</h4>
                   <p>E-commerce com múltiplos gateways</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="Loja de Eletrônicos" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" title="Loja de Eletrônicos" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -534,11 +1474,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sistema">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="Sistema de Agendamento">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Sistema de Agendamento">
                 <div class="portfolio-info">
                   <h4>Sistema de Agendamento</h4>
                   <p>Controle de horários e clientes</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Sistema de Agendamento" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" title="Sistema de Agendamento" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -558,37 +1498,12 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Depoimentos</h2>
-        <p>O que nossos clientes dizem<br></p>
+        <p>O que nossos clientes dizem</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
@@ -600,7 +1515,7 @@
                   "A DevSolutions desenvolveu nosso e-commerce e o resultado superou todas as expectativas. O site é rápido, intuitivo e as vendas aumentaram 40% no primeiro mês."
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-img" alt="">
                   <h3>Carlos Silva</h3>
                   <h4>Diretor Comercial</h4>
                 </div>
@@ -616,7 +1531,7 @@
                   "Precisávamos de um sistema personalizado para nossa clínica e a equipe da DevSolutions entregou uma solução perfeita. O atendimento foi excelente em todas as etapas."
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img" alt="">
                   <h3>Mariana Costa</h3>
                   <h4>Gerente Administrativa</h4>
                 </div>
@@ -632,7 +1547,7 @@
                   "Nosso site institucional ficou incrível! A equipe foi muito profissional, atendeu todas as nossas solicitações e entregou antes do prazo. Recomendo totalmente!"
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                  <img src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img" alt="">
                   <h3>Roberto Almeida</h3>
                   <h4>CEO</h4>
                 </div>
@@ -906,17 +1821,192 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope-layout/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/purecounter.js/1.9.8/purecounter_vanilla.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    // Initialize PureCounter
+    new PureCounter();
+
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navmenu = document.querySelector('#navmenu');
+
+    mobileNavToggle.addEventListener('click', function() {
+      navmenu.classList.toggle('active');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
+
+    // Close mobile navigation when clicking on a nav link
+    document.querySelectorAll('#navmenu ul li a').forEach(navLink => {
+      navLink.addEventListener('click', () => {
+        if (navmenu.classList.contains('active')) {
+          navmenu.classList.remove('active');
+          mobileNavToggle.classList.toggle('bi-list');
+          mobileNavToggle.classList.toggle('bi-x');
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('#header');
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll to top button
+    const scrollTop = document.querySelector('#scroll-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 100) {
+        scrollTop.classList.add('active');
+      } else {
+        scrollTop.classList.remove('active');
+      }
+    });
+
+    scrollTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Portfolio filtering with Isotope
+    document.addEventListener('DOMContentLoaded', function() {
+      const portfolioContainer = document.querySelector('.isotope-container');
+      const portfolioFilters = document.querySelectorAll('.portfolio-filters li');
+      
+      if (portfolioContainer) {
+        // Initialize Isotope
+        const iso = new Isotope(portfolioContainer, {
+          itemSelector: '.portfolio-item',
+          layoutMode: 'masonry'
+        });
+        
+        // Filter items on click
+        portfolioFilters.forEach(filter => {
+          filter.addEventListener('click', function() {
+            // Remove active class from all filters
+            portfolioFilters.forEach(f => f.classList.remove('filter-active'));
+            // Add active class to clicked filter
+            this.classList.add('filter-active');
+            
+            // Get filter value
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filter items
+            iso.arrange({
+              filter: filterValue
+            });
+          });
+        });
+      }
+    });
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-item h3').forEach(faqQuestion => {
+      faqQuestion.addEventListener('click', function() {
+        const faqItem = this.parentNode;
+        const faqContent = this.nextElementSibling;
+        const faqToggle = this.querySelector('.faq-toggle') || this.parentNode.querySelector('.faq-toggle');
+        
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== faqItem) {
+            item.classList.remove('faq-active');
+            const content = item.querySelector('.faq-content');
+            if (content) {
+              content.style.maxHeight = null;
+            }
+          }
+        });
+        
+        // Toggle current FAQ item
+        faqItem.classList.toggle('faq-active');
+        
+        if (faqItem.classList.contains('faq-active')) {
+          faqContent.style.maxHeight = faqContent.scrollHeight + "px";
+        } else {
+          faqContent.style.maxHeight = null;
+        }
+      });
+    });
+
+    // Initialize Swiper for testimonials
+    document.addEventListener('DOMContentLoaded', function() {
+      const testimonialSwiper = new Swiper('.init-swiper', {
+        loop: true,
+        speed: 600,
+        autoplay: {
+          delay: 5000,
+        },
+        slidesPerView: 'auto',
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 40
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 1
+          }
+        }
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.querySelector('#header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+      selector: '.glightbox'
+    });
+  </script>
 
 </body>
 
