@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -34,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   try {
     // Configurações SMTP
     $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // Trocar depois para o da anpha web
+    $mail->Host = 'smtp.gmail.com'; // Trocar depois para o da anpha web
     $mail->SMTPAuth = true;
     $mail->Username = 'pedrinhomeim753@gmail.com';
     $mail->Password = 'pnoiurdigmbbdptm';
@@ -42,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail->Port = 587;
 
     // Remetente e destinatário
-    $mail->setFrom('contato@anphaweb.com.br', 'Anpha Web');
-    $mail->addAddress('contato@anphaweb.com.br', 'Anpha Web');
+    $mail->setFrom('pedrinhomeim753@gmail.com', 'Anpha Web');
+    $mail->addAddress('pedrinhomeim753@gmail.com', 'Anpha Web');
 
     // Conteúdo
     $mail->isHTML(true);
