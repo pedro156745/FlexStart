@@ -67,29 +67,70 @@
     </section>
   </main>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
-  <script src="assets/js/main.min.js" defer></script>
-  <script src="assets/js/contato.js" defer></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.min.js"></script>
+  <!-- <script src="assets/js/contato.js"></script> -->
 
   <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdRYQUsAAAAAJdMlgHmN2WrFhgk22qgzr63osoT"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3"></script>
   <script>
-    grecaptcha.ready(function () {
+    document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById('formContato');
+      const msgBox = document.getElementById('msgRetorno');
+      const btn = form.querySelector('button[type="submit"]');
+      const siteKey = '6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3';
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        grecaptcha.execute('6LdRYQUsAAAAAJdMlgHmN2WrFhgk22qgzr63osoT', { action: 'contato' }).then(function (token) {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = 'recaptcha_token';
-          input.value = token;
-          form.appendChild(input);
-          form.submit();
+        btn.disabled = true;
+        msgBox.innerHTML = '<div class="alert alert-info">Validando reCAPTCHA...</div>';
+
+        grecaptcha.ready(function () {
+          grecaptcha.execute(siteKey, { action: 'contato' }).then(function (token) {
+            // Cria ou atualiza o campo hidden do token
+            let input = form.querySelector('input[name="recaptcha_token"]');
+            if (!input) {
+              input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'recaptcha_token';
+              form.appendChild(input);
+            }
+            input.value = token;
+
+            console.log("Token gerado:", token); // 👈 Deve aparecer no console
+
+            // Envia via fetch
+            fetch('enviar_contato.php', {
+              method: 'POST',
+              body: new FormData(form)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.status === 'sucesso') {
+                  msgBox.innerHTML = '<div class="alert alert-success">' + data.msg + '</div>';
+                  form.reset();
+                } else {
+                  msgBox.innerHTML = '<div class="alert alert-danger">' + data.msg + '</div>';
+                }
+                btn.disabled = false;
+              })
+              .catch(err => {
+                msgBox.innerHTML = '<div class="alert alert-danger">Erro de rede. Tente novamente.</div>';
+                btn.disabled = false;
+                console.error(err);
+              });
+          }).catch(err => {
+            msgBox.innerHTML = '<div class="alert alert-danger">Falha ao validar reCAPTCHA. Tente novamente.</div>';
+            btn.disabled = false;
+            console.error(err);
+          });
         });
       });
     });
   </script>
+
+
 
 </body>
 

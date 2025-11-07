@@ -1,0 +1,30 @@
+# 🧾 Arquivos de configuração confidenciais
+config.env
+.env
+
+# 🔑 Arquivos com credenciais ou dados sensíveis
+*.key
+*.pem
+
+# 📧 Logs e arquivos temporários
+error_log
+logs/
+*.log
+
+# ⚙️ Diretórios do sistema ou cache
+node_modules/
+vendor/
+cache/
+tmp/
+.DS_Store
+
+# 🚫 Backups e versões antigas
+*.bak
+*.old
+*.save
+*.zip
+*.tar.gz
+
+# 🧩 Ambiente local
+.idea/
+.vscode/
