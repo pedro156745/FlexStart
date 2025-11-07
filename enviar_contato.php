@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   try {
     // Configurações SMTP
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com'; // Trocar depois para o da anpha web
+    $mail->Host = 'smtp.hostinger.com'; // Trocar depois para o da anpha web
     $mail->SMTPAuth = true;
     $mail->Username = 'pedrinhomeim753@gmail.com';
     $mail->Password = 'pnoiurdigmbbdptm';
