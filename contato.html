@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato | Anpha Web</title>
-  <meta name="description" content="Entre em contato com a Anpha Web. Solicite um orçamento ou tire dúvidas sobre nossos serviços.">
+  <meta name="description"
+    content="Entre em contato com a Anpha Web. Solicite um orçamento ou tire dúvidas sobre nossos serviços.">
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
 </head>
+
 <body>
 
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -68,5 +71,26 @@
   <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/js/main.min.js" defer></script>
   <script src="assets/js/contato.js" defer></script>
+
+  <!-- Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdRYQUsAAAAAJdMlgHmN2WrFhgk22qgzr63osoT"></script>
+  <script>
+    grecaptcha.ready(function () {
+      const form = document.getElementById('formContato');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        grecaptcha.execute('6LdRYQUsAAAAAJdMlgHmN2WrFhgk22qgzr63osoT', { action: 'contato' }).then(function (token) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'recaptcha_token';
+          input.value = token;
+          form.appendChild(input);
+          form.submit();
+        });
+      });
+    });
+  </script>
+
 </body>
+
 </html>

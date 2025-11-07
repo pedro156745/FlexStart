@@ -13,6 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $email = htmlspecialchars($_POST['email']);
   $assunto = htmlspecialchars($_POST['assunto']);
   $mensagem = htmlspecialchars($_POST['mensagem']);
+  $recaptcha_token = $_POST['recaptcha_token'] ?? '';
+
+  // 🔒 Validação reCAPTCHA v3
+  $secret_key = '6LdRYQUsAAAAAFSiy1uDJ46HCDLOf-QlGcGyd6_f'; // coloque aqui sua chave secreta
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$recaptcha_token");
+  $responseKeys = json_decode($response, true);
+
+  if(!$responseKeys["success"] || $responseKeys["score"] < 0.5) {
+    echo json_encode(['status' => 'erro', 'msg' => 'Validação reCAPTCHA falhou. Tente novamente.']);
+    exit;
+  }
 
   if (!$nome || !$email || !$mensagem) {
     echo json_encode(['status' => 'erro', 'msg' => 'Preencha todos os campos.']);
@@ -21,12 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $mail = new PHPMailer(true);
   try {
-    // Configurações do servidor
+    // Configurações SMTP
     $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // ajuste conforme seu provedor
+    $mail->Host = 'smtp.hostinger.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'contato@anphaweb.com.br';
-    $mail->Password = 'SENHA_DO_EMAIL'; // coloque aqui a senha do e-mail
+    $mail->Password = 'SENHA_DO_EMAIL';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
