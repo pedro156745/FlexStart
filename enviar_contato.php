@@ -1,7 +1,9 @@
 <?php
-// =====================================
-// Anpha Web - Envio de Contato (Segura)
-// =====================================
+/**
+ * Anpha Web - Envio de Contato com Log Automático
+ * Autor: Pedro Lapa
+ * Data: <?= date('d/m/Y') ?>
+ */
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -12,16 +14,36 @@ require __DIR__ . '/assets/vendor/phpmailer/src/SMTP.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-// === Função de resposta rápida ===
+// === Função para resposta JSON ===
 function resp($status, $msg, $extra = [])
 {
   echo json_encode(['status' => $status, 'msg' => $msg, 'debug' => $extra], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
+// === Função de log ===
+function log_event($tipo, $mensagem, $dados = [])
+{
+  $dir = __DIR__ . '/logs';
+  if (!is_dir($dir)) mkdir($dir, 0755, true);
+  $file = $dir . '/email.log';
+  $log  = sprintf(
+    "[%s] [%s] IP: %s\n%s%s\n\n",
+    date('Y-m-d H:i:s'),
+    strtoupper($tipo),
+    $_SERVER['REMOTE_ADDR'] ?? 'n/d',
+    $mensagem,
+    $dados ? "\n" . json_encode($dados, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) : ''
+  );
+  file_put_contents($file, $log, FILE_APPEND);
+}
+
 // === Lê config.env ===
 $env_path = __DIR__ . '/config.env';
-if (!file_exists($env_path)) resp('erro', 'Arquivo de configuração ausente.');
+if (!file_exists($env_path)) {
+  log_event('erro', 'Arquivo config.env ausente');
+  resp('erro', 'Erro interno. Contate o suporte.');
+}
 
 function read_env($path)
 {
@@ -35,21 +57,22 @@ function read_env($path)
 }
 
 $env = read_env($env_path);
-$recaptcha_secret = $env['RECAPTCHA_SECRET'] ?? '';
-$smtp_host = $env['SMTP_HOST'] ?? 'smtp.hostinger.com';
-$smtp_user = $env['SMTP_USER'] ?? '';
-$smtp_pass = $env['SMTP_PASS'] ?? '';
-$smtp_port = $env['SMTP_PORT'] ?? 587;
 
-// === Validação de método ===
+$recaptcha_secret = $env['RECAPTCHA_SECRET'] ?? '';
+$smtp_host        = $env['SMTP_HOST'] ?? 'smtp.hostinger.com';
+$smtp_user        = $env['SMTP_USER'] ?? '';
+$smtp_pass        = $env['SMTP_PASS'] ?? '';
+$smtp_port        = $env['SMTP_PORT'] ?? 587;
+
+// === Verificação de método ===
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') resp('erro', 'Método inválido.');
 
-// === Coleta dos dados ===
-$nome = trim($_POST['nome'] ?? '');
-$email = trim($_POST['email'] ?? '');
-$assunto = trim($_POST['assunto'] ?? 'Contato pelo site');
-$mensagem = trim($_POST['mensagem'] ?? '');
-$token = $_POST['recaptcha_token'] ?? '';
+// === Dados do formulário ===
+$nome      = trim($_POST['nome'] ?? '');
+$email     = trim($_POST['email'] ?? '');
+$assunto   = trim($_POST['assunto'] ?? 'Contato pelo site');
+$mensagem  = trim($_POST['mensagem'] ?? '');
+$token     = $_POST['recaptcha_token'] ?? '';
 
 if (!$nome || !$email || !$mensagem) resp('erro', 'Preencha todos os campos obrigatórios.');
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) resp('erro', 'E-mail inválido.');
@@ -68,13 +91,21 @@ curl_setopt_array($ch, [
   CURLOPT_TIMEOUT => 10
 ]);
 $response = curl_exec($ch);
-if ($response === false) resp('erro', 'Erro ao validar reCAPTCHA.');
+if ($response === false) {
+  log_event('erro', 'Erro cURL', ['curl_error' => curl_error($ch)]);
+  resp('erro', 'Erro interno ao validar reCAPTCHA.');
+}
 curl_close($ch);
 
 $resp_obj = json_decode($response, true);
-if (empty($resp_obj['success'])) resp('erro', 'Falha na validação reCAPTCHA.', $resp_obj);
-if (($resp_obj['score'] ?? 0) < 0.5) resp('erro', 'Ação suspeita detectada (score baixo).');
-if (($resp_obj['action'] ?? '') !== 'contato') resp('erro', 'Ação inválida.', $resp_obj);
+if (empty($resp_obj['success'])) {
+  log_event('erro', 'Falha no reCAPTCHA', $resp_obj);
+  resp('erro', 'Falha na validação reCAPTCHA.');
+}
+if (($resp_obj['score'] ?? 0) < 0.5) {
+  log_event('alerta', 'Score baixo', $resp_obj);
+  resp('erro', 'Ação suspeita detectada.');
+}
 
 // === Envio via PHPMailer ===
 try {
@@ -103,7 +134,9 @@ try {
   ";
 
   $mail->send();
+  log_event('sucesso', "Mensagem enviada por $nome <$email>");
   resp('sucesso', 'Mensagem enviada com sucesso!');
 } catch (Exception $e) {
-  resp('erro', 'Erro ao enviar: ' . $mail->ErrorInfo);
+  log_event('erro', 'Erro no envio PHPMailer', ['erro' => $mail->ErrorInfo]);
+  resp('erro', 'Erro ao enviar a mensagem. Tente novamente mais tarde.');
 }
