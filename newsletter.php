@@ -97,7 +97,7 @@ $conn->close();
 // =========================
 // Monta link de confirmação
 // =========================
-$confirm_link = "https://seusite.com.br/confirm_newsletter.php?token=$token&id=$last_id";
+$confirm_link = "https://anphaweb.com.br/confirm_newsletter.php?token=$token&id=$last_id";
 
 // =========================
 // Envia e-mail via PHPMailer
