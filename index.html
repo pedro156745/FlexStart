@@ -417,7 +417,7 @@
             <div class="stats-item d-flex align-items-center w-100 h-100">
               <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="152" data-purecounter-duration="1"
+                <span data-purecounter-start="0" data-purecounter-end="104" data-purecounter-duration="1"
                   class="purecounter"></span>
                 <p>Clientes Satisfeitos</p>
               </div>
@@ -428,7 +428,7 @@
             <div class="stats-item d-flex align-items-center w-100 h-100">
               <i class="bi bi-journal-richtext color-orange flex-shrink-0" style="color: #ee6c20;"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="243" data-purecounter-duration="1"
+                <span data-purecounter-start="0" data-purecounter-end="208" data-purecounter-duration="1"
                   class="purecounter"></span>
                 <p>Projetos Entregues</p>
               </div>
@@ -450,7 +450,7 @@
             <div class="stats-item d-flex align-items-center w-100 h-100">
               <i class="bi bi-award color-pink flex-shrink-0" style="color: #bb0852;"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1"
+                <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
                   class="purecounter"></span>
                 <p>Anos de Experiência</p>
               </div>
@@ -837,89 +837,116 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="swiper init-swiper">
+          <!-- Configuração do Swiper -->
           <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
+        {
+          "loop": true,
+          "loopedSlides": 3,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000,
+            "disableOnInteraction": false
+          },
+          "slidesPerView": 1,
+          "spaceBetween": 30,
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 20
+            },
+            "768": {
+              "slidesPerView": 2,
+              "spaceBetween": 30
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 30
             }
-          </script>
+          }
+        }
+      </script>
+
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
+                <div class="stars mb-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
                 </div>
-                <p>
+                <p class="mb-3 flex-grow-1">
                   "A Anpha Web desenvolveu nosso e-commerce e o resultado superou todas as expectativas. O site é
                   rápido, intuitivo e as vendas aumentaram 40% no primeiro mês."
                 </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Carlos Silva</h3>
-                  <h4>Diretor Comercial</h4>
+                <div class="profile d-flex align-items-center mt-auto">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img rounded-circle me-3"
+                    alt="">
+                  <div>
+                    <h3 class="mb-0">Carlos Silva</h3>
+                    <h4 class="mb-0 text-muted">Diretor Comercial</h4>
+                  </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
+                <div class="stars mb-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
                 </div>
-                <p>
+                <p class="mb-3 flex-grow-1">
                   "Precisávamos de um sistema personalizado para nossa clínica e a equipe da Anpha Web entregou uma
                   solução perfeita. O atendimento foi excelente em todas as etapas."
                 </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Mariana Costa</h3>
-                  <h4>Gerente Administrativa</h4>
+                <div class="profile d-flex align-items-center mt-auto">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img rounded-circle me-3"
+                    alt="">
+                  <div>
+                    <h3 class="mb-0">Mariana Costa</h3>
+                    <h4 class="mb-0 text-muted">Gerente Administrativa</h4>
+                  </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
+                <div class="stars mb-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
                 </div>
-                <p>
+                <p class="mb-3 flex-grow-1">
                   "Nosso site institucional ficou incrível! A equipe foi muito profissional, atendeu todas as nossas
                   solicitações e entregou antes do prazo. Recomendo totalmente!"
                 </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Roberto Almeida</h3>
-                  <h4>CEO</h4>
+                <div class="profile d-flex align-items-center mt-auto">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img rounded-circle me-3"
+                    alt="">
+                  <div>
+                    <h3 class="mb-0">Roberto Almeida</h3>
+                    <h4 class="mb-0 text-muted">CEO</h4>
+                  </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination mt-3"></div>
         </div>
 
       </div>
@@ -1177,7 +1204,7 @@
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/anphaweb" target="_blank"><i class="bi bi-instagram"></i></a>
             <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
