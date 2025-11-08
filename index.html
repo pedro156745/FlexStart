@@ -5,48 +5,56 @@
   <!-- ✅ Configurações básicas -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anpha Web - Desenvolvimento de Sites e Sistemas</title>
+  <title>Anpha Web — Criação de Sites e Sistemas Profissionais em Londrina</title>
 
   <!-- ✅ SEO principal -->
   <meta name="description"
-    content="Desenvolvimento de sites, sistemas web e aplicativos personalizados. Soluções completas, modernas e de alta performance para sua empresa.">
+    content="Criação de sites, sistemas e landing pages modernas em Londrina. Soluções rápidas, seguras e personalizadas para impulsionar seu negócio com tecnologia de ponta.">
   <meta name="keywords"
-    content="desenvolvimento web, sites, sistemas, aplicativos, e-commerce, anpha web, criação de sites, programador, web design, hospedagem, londrina">
+    content="desenvolvimento web, criação de sites, sistemas personalizados, aplicativos, e-commerce, anpha web, web design, hospedagem, londrina, landing pages, programação web">
   <meta name="author" content="Anpha Web">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://anphaweb.com.br/">
 
+  <!-- ✅ Segurança e compatibilidade -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="application-name" content="Anpha Web">
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Anpha Web">
+
   <!-- ✅ Open Graph / Facebook -->
-  <meta property="og:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
+  <meta property="og:title" content="Anpha Web — Criação de Sites e Sistemas Profissionais">
   <meta property="og:description"
-    content="Desenvolvimento de sites, sistemas web e aplicativos. Soluções completas para sua empresa.">
-  <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
+    content="Soluções digitais completas — sites, sistemas e landing pages de alta performance. Fale com a Anpha Web e leve seu negócio para o próximo nível.">
+  <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.webp">
   <meta property="og:url" content="https://anphaweb.com.br/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
 
   <!-- ✅ Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Anpha Web - Desenvolvimento de Sites e Sistemas">
+  <meta name="twitter:title" content="Anpha Web — Desenvolvimento de Sites e Sistemas">
   <meta name="twitter:description"
-    content="Soluções digitais completas — sites, sistemas e aplicativos que impulsionam o seu negócio.">
-  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
+    content="Criação de sites e sistemas com design moderno, alta performance e resultados reais.">
+  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.webp">
 
   <!-- ✅ Favicons -->
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- ✅ Manifest (para SEO e compatibilidade PWA futura) -->
+  <!-- ✅ Manifest (PWA Ready) -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0d6efd">
 
-  <!-- ✅ Preconnect e DNS-prefetch para reduzir latência -->
+  <!-- ✅ Preconnect e DNS-prefetch -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-  <!-- ✅ Google Fonts (carregamento não-bloqueante) -->
+  <!-- ✅ Google Fonts (não bloqueante) -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
     media="print" onload="this.media='all'">
@@ -65,27 +73,37 @@
   <!-- ✅ CSS Principal -->
   <link rel="stylesheet" href="assets/css/main.min.css">
 
-  <!-- ✅ Prefetch de JS (carregamento antecipado em background) -->
+  <!-- ✅ Prefetch de JS (carregamento antecipado) -->
   <link rel="prefetch" href="assets/js/main.min.js" as="script">
   <link rel="prefetch" href="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" as="script">
 
-  <!-- ✅ Dados estruturados (Google Rich Results) -->
+  <!-- ✅ Dados estruturados (Google Rich Results - LocalBusiness) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "LocalBusiness",
     "name": "Anpha Web",
+    "image": "https://anphaweb.com.br/assets/img/logo.png",
     "url": "https://anphaweb.com.br",
-    "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados, com foco em performance e tecnologia moderna.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Anpha Web"
-    }
+    "telephone": "+55 43 99999-9999",
+    "email": "contato@anphaweb.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Londrina - PR",
+      "addressLocality": "Londrina",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/anphaweb",
+      "https://www.linkedin.com/company/anphaweb"
+    ],
+    "description": "Criação de sites, sistemas e landing pages de alta performance com design moderno e foco em resultados."
   }
   </script>
 
+  <!-- ✅ Estilos dos botões flutuantes -->
   <style>
-    /* ===== Botões Flutuantes de Contato ===== */
     .contact-float {
       position: fixed;
       bottom: 22px;
@@ -112,7 +130,6 @@
       position: relative;
     }
 
-    /* WhatsApp */
     .float-btn.whatsapp {
       background: linear-gradient(135deg, #25D366, #1EBE57);
       animation: pulse-green 2.5s infinite;
@@ -135,7 +152,6 @@
       }
     }
 
-    /* E-mail */
     .float-btn.email {
       background: linear-gradient(135deg, #0d6efd, #0048b5);
     }
@@ -145,7 +161,6 @@
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
     }
 
-    /* Tooltip */
     .tooltip-contact {
       position: absolute;
       right: 70px;
@@ -167,7 +182,6 @@
       transform: translateY(-50%) scale(1);
     }
 
-    /* Setinha do tooltip */
     .tooltip-contact::after {
       content: "";
       position: absolute;
@@ -179,7 +193,6 @@
       border-color: transparent transparent transparent #212529;
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
       .float-btn {
         width: 52px;
@@ -197,25 +210,22 @@
       }
     }
 
-    /* CTA Mobile */
-    @media (max-width: 768px) {
-      .cta-mobile {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #0d6efd;
-        text-align: center;
-        padding: 12px 0;
-        z-index: 9998;
-      }
+    .cta-mobile {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #0d6efd;
+      text-align: center;
+      padding: 12px 0;
+      z-index: 9998;
+    }
 
-      .cta-mobile a {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 500;
-        text-decoration: none;
-      }
+    .cta-mobile a {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
     }
   </style>
 
@@ -227,6 +237,7 @@
     * Última otimização: Novembro 2025
   ======================================================== -->
 </head>
+
 
 
 
