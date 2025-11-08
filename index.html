@@ -133,10 +133,12 @@
         transform: scale(1);
         box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
       }
+
       70% {
         transform: scale(1.08);
         box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
       }
+
       100% {
         transform: scale(1);
         box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
@@ -207,6 +209,7 @@
       .desktop-btn {
         display: inline-block;
       }
+
       .mobile-btn {
         display: none;
       }
@@ -217,10 +220,12 @@
       .desktop-btn {
         display: none;
       }
+
       .navmenu .mobile-btn {
         display: block;
         margin: 10px 0;
       }
+
       .navmenu .mobile-btn .btn-getstarted {
         display: inline-block;
         padding: 8px 16px;
@@ -228,6 +233,7 @@
         text-align: left;
         margin-left: 20px;
       }
+
       .navmenu .mobile-btn .btn-getstarted:hover {
         background-color: #0056b3;
       }
@@ -340,7 +346,8 @@
             <div class="card">
               <img src="assets/img/values-1.png" class="img-fluid" alt="Qualidade Garantida">
               <h3>Qualidade Garantida</h3>
-              <p>Entregamos produtos com código limpo, performance otimizada e seguindo as melhores práticas do mercado.</p>
+              <p>Entregamos produtos com código limpo, performance otimizada e seguindo as melhores práticas do mercado.
+              </p>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
@@ -421,7 +428,8 @@
             <div class="service-item item-cyan position-relative">
               <i class="bi bi-laptop icon"></i>
               <h3>Sites Institucionais</h3>
-              <p>Desenvolvemos sites modernos e responsivos que representam sua marca e convertem visitantes em clientes.</p>
+              <p>Desenvolvemos sites modernos e responsivos que representam sua marca e convertem visitantes em
+                clientes.</p>
               <a href="#contact" class="read-more stretched-link"><span>Solicitar Orçamento</span> <i
                   class="bi bi-arrow-right"></i></a>
             </div>
@@ -812,7 +820,8 @@
                 <h3>Quanto tempo leva para desenvolver um site?</h3>
                 <div class="faq-content">
                   <p>O prazo varia de acordo com a complexidade do projeto. Sites institucionais básicos podem ficar
-                    prontos em 2-3 semanas, enquanto e-commerces e sistemas personalizados podem levar de 4 a 8 semanas.</p>
+                    prontos em 2-3 semanas, enquanto e-commerces e sistemas personalizados podem levar de 4 a 8 semanas.
+                  </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div>
@@ -841,7 +850,8 @@
                 <h3>Os sites são responsivos?</h3>
                 <div class="faq-content">
                   <p>Sim, todos os sites que desenvolvemos são totalmente responsivos, adaptando-se perfeitamente a
-                    desktops, tablets e smartphones, garantindo uma ótima experiência do usuário em qualquer dispositivo.</p>
+                    desktops, tablets e smartphones, garantindo uma ótima experiência do usuário em qualquer
+                    dispositivo.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div>
@@ -948,7 +958,7 @@
           <div class="col-lg-6">
             <h4>Nossa Newsletter</h4>
             <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <form action="newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form"><input type="email" name="email" placeholder="Seu e-mail"><input
                   type="submit" value="Inscrever"></div>
               <div class="loading">Carregando</div>
@@ -1062,7 +1072,7 @@
         document.body.classList.remove('scrolled');
       }
     });
-    
+
     window.addEventListener('load', () => {
       if (window.scrollY > 100) document.body.classList.add('scrolled');
     });
@@ -1134,6 +1144,41 @@
     });
   </script>
 
+  <script>
+    document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const loading = form.querySelector('.loading');
+      const errorMessage = form.querySelector('.error-message');
+      const sentMessage = form.querySelector('.sent-message');
+
+      loading.style.display = 'block';
+      errorMessage.innerText = '';
+      sentMessage.style.display = 'none';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then(res => res.json())
+        .then(data => {
+          loading.style.display = 'none';
+          if (data.status === 'success') {
+            sentMessage.style.display = 'block';
+            form.reset();
+          } else {
+            errorMessage.innerText = data.message;
+          }
+        })
+        .catch(err => {
+          loading.style.display = 'none';
+          errorMessage.innerText = 'Ocorreu um erro. Tente novamente.';
+        });
+    });
+  </script>
+
+
   <!-- =======================================================
    * Dados estruturados (Google Rich Snippets - SEO Avançado)
  ======================================================== -->
@@ -1169,4 +1214,5 @@
    * https://anphaweb.com.br
  ======================================================== -->
 </body>
+
 </html>
