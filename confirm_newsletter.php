@@ -1,5 +1,4 @@
 <?php
-// Debug temporário
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -37,13 +36,11 @@ if ($conn->connect_error) die("Erro ao conectar ao banco: ".$conn->connect_error
 // =========================
 // Valida parâmetros
 // =========================
-$message = '';
-$alert_class = 'secondary';
+$status = 'info';
+$title = 'Atenção';
+$message = 'Parâmetros inválidos.';
 
-if(!isset($_GET['id'], $_GET['token'])){
-    $message = "Parâmetros inválidos.";
-    $alert_class = 'danger';
-} else {
+if(isset($_GET['id'], $_GET['token'])){
     $id = intval($_GET['id']);
     $token = $_GET['token'];
 
@@ -55,29 +52,33 @@ if(!isset($_GET['id'], $_GET['token'])){
 
         if($row = $result->fetch_assoc()){
             if($row['status'] == 1){
-                $message = "Inscrição já confirmada anteriormente.";
-                $alert_class = 'warning';
+                $status = 'warning';
+                $title = 'Já confirmado';
+                $message = 'Esta inscrição já foi confirmada anteriormente.';
             } elseif($row['token'] === $token){
                 $update = $conn->prepare("UPDATE newsletter SET status=1, confirmed_at=NOW() WHERE id=?");
                 $update->bind_param("i", $id);
                 $update->execute();
                 $update->close();
 
-                $message = "Inscrição confirmada com sucesso! Obrigado por se inscrever.";
-                $alert_class = 'success';
+                $status = 'success';
+                $title = 'Sucesso!';
+                $message = 'Sua inscrição na newsletter foi confirmada com sucesso!';
             } else {
-                $message = "Token inválido.";
-                $alert_class = 'danger';
+                $status = 'danger';
+                $title = 'Token inválido';
+                $message = 'O token fornecido é inválido.';
             }
         } else {
-            $message = "ID não encontrado.";
-            $alert_class = 'danger';
+            $status = 'danger';
+            $title = 'ID não encontrado';
+            $message = 'Não foi possível encontrar esta inscrição.';
         }
-
         $stmt->close();
     } else {
-        $message = "Erro no banco de dados.";
-        $alert_class = 'danger';
+        $status = 'danger';
+        $title = 'Erro';
+        $message = 'Erro no banco de dados.';
     }
 }
 
@@ -87,23 +88,45 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação Newsletter</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmação Newsletter</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+body {
+    background: #f8f9fa;
+}
+.card {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+.alert i {
+    margin-right: 0.5rem;
+}
+</style>
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
-        <div class="text-center">
-            <h3 class="mb-3">Newsletter</h3>
-            <div class="alert alert-<?= $alert_class ?> text-center" role="alert">
-                <?= htmlspecialchars($message) ?>
-            </div>
-            <a href="/" class="btn btn-primary mt-3">Voltar para o site</a>
-        </div>
+<div class="card text-center">
+    <h3 class="mb-3">Newsletter</h3>
+    <div class="alert alert-<?= $status ?>" role="alert">
+        <?php
+        $icon = match($status){
+            'success' => 'bi-check-circle-fill',
+            'warning' => 'bi-exclamation-triangle-fill',
+            'danger' => 'bi-x-circle-fill',
+            default   => 'bi-info-circle-fill'
+        };
+        echo "<i class='bi $icon'></i><strong>$title</strong> - $message";
+        ?>
     </div>
+    <a href="/" class="btn btn-primary mt-3">Voltar para o site</a>
 </div>
 
 </body>

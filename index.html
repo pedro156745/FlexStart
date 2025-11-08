@@ -958,12 +958,12 @@
           <div class="col-lg-6">
             <h4>Nossa Newsletter</h4>
             <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
-            <form action="newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email" placeholder="Seu e-mail"><input
-                  type="submit" value="Inscrever"></div>
-              <div class="loading">Carregando</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Sua inscrição foi enviada. Obrigado!</div>
+            <form id="newsletterForm" class="php-email-form">
+              <div class="newsletter-form d-flex">
+                <input type="email" name="email" class="form-control me-2" placeholder="Seu e-mail" required>
+                <button type="submit" class="btn btn-primary">Inscrever</button>
+              </div>
+              <div id="newsletter-feedback" class="mt-3"></div>
             </form>
           </div>
         </div>
@@ -1145,39 +1145,56 @@
   </script>
 
   <script>
-    document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const form = this;
-      const loading = form.querySelector('.loading');
-      const errorMessage = form.querySelector('.error-message');
-      const sentMessage = form.querySelector('.sent-message');
+      const form = e.target;
+      const feedback = document.getElementById('newsletter-feedback');
 
-      loading.style.display = 'block';
-      errorMessage.innerText = '';
-      sentMessage.style.display = 'none';
+      // Spinner de carregamento
+      feedback.innerHTML = `<div class="d-flex justify-content-center mt-2">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>`;
 
-      fetch(form.action, {
+      fetch('newsletter.php', {
         method: 'POST',
         body: new FormData(form)
       })
         .then(res => res.json())
         .then(data => {
-          loading.style.display = 'none';
-          if (data.status === 'success') {
-            sentMessage.style.display = 'block';
-            form.reset();
-          } else {
-            errorMessage.innerText = data.message;
+          let icon = '';
+          let alertClass = 'alert-secondary';
+
+          switch (data.status) {
+            case 'success':
+              alertClass = 'alert-success';
+              icon = '<i class="bi bi-check-circle-fill me-2"></i>';
+              form.reset();
+              break;
+            case 'error':
+              alertClass = 'alert-danger';
+              icon = '<i class="bi bi-x-circle-fill me-2"></i>';
+              break;
+            default:
+              alertClass = 'alert-info';
+              icon = '<i class="bi bi-info-circle-fill me-2"></i>';
           }
+
+          feedback.innerHTML = `<div class="alert ${alertClass} text-center d-flex align-items-center justify-content-center" role="alert" style="gap:0.5rem;">
+            ${icon}${data.message}
+        </div>`;
+
+          // Desaparece após 5 segundos
+          setTimeout(() => feedback.innerHTML = '', 5000);
         })
         .catch(err => {
-          loading.style.display = 'none';
-          errorMessage.innerText = 'Ocorreu um erro. Tente novamente.';
+          feedback.innerHTML = `<div class="alert alert-danger text-center"><i class="bi bi-x-circle-fill me-2"></i>Erro inesperado. Tente novamente.</div>`;
+          console.error(err);
         });
     });
   </script>
-
 
   <!-- =======================================================
    * Dados estruturados (Google Rich Snippets - SEO Avançado)
