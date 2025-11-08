@@ -1,8 +1,11 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "anphaweb";
+// =========================
+// Conexão com Banco
+// =========================
+$host = $env['DB_HOST'] ?? 'localhost';
+$user = $env['DB_USER'] ?? 'root';
+$pass = $env['DB_PASS'] ?? '';
+$db   = $env['DB_NAME'] ?? 'anphaweb';
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) die("Erro de conexão");
