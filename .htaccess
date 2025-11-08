@@ -1,39 +1,88 @@
-# -------------------------------------------------
-# Anpha Web - Configuração de Performance e Segurança
-# -------------------------------------------------
+# ============================================================
+# 🔰 ANPHA WEB - .htaccess Final (Segurança + Performance + SEO)
+# ============================================================
 
-# Forçar HTTPS
+# Ativar o mecanismo de reescrita
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Redirecionar www para não-www
+# -------------------------------
+# 🔐 Forçar HTTPS e domínio principal (sem www)
+# -------------------------------
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://anphaweb.com.br%{REQUEST_URI} [L,R=301]
 
-# Ativar compressão GZIP
+# -------------------------------
+# ⚡ Performance - Compressão GZIP
+# -------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# Cache de arquivos estáticos
+# -------------------------------
+# 🚀 Cache de arquivos estáticos
+# -------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
+  ExpiresDefault "access plus 7 days"
   ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
-  ExpiresDefault "access plus 1 month"
 </IfModule>
 
-# Cabeçalhos de segurança
+# -------------------------------
+# 🧱 Cabeçalhos de segurança
+# -------------------------------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set X-XSS-Protection "1; mode=block"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
-# Página padrão
+# -------------------------------
+# 🧠 Proteção contra métodos inseguros
+# -------------------------------
+<LimitExcept GET POST>
+  Require all denied
+</LimitExcept>
+
+# -------------------------------
+# 🔒 Bloquear acesso a arquivos sensíveis
+# -------------------------------
+<FilesMatch "(?i)\.(env|log|ini|bak|config|sql|git|htaccess)$">
+  Require all denied
+</FilesMatch>
+
+# -------------------------------
+# 🛡️ Bloqueia query strings suspeitas
+# -------------------------------
+RewriteCond %{QUERY_STRING} (\.\./|\.\%2f|base64_|GLOBALS|REQUEST|concat|union|select|insert|drop|alter|delete) [NC]
+RewriteRule .* - [F]
+
+# -------------------------------
+# 🚫 Desativa listagem de diretórios
+# -------------------------------
+Options -Indexes
+
+# -------------------------------
+# 🌐 Página inicial padrão
+# -------------------------------
 DirectoryIndex index.html
+
+# -------------------------------
+# ✅ SEO e Navegadores
+# -------------------------------
+# Força charset UTF-8 e idioma
+AddDefaultCharset UTF-8
+AddLanguage pt-BR .html
+
+# -------------------------------
+# 🧩 Redirecionamento de erros amigáveis
+# -------------------------------
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
