@@ -96,6 +96,7 @@
 
   <!-- ✅ Estilos dos botões flutuantes -->
   <style>
+    /* ===================== BOTÕES FLUTUANTES ===================== */
     .contact-float {
       position: fixed;
       bottom: 22px;
@@ -153,6 +154,7 @@
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
     }
 
+    /* Tooltip */
     .tooltip-contact {
       position: absolute;
       right: 70px;
@@ -185,6 +187,7 @@
       border-color: transparent transparent transparent #212529;
     }
 
+    /* Ajustes mobile para botões flutuantes */
     @media (max-width: 768px) {
       .float-btn {
         width: 52px;
@@ -202,13 +205,56 @@
       }
     }
 
+    /* ===================== BOTÃO DESKTOP / MENU ===================== */
     .btn-getstarted {
-      white-space: nowrap;
-      /* Não permite quebra de linha */
+      display: inline-block;
       padding: 10px 20px;
-      /* Ajusta espaço interno */
-      font-size: 14px;
-      /* Ajusta tamanho da fonte em telas pequenas */
+      font-size: 16px;
+      white-space: nowrap;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-getstarted:hover {
+      background-color: #0056b3;
+    }
+
+    /* Desktop: mostra botão normal, oculta botão dentro do menu */
+    @media (min-width: 1200px) {
+      .desktop-btn {
+        display: inline-block;
+      }
+
+      .mobile-btn {
+        display: none;
+      }
+    }
+
+    /* Mobile/tablet: esconde botão desktop, mostra botão dentro do menu */
+    @media (max-width: 1199px) {
+      .desktop-btn {
+        display: none;
+      }
+
+      .navmenu .mobile-btn {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .navmenu .mobile-btn .btn-getstarted {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 16px;
+        text-align: left;
+        margin-left: 20px;
+      }
+
+      .navmenu .mobile-btn .btn-getstarted:hover {
+        background-color: #0056b3;
+      }
     }
   </style>
 
@@ -234,6 +280,7 @@
       </a>
 
       <!-- ✅ Navegação principal -->
+      <!-- Navegação principal -->
       <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menu principal">
         <ul>
           <li><a href="#hero" class="active">Início</a></li>
@@ -242,11 +289,14 @@
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#pricing">Planos</a></li>
           <li><a href="#contact">Contato</a></li>
+          <!-- Botão dentro do menu -->
+          <li class="mobile-btn"><a class="btn-getstarted" href="#contact">Solicitar Orçamento</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted flex-md-shrink-0" href="#contact">Solicitar Orçamento</a>
+      <!-- Botão fixo no desktop -->
+      <a class="btn-getstarted desktop-btn" href="#contact">Solicitar Orçamento</a>
 
     </div>
   </header>
