@@ -88,7 +88,6 @@
 
         grecaptcha.ready(function () {
           grecaptcha.execute(siteKey, { action: 'contato' }).then(function (token) {
-            // Cria ou atualiza o campo hidden do token
             let input = form.querySelector('input[name="recaptcha_token"]');
             if (!input) {
               input = document.createElement('input');
@@ -97,21 +96,21 @@
               form.appendChild(input);
             }
             input.value = token;
+            console.log("Token gerado:", token);
 
-            console.log("Token gerado:", token); // 👈 Deve aparecer no console
-
-            // Envia via fetch
             fetch('enviar_contato.php', {
               method: 'POST',
               body: new FormData(form)
             })
               .then(res => res.json())
               .then(data => {
+                console.log("Resposta do servidor:", data);
                 if (data.status === 'sucesso') {
                   msgBox.innerHTML = '<div class="alert alert-success">' + data.msg + '</div>';
                   form.reset();
                 } else {
-                  msgBox.innerHTML = '<div class="alert alert-danger">' + data.msg + '</div>';
+                  let debugInfo = data.debug ? '<pre style="font-size:0.8rem;">' + JSON.stringify(data.debug, null, 2) + '</pre>' : '';
+                  msgBox.innerHTML = '<div class="alert alert-danger">' + data.msg + '</div>' + debugInfo;
                 }
                 btn.disabled = false;
               })
@@ -120,6 +119,7 @@
                 btn.disabled = false;
                 console.error(err);
               });
+
           }).catch(err => {
             msgBox.innerHTML = '<div class="alert alert-danger">Falha ao validar reCAPTCHA. Tente novamente.</div>';
             btn.disabled = false;
@@ -129,7 +129,6 @@
       });
     });
   </script>
-
 
 
 </body>
