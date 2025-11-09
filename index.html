@@ -1045,11 +1045,12 @@
           <div class="col-lg-6">
             <h4>Nossa Newsletter</h4>
             <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
-            <form action="newsletter.php" method="POST" id="newsletterForm">
-              <div class="newsletter-form">
-                <input type="email" name="email" placeholder="Seu melhor e-mail" required>
-                <button type="submit" class="btn btn-primary">Inscrever</button>
-              </div>
+            <form action="newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email" placeholder="Seu e-mail"><input
+                  type="submit" value="Inscrever"></div>
+              <div class="loading">Carregando</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Sua inscrição foi enviada. Obrigado!</div>
             </form>
           </div>
         </div>
