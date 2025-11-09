@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="alternate" hreflang="pt-BR" href="https://anphaweb.com.br/" />
 
 <head>
   <!-- ✅ Configurações básicas -->
@@ -69,216 +70,204 @@
   <link rel="prefetch" href="assets/js/main.min.js" as="script">
   <link rel="prefetch" href="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" as="script">
 
-  <!-- ✅ Dados estruturados (SEO avançado + LocalBusiness) -->
+  <!-- ✅ Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SE8L3VH4JE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SE8L3VH4JE', { 'anonymize_ip': true });
+  </script>
+
+  <!-- ✅ Dados estruturados (SEO + LocalBusiness) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Anpha Web",
-    "image": "https://anphaweb.com.br/assets/img/preview.jpg",
-    "@id": "https://anphaweb.com.br",
-    "url": "https://anphaweb.com.br",
-    "telephone": "+55 43 99999-9999",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Paulista, 1000",
-      "addressLocality": "Londrina",
-      "addressRegion": "PR",
-      "postalCode": "86000-000",
-      "addressCountry": "BR"
-    },
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "description": "Criação de sites, sistemas e soluções web em Londrina. Desenvolvimento moderno, otimizado e sob medida.",
-    "priceRange": "$$",
-    "sameAs": []
+    "@context":"https://schema.org",
+    "@graph": [
+      {
+        "@type":"Organization",
+        "name":"Anpha Web",
+        "url":"https://anphaweb.com.br",
+        "logo":"https://anphaweb.com.br/assets/img/logo_anphaweb.png"
+      },
+      {
+        "@type":"WebSite",
+        "url":"https://anphaweb.com.br",
+        "name":"Anpha Web",
+        "description":"Criação de sites e sistemas em Londrina/PR"
+      }
+    ]
   }
   </script>
 
-  <!-- ✅ Estilos otimizados para produção -->
+  <!-- ✅ Estilos personalizados -->
   <style>
-    /* ===================== BOTÕES FLUTUANTES ===================== */
-    .contact-float {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      z-index: 999;
+  /* =========================================================
+   * 🧭 ANPHA WEB - Estilos Personalizados (2025)
+   * ========================================================= */
+
+  /* ===================== BOTÕES FLUTUANTES ===================== */
+  .contact-float {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 999;
+  }
+
+  .float-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+
+  .float-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #1EBE57);
+    animation: pulse-green 2.5s infinite;
+    will-change: transform, box-shadow;
+  }
+
+  @keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { transform: scale(1.08); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 102, 0.4); }
+  }
+
+  .float-btn.email {
+    background: linear-gradient(135deg, #0d6efd, #0048b5);
+  }
+
+  .float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  }
+
+  .tooltip-contact {
+    position: absolute;
+    right: 70px;
+    background: #212529;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.9);
+    pointer-events: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+
+  .float-btn:hover .tooltip-contact {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .tooltip-contact::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #212529;
+  }
+
+  /* ===================== BOTÃO CTA ===================== */
+  .btn-getstarted {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(135deg, #007bff, #0048b5);
+    background-size: 200% auto;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 14px rgba(0, 91, 255, 0.25);
+  }
+
+  .btn-getstarted:hover {
+    background-position: right center;
+    box-shadow: 0 8px 22px rgba(0, 91, 255, 0.45);
+    transform: translateY(-1px) scale(1.04);
+    filter: brightness(1.08);
+  }
+
+  .btn-getstarted:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 3px;
+  }
+
+  /* ===================== RESPONSIVIDADE ===================== */
+  @media (min-width: 1200px) {
+    .desktop-btn { display: inline-block; }
+    .mobile-btn { display: none; }
+  }
+
+  @media (max-width: 1199px) {
+    .desktop-btn { display: none; }
+    .navmenu .mobile-btn {
+      display: block;
+      margin: 10px 0;
     }
-
-    .float-btn {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 28px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-      position: relative;
-    }
-
-    .float-btn.whatsapp {
-      background: linear-gradient(135deg, #25D366, #1EBE57);
-      animation: pulse-green 2.5s infinite;
-    }
-
-    @keyframes pulse-green {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
-      }
-
-      70% {
-        transform: scale(1.08);
-        box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-      }
-
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
-      }
-    }
-
-    .float-btn.email {
-      background: linear-gradient(135deg, #0d6efd, #0048b5);
-    }
-
-    .float-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-    }
-
-    /* Tooltip */
-    .tooltip-contact {
-      position: absolute;
-      right: 70px;
-      background: #212529;
-      color: #fff;
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(-50%) scale(0.9);
-      pointer-events: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    }
-
-    .float-btn:hover .tooltip-contact {
-      opacity: 1;
-      transform: translateY(-50%) scale(1);
-    }
-
-    .tooltip-contact::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: -6px;
-      transform: translateY(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: transparent transparent transparent #212529;
-    }
-
-    /* ===================== BOTÃO DESKTOP / MENU ===================== */
-    .btn-getstarted {
+    .navmenu .mobile-btn .btn-getstarted {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 8px 16px;
       font-size: 16px;
-      white-space: nowrap;
-      border-radius: 4px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      text-align: left;
+      margin-left: 20px;
     }
+  }
 
-    .btn-getstarted:hover {
-      background-color: #0056b3;
-    }
+  /* ===================== PORTFÓLIO ===================== */
+  .portfolio-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 
-    /* Desktop: mostra botão normal, oculta botão dentro do menu */
-    @media (min-width: 1200px) {
-      .desktop-btn {
-        display: inline-block;
-      }
+  .portfolio-image-wrapper {
+    width: 100%;
+    height: clamp(220px, 28vw, 280px);
+    overflow: hidden;
+  }
 
-      .mobile-btn {
-        display: none;
-      }
-    }
+  .portfolio-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
 
-    /* Mobile/tablet: esconde botão desktop, mostra botão dentro do menu */
-    @media (max-width: 1199px) {
-      .desktop-btn {
-        display: none;
-      }
-
-      .navmenu .mobile-btn {
-        display: block;
-        margin: 10px 0;
-      }
-
-      .navmenu .mobile-btn .btn-getstarted {
-        display: inline-block;
-        padding: 8px 16px;
-        font-size: 16px;
-        text-align: left;
-        margin-left: 20px;
-      }
-
-      .navmenu .mobile-btn .btn-getstarted:hover {
-        background-color: #0056b3;
-      }
-    }
-
-    /* Faz o card ocupar o espaço todo */
-    .portfolio-content {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      height: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Wrapper para a imagem ocupar toda a área */
-    .portfolio-image-wrapper {
-      width: 100%;
-      height: 250px;
-      /* ajuste conforme desejar (ex: 300px, 100% etc) */
-      overflow: hidden;
-    }
-
-    /* A imagem ocupa todo o espaço do card */
-    .portfolio-image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* preenche o card sem distorcer */
-      transition: transform 0.4s ease;
-    }
-
-    /* Efeito ao passar o mouse */
-    .portfolio-content:hover img {
-      transform: scale(1.05);
-    }
+  .portfolio-content:hover img {
+    transform: scale(1.05);
+  }
   </style>
 
   <!-- =======================================================
-    * Template: FlexStart (customizado por Anpha Web)
-    * Base: Bootstrap v5.3.3
-    * Autor: Pedro Lapa (Anpha Web)
-    * License: https://bootstrapmade.com/license/
-    * Última otimização: Novembro 2025
+   * Template Base: FlexStart (customizado por Anpha Web)
+   * Autor: Pedro Lapa — Anpha Web
+   * Última otimização: Novembro 2025
   ======================================================== -->
 </head>
+
 
 <body class="index-page" itemscope itemtype="https://schema.org/WebPage">
 

@@ -16,7 +16,7 @@ RewriteRule ^ https://anphaweb.com.br%{REQUEST_URI} [L,R=301]
 # ⚡ Performance - Compressão GZIP
 # -------------------------------
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
 # -------------------------------
@@ -28,6 +28,7 @@ RewriteRule ^ https://anphaweb.com.br%{REQUEST_URI} [L,R=301]
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
@@ -36,6 +37,7 @@ RewriteRule ^ https://anphaweb.com.br%{REQUEST_URI} [L,R=301]
 # 🧱 Cabeçalhos de segurança
 # -------------------------------
 <IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set X-XSS-Protection "1; mode=block"
@@ -76,7 +78,6 @@ DirectoryIndex index.html
 # -------------------------------
 # ✅ SEO e Navegadores
 # -------------------------------
-# Força charset UTF-8 e idioma
 AddDefaultCharset UTF-8
 AddLanguage pt-BR .html
 
