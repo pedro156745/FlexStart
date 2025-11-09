@@ -2,34 +2,277 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- ✅ Configurações básicas -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato | Anpha Web</title>
-  <meta name="description"
-    content="Entre em contato com a Anpha Web. Solicite um orçamento ou tire dúvidas sobre nossos serviços.">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <!-- ✅ SEO principal -->
+  <meta name="description"
+    content="Anpha Web — desenvolvimento de sites, sistemas e soluções digitais em Londrina. Criação moderna, responsiva e de alta performance para empresas e empreendedores.">
+  <meta name="keywords"
+    content="criação de sites Londrina, desenvolvimento web Londrina, sistemas personalizados, anpha web, web design, programador, site profissional, sistemas web, aplicativos, hospedagem, ecommerce">
+  <meta name="author" content="Anpha Web">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anphaweb.com.br/">
+
+  <!-- ✅ Open Graph / Facebook -->
+  <meta property="og:title" content="Criação de Sites e Sistemas em Londrina — Anpha Web">
+  <meta property="og:description"
+    content="Soluções digitais sob medida — sites, sistemas e aplicativos desenvolvidos com foco em resultados e performance.">
+  <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
+  <meta property="og:url" content="https://anphaweb.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- ✅ Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Criação de Sites e Sistemas em Londrina — Anpha Web">
+  <meta name="twitter:description"
+    content="Desenvolvimento de sites e sistemas modernos em Londrina. Soluções digitais que impulsionam o seu negócio.">
+  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
+
+  <!-- ✅ Favicons -->
+  <link rel="icon" href="assets/img/favicon_anphaweb.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- ✅ Manifest e cor do tema -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+
+  <!-- ✅ Preconnect e DNS-prefetch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- ✅ Google Fonts (carregamento assíncrono) -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
+    media="print" onload="this.media='all'">
+
+  <!-- ✅ Vendor CSS (preload e defer) -->
+  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- ✅ CSS Principal -->
   <link rel="stylesheet" href="assets/css/main.min.css">
+
+  <!-- ✅ Prefetch de scripts -->
+  <link rel="prefetch" href="assets/js/main.min.js" as="script">
+  <link rel="prefetch" href="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" as="script">
+
+  <!-- ✅ Dados estruturados (SEO avançado + LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Anpha Web",
+    "image": "https://anphaweb.com.br/assets/img/preview.jpg",
+    "@id": "https://anphaweb.com.br",
+    "url": "https://anphaweb.com.br",
+    "telephone": "+55 43 99999-9999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Paulista, 1000",
+      "addressLocality": "Londrina",
+      "addressRegion": "PR",
+      "postalCode": "86000-000",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "description": "Criação de sites, sistemas e soluções web em Londrina. Desenvolvimento moderno, otimizado e sob medida.",
+    "priceRange": "$$",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- ✅ Estilos otimizados para produção -->
+  <style>
+    /* ===================== BOTÕES FLUTUANTES ===================== */
+    .contact-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .float-btn.whatsapp {
+      background: linear-gradient(135deg, #25D366, #1EBE57);
+      animation: pulse-green 2.5s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
+      }
+
+      70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
+      }
+    }
+
+    .float-btn.email {
+      background: linear-gradient(135deg, #0d6efd, #0048b5);
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Tooltip */
+    .tooltip-contact {
+      position: absolute;
+      right: 70px;
+      background: #212529;
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-50%) scale(0.9);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .float-btn:hover .tooltip-contact {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .tooltip-contact::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -6px;
+      transform: translateY(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent #212529;
+    }
+
+    /* ===================== BOTÃO DESKTOP / MENU ===================== */
+    .btn-getstarted {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      white-space: nowrap;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-getstarted:hover {
+      background-color: #0056b3;
+    }
+
+    /* Desktop: mostra botão normal, oculta botão dentro do menu */
+    @media (min-width: 1200px) {
+      .desktop-btn {
+        display: inline-block;
+      }
+
+      .mobile-btn {
+        display: none;
+      }
+    }
+
+    /* Mobile/tablet: esconde botão desktop, mostra botão dentro do menu */
+    @media (max-width: 1199px) {
+      .desktop-btn {
+        display: none;
+      }
+
+      .navmenu .mobile-btn {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .navmenu .mobile-btn .btn-getstarted {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 16px;
+        text-align: left;
+        margin-left: 20px;
+      }
+
+      .navmenu .mobile-btn .btn-getstarted:hover {
+        background-color: #0056b3;
+      }
+    }
+  </style>
+
+  <!-- =======================================================
+    * Template: FlexStart (customizado por Anpha Web)
+    * Base: Bootstrap v5.3.3
+    * Autor: Pedro Lapa (Anpha Web)
+    * License: https://bootstrapmade.com/license/
+    * Última otimização: Novembro 2025
+  ======================================================== -->
 </head>
 
 <body>
 
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1>Anpha Web<span>.</span></h1>
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner" aria-label="Cabeçalho principal">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url">
+        <img src="assets/img/logo_anphaweb.png" alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas"
+          itemprop="logo" width="160" height="45" decoding="async" loading="eager">
       </a>
-      <nav id="navmenu" class="navmenu">
+
+      <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menu principal">
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="portfolio.html">Portfólio</a></li>
-          <li><a href="orcamento.html">Orçamento</a></li>
-          <li><a href="contato.html" class="active">Contato</a></li>
+          <li><a href="#hero" class="active">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#pricing">Planos</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <li class="mobile-btn"><a class="btn-getstarted" href="#contact">Solicitar Orçamento</a></li>
         </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+      <a class="btn-getstarted desktop-btn" href="#contact">Solicitar Orçamento</a>
     </div>
   </header>
 
@@ -66,6 +309,60 @@
       </div>
     </section>
   </main>
+
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <img src="assets/img/logo_anphaweb.png" alt="Anpha Web" style="height:50px; width:auto;">
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Av. Paulista, 1000</p>
+            <p>São Paulo, SP 01310-100</p>
+            <p class="mt-3"><strong>Telefone:</strong> <span>+55 (11) 9999-9999</span></p>
+            <p><strong>Email:</strong> <span>contato@anphaweb.com.br</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Início</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">Sobre</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Serviços</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Portfólio</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nossos Serviços</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Sites Institucionais</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">E-commerce</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Sistemas Personalizados</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Aplicativos Mobile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h4>Siga-nos</h4>
+          <p>Fique por dentro das novidades e acompanhe nossos trabalhos</p>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/anphaweb" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Anpha Web</strong> <span>Todos os direitos
+          reservados</span></p>
+    </div>
+  </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -129,8 +426,6 @@
       });
     });
   </script>
-
-
 </body>
 
 </html>
