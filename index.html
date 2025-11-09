@@ -1045,15 +1045,12 @@
           <div class="col-lg-6">
             <h4>Nossa Newsletter</h4>
             <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
-            <form id="formNewsletter" action="enviar_contato.php" method="POST">
-              <input type="hidden" name="newsletter" value="1">
+            <form action="newsletter.php" method="POST" id="newsletterForm">
               <div class="newsletter-form">
                 <input type="email" name="email" placeholder="Seu melhor e-mail" required>
                 <button type="submit" class="btn btn-primary">Inscrever</button>
               </div>
-              <div id="msgRetornoNewsletter"></div>
             </form>
-
           </div>
         </div>
       </div>
@@ -1320,57 +1317,52 @@
   <script src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const forms = [
-        { id: 'formContato', msgBox: 'msgRetorno' },
-        { id: 'formNewsletter', msgBox: 'msgRetornoNewsletter' }
-      ];
+      const form = document.getElementById('formContato');
+      if (!form) return; // 🔒 ignora se não existir o formulário de contato
+
+      const msgBox = document.getElementById('msgRetorno');
+      const btn = form.querySelector('button[type="submit"]');
       const siteKey = '6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3';
 
-      forms.forEach(f => {
-        const form = document.getElementById(f.id);
-        if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        msgBox.innerHTML = '<div class="alert alert-info">Validando reCAPTCHA...</div>';
 
-        const msgBox = document.getElementById(f.msgBox);
-        const btn = form.querySelector('button[type="submit"]');
+        grecaptcha.ready(function () {
+          grecaptcha.execute(siteKey, { action: 'contato' }).then(function (token) {
+            let input = form.querySelector('input[name="recaptcha_token"]');
+            if (!input) {
+              input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'recaptcha_token';
+              form.appendChild(input);
+            }
+            input.value = token;
 
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          btn.disabled = true;
-          msgBox.innerHTML = '<div class="alert alert-info">Validando reCAPTCHA...</div>';
-
-          grecaptcha.ready(function () {
-            grecaptcha.execute(siteKey, { action: f.id }).then(function (token) {
-              let input = form.querySelector('input[name="recaptcha_token"]');
-              if (!input) {
-                input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'recaptcha_token';
-                form.appendChild(input);
-              }
-              input.value = token;
-
-              fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
+            fetch('enviar_contato.php', {
+              method: 'POST',
+              body: new FormData(form)
+            })
+              .then(res => res.json())
+              .then(data => {
+                msgBox.innerHTML = `<div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'}">${data.msg}</div>`;
+                btn.disabled = false;
+                if (data.status === 'sucesso') form.reset();
               })
-                .then(res => res.json())
-                .then(data => {
-                  msgBox.innerHTML = `<div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'}">${data.msg}</div>`;
-                  btn.disabled = false;
-                  if (data.status === 'sucesso') form.reset();
-                })
-                .catch(() => {
-                  msgBox.innerHTML = '<div class="alert alert-danger">Erro ao enviar. Tente novamente.</div>';
-                  btn.disabled = false;
-                });
-            });
+              .catch(() => {
+                msgBox.innerHTML = '<div class="alert alert-danger">Erro de rede. Tente novamente.</div>';
+                btn.disabled = false;
+              });
+          }).catch(err => {
+            msgBox.innerHTML = '<div class="alert alert-danger">Falha ao validar reCAPTCHA. Tente novamente.</div>';
+            btn.disabled = false;
+            console.error(err);
           });
         });
       });
     });
   </script>
-
-
 
   <!-- =======================================================
    * Site desenvolvido e otimizado por Anpha Web © 2025
