@@ -1045,14 +1045,15 @@
           <div class="col-lg-6">
             <h4>Nossa Newsletter</h4>
             <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
-            <form id="formNewsletter" method="POST" action="newsletter.php" data-recaptcha="newsletter">
-              <div class="newsletter-form d-flex">
-                <input type="email" name="email" class="form-control me-2" placeholder="Seu e-mail" required>
-                <button type="submit" class="btn btn-primary">Inscrever</button>
+            <form id="formNewsletter" action="enviar_contato.php" method="POST">
+              <input type="hidden" name="newsletter" value="1">
+              <div class="newsletter-form">
+                <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">Inscrever</button>
               </div>
-              <div id="newsletter-feedback" class="mt-3"></div>
-              <div id="msgRetorno" class="mt-3 text-center"></div>
+              <div id="msgRetornoNewsletter"></div>
             </form>
+
           </div>
         </div>
       </div>
@@ -1318,25 +1319,27 @@
   <!-- Google reCAPTCHA v3 -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const forms = document.querySelectorAll('form[data-recaptcha]');
+    document.addEventListener("DOMContentLoaded", function () {
+      const forms = [
+        { id: 'formContato', msgBox: 'msgRetorno' },
+        { id: 'formNewsletter', msgBox: 'msgRetornoNewsletter' }
+      ];
       const siteKey = '6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3';
 
-      forms.forEach(form => {
-        const msgBox = form.querySelector('.msgRetorno') || document.createElement('div');
-        if (!form.querySelector('.msgRetorno')) {
-          msgBox.className = 'msgRetorno';
-          form.appendChild(msgBox);
-        }
+      forms.forEach(f => {
+        const form = document.getElementById(f.id);
+        if (!form) return;
 
-        form.addEventListener('submit', e => {
+        const msgBox = document.getElementById(f.msgBox);
+        const btn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function (e) {
           e.preventDefault();
-          const btn = form.querySelector('button[type="submit"]');
           btn.disabled = true;
           msgBox.innerHTML = '<div class="alert alert-info">Validando reCAPTCHA...</div>';
 
-          grecaptcha.ready(() => {
-            grecaptcha.execute(siteKey, { action: 'contato' }).then(token => {
+          grecaptcha.ready(function () {
+            grecaptcha.execute(siteKey, { action: f.id }).then(function (token) {
               let input = form.querySelector('input[name="recaptcha_token"]');
               if (!input) {
                 input = document.createElement('input');
@@ -1353,8 +1356,8 @@
                 .then(res => res.json())
                 .then(data => {
                   msgBox.innerHTML = `<div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'}">${data.msg}</div>`;
-                  if (data.status === 'sucesso') form.reset();
                   btn.disabled = false;
+                  if (data.status === 'sucesso') form.reset();
                 })
                 .catch(() => {
                   msgBox.innerHTML = '<div class="alert alert-danger">Erro ao enviar. Tente novamente.</div>';
@@ -1366,6 +1369,7 @@
       });
     });
   </script>
+
 
 
   <!-- =======================================================

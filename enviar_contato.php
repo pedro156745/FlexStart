@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Anpha Web - Envio de Contato com Log Automático
  * Autor: Pedro Lapa
@@ -70,11 +71,25 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') resp('erro', 'Método inválido.');
 // === Dados do formulário ===
 $nome      = trim($_POST['nome'] ?? '');
 $email     = trim($_POST['email'] ?? '');
-$assunto   = trim($_POST['assunto'] ?? 'Contato pelo site');
+$assunto   = trim($_POST['assunto'] ?? '');
 $mensagem  = trim($_POST['mensagem'] ?? '');
+$tipoForm  = 'contato';
+
+// Detecta se é o formulário da Newsletter
+if (isset($_POST['newsletter']) || (empty($nome) && empty($mensagem) && !empty($email))) {
+  $tipoForm = 'newsletter';
+  $assunto  = 'Inscrição na Newsletter';
+  $mensagem = 'Novo inscrito na newsletter: ' . htmlspecialchars($email);
+}
+
 $token     = $_POST['recaptcha_token'] ?? '';
 
-if (!$nome || !$email || !$mensagem) resp('erro', 'Preencha todos os campos obrigatórios.');
+if ($tipoForm === 'contato') {
+  if (!$nome || !$email || !$mensagem) resp('erro', 'Preencha todos os campos obrigatórios.');
+} else {
+  if (!$email) resp('erro', 'Informe um e-mail válido.');
+}
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) resp('erro', 'E-mail inválido.');
 if (!$token || !$recaptcha_secret) resp('erro', 'Falha ao validar reCAPTCHA.');
 
@@ -121,6 +136,19 @@ try {
 
   $mail->setFrom('contato@anphaweb.com.br', 'Anpha Web');
   $mail->addAddress('contato@anphaweb.com.br', 'Anpha Web');
+
+  if ($tipoForm === 'newsletter') {
+    $mail->Subject = "📰 Nova inscrição na Newsletter - Anpha Web";
+    $mail->Body = "
+    <h3>Nova inscrição na newsletter</h3>
+    <p><b>Email:</b> " . htmlspecialchars($email) . "</p>
+    <hr><small>IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'n/d') . "</small>
+  ";
+    $mail->send();
+    log_event('sucesso', "Novo inscrito na newsletter <$email>");
+    resp('sucesso', 'Inscrição realizada com sucesso!');
+  }
+
 
   $mail->isHTML(true);
   $mail->Subject = "📩 Novo contato - " . htmlspecialchars($assunto);
