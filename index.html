@@ -238,6 +238,37 @@
         background-color: #0056b3;
       }
     }
+
+    /* Faz o card ocupar o espaço todo */
+    .portfolio-content {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      height: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Wrapper para a imagem ocupar toda a área */
+    .portfolio-image-wrapper {
+      width: 100%;
+      height: 250px;
+      /* ajuste conforme desejar (ex: 300px, 100% etc) */
+      overflow: hidden;
+    }
+
+    /* A imagem ocupa todo o espaço do card */
+    .portfolio-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* preenche o card sem distorcer */
+      transition: transform 0.4s ease;
+    }
+
+    /* Efeito ao passar o mouse */
+    .portfolio-content:hover img {
+      transform: scale(1.05);
+    }
   </style>
 
   <!-- =======================================================
@@ -620,107 +651,155 @@
     </section>
 
     <!-- Portfolio Section -->
+    <!-- ============================= -->
+    <!-- Seção de Portfólio -->
+    <!-- ============================= -->
     <section id="portfolio" class="portfolio section">
+
+      <!-- 🔹 Título da Seção -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfólio</h2>
         <p>Alguns dos nossos projetos</p>
       </div>
+
+      <!-- 🔹 Conteúdo Principal -->
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <!-- 🔸 Filtros -->
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">Todos</li>
             <li data-filter=".filter-site">Sites</li>
             <li data-filter=".filter-ecommerce">E-commerce</li>
             <li data-filter=".filter-sistema">Sistemas</li>
           </ul>
+
+          <!-- 🔸 Itens do Portfólio -->
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Item 1 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="Loja Virtual">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem teste para colocar como site.jpg" alt="Loja Virtual">
+                </div>
                 <div class="portfolio-info">
                   <h4>Loja de Moda</h4>
                   <p>E-commerce completo com integração</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Loja de Moda"
-                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/imagem teste para colocar como site.jpg" title="Loja de Moda"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- Item 2 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="Loja Virtual">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_ecomerce.jpg" alt="Loja Virtual">
+                </div>
                 <div class="portfolio-info">
-                  <h4>Loja de Moda</h4>
+                  <h4>Loja de Eletrônicos </h4>
                   <p>E-commerce completo com integração</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Loja de Moda"
-                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/imagem_site_ecomerce.jpg" title="Loja de Eletrônicos"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- Item 3 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sistema">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="Sistema de Gestão">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_inovador.jpg" alt="Sistema Inovador">
+                </div>
                 <div class="portfolio-info">
-                  <h4>Sistema de Gestão</h4>
-                  <p>Controle de estoque e vendas</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Sistema de Gestão"
-                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
+                  <h4>Sistema Inovador</h4>
+                  <p>Desenvolvido com tecnologias modernas</p>
+                  <a href="assets/img/imagem_site_inovador.jpg" title="Sistema Inovador"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sistema">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="Sistema de Gestão">
-                <div class="portfolio-info">
-                  <h4>Sistema de Gestão</h4>
-                  <p>Controle de estoque e vendas</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Sistema de Gestão"
-                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
+
+            <!-- Item 4 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="Site Educacional">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_land_page.jpg" alt="Landing Page Profissional">
+                </div>
                 <div class="portfolio-info">
-                  <h4>Portal Educacional</h4>
-                  <p>Plataforma de cursos online</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Portal Educacional"
-                    data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
+                  <h4>Landing Page Profissional</h4>
+                  <p>Desenvolvida para conversão e presença digital</p>
+                  <a href="assets/img/imagem_land_page.jpg" title="Landing Page Profissional"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- Item 5 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_diferente.jpg" alt="Site Criativo">
+                </div>
+                <div class="portfolio-info">
+                  <h4>Site Criativo</h4>
+                  <p>Design moderno e navegação fluida</p>
+                  <a href="assets/img/imagem_site_diferente.jpg" title="Site Criativo"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="Loja de Eletrônicos">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_ecoomerce.png" alt="E-commerce Moderno">
+                </div>
                 <div class="portfolio-info">
-                  <h4>Loja de Eletrônicos</h4>
-                  <p>E-commerce com múltiplos gateways</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="Loja de Eletrônicos"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
+                  <h4>E-commerce Moderno</h4>
+                  <p>Experiência otimizada para vendas online</p>
+                  <a href="assets/img/imagem_site_ecoomerce.png" title="E-commerce Moderno"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+          </div><!-- /row -->
+        </div><!-- /isotope-layout -->
+      </div><!-- /container -->
     </section>
 
     <!-- Testimonials Section -->
