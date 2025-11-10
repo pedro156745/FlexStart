@@ -1328,7 +1328,7 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         btn.disabled = true;
-        msgBox.innerHTML = '<div class="alert alert-info">Validando reCAPTCHA...</div>';
+        msgBox.innerHTML = '<div class="alert alert-info fade show">Validando reCAPTCHA...</div>';
 
         grecaptcha.ready(function () {
           grecaptcha.execute(siteKey, { action: 'contato' }).then(function (token) {
@@ -1347,23 +1347,35 @@
             })
               .then(res => res.json())
               .then(data => {
-                msgBox.innerHTML = `<div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'}">${data.msg}</div>`;
+                msgBox.innerHTML = `
+              <div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'} fade show" role="alert">
+                ${data.msg}
+              </div>`;
+
                 btn.disabled = false;
                 if (data.status === 'sucesso') form.reset();
+
+                // ⏳ Oculta mensagem após 4 segundos
+                setTimeout(() => {
+                  const alert = msgBox.querySelector('.alert');
+                  if (alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                    setTimeout(() => { msgBox.innerHTML = ''; }, 400);
+                  }
+                }, 4000);
               })
               .catch(() => {
-                msgBox.innerHTML = '<div class="alert alert-danger">Erro de rede. Tente novamente.</div>';
+                msgBox.innerHTML = '<div class="alert alert-danger fade show">Erro de rede. Tente novamente.</div>';
                 btn.disabled = false;
+                setTimeout(() => { msgBox.innerHTML = ''; }, 4000);
               });
-          }).catch(err => {
-            msgBox.innerHTML = '<div class="alert alert-danger">Falha ao validar reCAPTCHA. Tente novamente.</div>';
-            btn.disabled = false;
-            console.error(err);
           });
         });
       });
     });
   </script>
+
 
   <!-- =======================================================
    * Site desenvolvido e otimizado por Anpha Web © 2025
