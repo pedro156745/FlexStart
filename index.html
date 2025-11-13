@@ -300,20 +300,22 @@
       box-shadow: 0 0 15px rgba(0, 91, 255, 0.4);
     }
 
-    .partners {
-      background: #fff;
-      padding: 60px 0;
+    /* Estilo opcional */
+    #partners img {
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      max-height: 60px;
     }
 
-    .partners img {
-      max-height: 55px;
-      margin: 20px;
-      opacity: 0.85;
-      transition: opacity 0.3s;
-    }
-
-    .partners img:hover {
+    #partners img:hover {
+      filter: grayscale(0%);
       opacity: 1;
+      transform: scale(1.05);
+    }
+
+    #partners {
+      overflow: hidden;
     }
   </style>
 
@@ -396,20 +398,28 @@
     </section>
 
     <!-- ===================== SEÇÃO DE PARCEIROS / CLIENTES ===================== -->
-    <section class="partners" id="parceiros">
+    <section id="partners" class="partners section py-5 bg-light">
       <div class="container text-center" data-aos="fade-up">
-        <h2 class="fw-bold mb-4">Empresas que confiam na Anpha Web</h2>
-        <div class="d-flex flex-wrap justify-content-center align-items-center">
-          <img src="https://dummyimage.com/160x60/007bff/ffffff&text=NovaTech" alt="NovaTech - Parceiro Anpha Web" loading="lazy">
-          <img src="https://dummyimage.com/160x60/0048b5/ffffff&text=Cloudify" alt="Cloudify - Parceiro Anpha Web" loading="lazy">
-          <img src="https://dummyimage.com/160x60/0d6efd/ffffff&text=DevLabs" alt="DevLabs - Parceiro Anpha Web" loading="lazy">
-          <img src="https://dummyimage.com/160x60/0056b3/ffffff&text=CodeSphere" alt="CodeSphere - Parceiro Anpha Web" loading="lazy">
-          <img src="https://dummyimage.com/160x60/0069d9/ffffff&text=ByteSoft" alt="ByteSoft - Parceiro Anpha Web" loading="lazy">
-          <img src="https://dummyimage.com/160x60/007bff/ffffff&text=WebCore" alt="WebCore - Parceiro Anpha Web" loading="lazy">
+        <h2 class="fw-bold mb-4 text-primary">Empresas que confiam na Anpha Web</h2>
+
+        <div class="swiper partners-swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/007bff/ffffff&text=NovaTech"
+                class="img-fluid" alt="NovaTech"></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/0056b3/ffffff&text=Cloudify"
+                class="img-fluid" alt="Cloudify"></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/0048b5/ffffff&text=DevLabs"
+                class="img-fluid" alt="DevLabs"></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/0069d9/ffffff&text=CodeSphere"
+                class="img-fluid" alt="CodeSphere"></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/007bff/ffffff&text=ByteSoft"
+                class="img-fluid" alt="ByteSoft"></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/160x60/0d6efd/ffffff&text=WebCore"
+                class="img-fluid" alt="WebCore"></div>
+          </div>
         </div>
       </div>
     </section>
-    
     <!-- SOBRE -->
     <section id="about" class="about section" aria-label="Sobre a Anpha Web">
       <div class="container" data-aos="fade-up">
@@ -1444,6 +1454,37 @@
           });
         });
       });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 🌀 Carrossel de parceiros
+      function initPartnersSwiper() {
+        if (typeof Swiper === 'undefined') {
+          setTimeout(initPartnersSwiper, 500);
+          return;
+        }
+
+        new Swiper('.partners-swiper', {
+          loop: true,
+          speed: 1200,
+          slidesPerView: 2,
+          spaceBetween: 30,
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
+          },
+          breakpoints: {
+            576: { slidesPerView: 3, spaceBetween: 40 },
+            768: { slidesPerView: 4, spaceBetween: 50 },
+            992: { slidesPerView: 5, spaceBetween: 60 },
+            1200: { slidesPerView: 6, spaceBetween: 70 }
+          }
+        });
+      }
+
+      initPartnersSwiper();
     });
   </script>
 
