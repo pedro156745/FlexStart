@@ -300,12 +300,17 @@
       box-shadow: 0 0 15px rgba(0, 91, 255, 0.4);
     }
 
-    /* Estilo opcional */
+    #partners {
+      overflow: hidden;
+      background: #f8f9fa;
+    }
+
     #partners img {
       filter: grayscale(100%);
       opacity: 0.7;
       transition: all 0.3s ease;
       max-height: 60px;
+      width: auto;
     }
 
     #partners img:hover {
@@ -314,8 +319,12 @@
       transform: scale(1.05);
     }
 
-    #partners {
-      overflow: hidden;
+    /* Corrige espaçamento e suaviza rolagem */
+    .partners-swiper .swiper-slide {
+      width: auto !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 
@@ -1459,34 +1468,38 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // 🌀 Carrossel de parceiros
       function initPartnersSwiper() {
-        if (typeof Swiper === 'undefined') {
+        if (typeof Swiper === "undefined") {
           setTimeout(initPartnersSwiper, 500);
           return;
         }
 
-        new Swiper('.partners-swiper', {
+        const swiper = new Swiper(".partners-swiper", {
           loop: true,
-          speed: 1200,
-          slidesPerView: 2,
-          spaceBetween: 30,
+          speed: 4000, // ⚡ movimento contínuo mais suave
+          slidesPerView: "auto", // exibe várias logos fluindo
+          spaceBetween: 50,
           autoplay: {
-            delay: 2000,
+            delay: 0, // sem pausa
             disableOnInteraction: false
           },
+          freeMode: true, // rolagem livre
+          freeModeMomentum: false, // movimento constante
           breakpoints: {
-            576: { slidesPerView: 3, spaceBetween: 40 },
-            768: { slidesPerView: 4, spaceBetween: 50 },
-            992: { slidesPerView: 5, spaceBetween: 60 },
-            1200: { slidesPerView: 6, spaceBetween: 70 }
+            320: { spaceBetween: 20 },
+            768: { spaceBetween: 40 },
+            1200: { spaceBetween: 60 }
           }
         });
+
+        // Garantir autoplay mesmo após resize
+        swiper.autoplay.start();
       }
 
       initPartnersSwiper();
     });
   </script>
+
 
 
   <!-- =======================================================
