@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <!-- ✅ Configurações básicas -->
   <meta charset="utf-8">
@@ -150,10 +151,12 @@
         transform: scale(1);
         box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
       }
+
       70% {
         transform: scale(1.08);
         box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
       }
+
       100% {
         transform: scale(1);
         box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
@@ -233,6 +236,7 @@
       .desktop-btn {
         display: inline-block;
       }
+
       .mobile-btn {
         display: none;
       }
@@ -242,10 +246,12 @@
       .desktop-btn {
         display: none;
       }
+
       .navmenu .mobile-btn {
         display: block;
         margin: 10px 0;
       }
+
       .navmenu .mobile-btn .btn-getstarted {
         display: inline-block;
         padding: 8px 16px;
@@ -327,6 +333,71 @@
       justify-content: center;
       align-items: center;
     }
+
+    .info-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px 20px;
+      text-align: center;
+      height: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .info-item i {
+      font-size: 2rem;
+      color: #0d6efd;
+      margin-bottom: 15px;
+    }
+
+    .info-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .info-item p {
+      margin-bottom: 5px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .info-item .info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .section-title {
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .contact-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
   </style>
 
   <!-- =======================================================
@@ -342,8 +413,9 @@
   <header id="header" class="header d-flex align-items-center fixed-top" role="banner" aria-label="Cabeçalho principal">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url">
-        <img src="assets/img/logo_anphaweb.png" loading="lazy" alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas"
-          itemprop="logo" width="160" height="45" decoding="async">
+        <img src="assets/img/logo_anphaweb.png" loading="lazy"
+          alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas" itemprop="logo" width="160" height="45"
+          decoding="async">
       </a>
 
       <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menu principal">
@@ -392,8 +464,8 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-out">
-            <img src="assets/img/hero-img.png" loading="lazy" class="img-fluid animated" alt="Ilustração de desenvolvimento web"
-              width="500" height="400">
+            <img src="assets/img/hero-img.png" loading="lazy" class="img-fluid animated"
+              alt="Ilustração de desenvolvimento web" width="500" height="400">
           </div>
         </div>
       </div>
@@ -881,8 +953,8 @@
                   rápido, intuitivo e as vendas aumentaram 40% no primeiro mês."
                 </p>
                 <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" loading="lazy" class="testimonial-img rounded-circle me-3"
-                    alt="Cliente Carlos Silva">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" loading="lazy"
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Carlos Silva">
                   <div>
                     <h3 class="mb-0">Carlos Silva</h3>
                     <h4 class="mb-0 text-muted">Diretor Comercial</h4>
@@ -904,8 +976,8 @@
                   solução perfeita. O atendimento foi excelente em todas as etapas."
                 </p>
                 <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" loading="lazy" class="testimonial-img rounded-circle me-3"
-                    alt="Cliente Mariana Costa">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" loading="lazy"
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Mariana Costa">
                   <div>
                     <h3 class="mb-0">Mariana Costa</h3>
                     <h4 class="mb-0 text-muted">Gerente Administrativa</h4>
@@ -927,8 +999,8 @@
                   solicitações e entregou antes do prazo. Recomendo totalmente!"
                 </p>
                 <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" loading="lazy" class="testimonial-img rounded-circle me-3"
-                    alt="Cliente Roberto Almeida">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" loading="lazy"
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Roberto Almeida">
                   <div>
                     <h3 class="mb-0">Roberto Almeida</h3>
                     <h4 class="mb-0 text-muted">CEO</h4>
@@ -1014,21 +1086,28 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco</p>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <!-- Seção de Contato -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Contato</h2>
+          <p>Entre em contato conosco</p>
+        </div>
+
         <div class="row gy-4">
           <div class="col-lg-6">
             <div class="row gy-4">
+              <!-- Card 1 - Atendimento Online -->
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <p><strong>Atendimento Online:</strong> Segunda a Sexta, 9h às 18h</p>
+                  <i class="bi bi-headset"></i>
+                  <h3>Atendimento Online</h3>
+                  <p>Segunda a Sexta</p>
+                  <p>9h às 18h</p>
                 </div>
               </div>
+
+              <!-- Card 2 - Telefone -->
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
@@ -1036,6 +1115,8 @@
                   <p>+55 (43) 99865-6546</p>
                 </div>
               </div>
+
+              <!-- Card 3 - Email -->
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-envelope"></i>
@@ -1044,34 +1125,37 @@
                   <p>vendas@anphaweb.com.br</p>
                 </div>
               </div>
+
+              <!-- Card 4 - Horário de Atendimento -->
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="500">
                   <i class="bi bi-clock"></i>
-                  <h3>Horário de Atendimento</h3>
+                  <h3>Horário Comercial</h3>
                   <p>Segunda - Sexta</p>
                   <p>9:00 - 18:00</p>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-lg-6">
-            <form id="formContato" class="php-email-form" method="POST" action="enviar_contato.php"
-              data-recaptcha="contato" data-aos="fade-up" data-aos-delay="200">
+            <form id="formContato" class="php-email-form bg-white p-4 rounded shadow-sm" data-aos="fade-up"
+              data-aos-delay="200">
               <div class="row gy-4">
                 <div class="col-md-6">
-                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required="">
+                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
                 </div>
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required="">
-                </div>
-                <div class="col-12">
-                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required="">
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required>
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required=""></textarea>
+                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                  <button type="submit" class="btn btn-primary px-4">Enviar mensagem</button>
                 </div>
               </div>
               <div id="msgRetorno" class="mt-3 text-center"></div>
@@ -1339,7 +1423,8 @@
 
   <!-- Botões flutuantes de contato -->
   <div class="contact-float">
-    <a href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!" class="float-btn whatsapp" aria-label="Fale conosco no WhatsApp" target="_blank">
+    <a href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!" class="float-btn whatsapp"
+      aria-label="Fale conosco no WhatsApp" target="_blank">
       <i class="bi bi-whatsapp"></i>
       <span class="tooltip-contact">Fale conosco 💬</span>
     </a>
@@ -1413,4 +1498,5 @@
    * https://anphaweb.com.br
  ======================================================== -->
 </body>
+
 </html>
