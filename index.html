@@ -41,155 +41,13 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0d6efd">
 
-  <!-- ✅ iOS Meta Tags -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Anpha Web">
-
   <!-- ✅ Preconnect e DNS-prefetch -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-  <!-- ✅ Preload de imagens críticas -->
-  <link rel="preload" href="assets/img/hero-img.png" as="image">
-  <link rel="preload" href="assets/img/logo_anphaweb.png" as="image">
-
-  <!-- ✅ CSS Crítico (Above the Fold) -->
-  <style>
-    /* =========================================================
-     * 🧭 ANPHA WEB - CSS CRÍTICO (Above the Fold)
-     * ========================================================= */
-    
-    /* Reset e estilos base */
-    :root {
-      --primary: #0d6efd;
-      --primary-dark: #0048b5;
-      --success: #198754;
-      --dark: #212529;
-      --light: #f8f9fa;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      overflow-x: hidden;
-    }
-    
-    /* Header e Navegação */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9997;
-      background-color: rgba(255, 255, 255, 0.95);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .header.scrolled {
-      background-color: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .logo img {
-      height: 45px;
-      width: auto;
-      transition: all 0.3s ease;
-    }
-    
-    /* Hero Section */
-    .hero {
-      padding: 160px 0 80px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      color: #1a1a1a;
-    }
-    
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: #6c757d;
-    }
-    
-    /* Botões CTA */
-    .btn-get-started {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 30px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-    }
-    
-    .btn-get-started:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
-      color: white;
-    }
-    
-    /* Skip Link para acessibilidade */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: var(--primary);
-      color: white;
-      padding: 8px;
-      text-decoration: none;
-      z-index: 10000;
-      border-radius: 0 0 4px 4px;
-    }
-    
-    .skip-link:focus {
-      top: 0;
-    }
-    
-    /* Garantir que o conteúdo crítico seja visível imediatamente */
-    .hero, .header {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    
-    /* Animações básicas */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .hero-content {
-      animation: fadeIn 0.8s ease-out;
-    }
-  </style>
-
-  <!-- ✅ Google Fonts (carregamento otimizado) -->
+  <!-- ✅ Google Fonts (carregamento assíncrono) -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
     media="print" onload="this.media='all'">
@@ -252,8 +110,8 @@
   <!-- ✅ Estilos personalizados -->
   <style>
     /* =========================================================
-     * 🧭 ANPHA WEB - Estilos Personalizados (2025)
-     * ========================================================= */
+   * 🧭 ANPHA WEB - Estilos Personalizados (2025)
+   * ========================================================= */
 
     /* ===================== BOTÕES FLUTUANTES ===================== */
     .contact-float {
@@ -493,30 +351,6 @@
       flex: 1;
       margin-bottom: 0.25rem;
     }
-
-    /* Melhorias de contraste para acessibilidade */
-    .hero h1, .section-title h2 {
-      color: #1a1a1a;
-    }
-
-    .text-muted {
-      color: #6c757d !important;
-    }
-
-    /* Loading states */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255,255,255,.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
   </style>
 
   <!-- =======================================================
@@ -528,17 +362,13 @@
 
 <body class="index-page" itemscope itemtype="https://schema.org/WebPage">
 
-  <!-- Skip Link para Acessibilidade -->
-  <a href="#main" class="skip-link">Pular para conteúdo principal</a>
-
   <!-- ================= HEADER ================= -->
   <header id="header" class="header d-flex align-items-center fixed-top" role="banner" aria-label="Cabeçalho principal">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url">
-        <!-- Imagem otimizada com fallback seguro -->
-        <img src="assets/img/logo_anphaweb.png" loading="eager"
+        <img src="assets/img/logo_anphaweb.png" loading="lazy"
           alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas" itemprop="logo" width="160" height="45"
-          decoding="async" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQ1IiB2aWV3Qm94PSIwIDAgMTYwIDQ1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iNDUiIGZpbGw9IiMwZDZlZmQiLz48dGV4dCB4PSI4MCIgeT0iMjUiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij5BbnBoYSBXZWI8L3RleHQ+PC9zdmc+'">
+          decoding="async">
       </a>
 
       <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menu principal">
@@ -569,7 +399,7 @@
     <section id="hero" class="hero section" aria-label="Seção principal - Soluções digitais para empresas">
       <div class="container">
         <div class="row gy-4 align-items-center">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center hero-content">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
             <h1 data-aos="fade-up" itemprop="headline">
               Criação de Sites e Sistemas Profissionais em Londrina
             </h1>
@@ -587,10 +417,8 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-out">
-            <!-- Imagem otimizada com fallback seguro -->
-            <img src="assets/img/hero-img.png" loading="eager" class="img-fluid animated"
-              alt="Ilustração de desenvolvimento web" width="500" height="400"
-              onerror="this.style.display='none'">
+            <img src="assets/img/hero-img.png" loading="lazy" class="img-fluid animated"
+              alt="Ilustração de desenvolvimento web" width="500" height="400">
           </div>
         </div>
       </div>
@@ -628,10 +456,8 @@
           </div>
           <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="zoom-out"
             data-aos-delay="200">
-            <!-- Imagem otimizada com fallback seguro -->
             <img src="assets/img/about.jpg" loading="lazy" class="img-fluid rounded-3 shadow-sm"
-              alt="Equipe de desenvolvimento da Anpha Web" decoding="async"
-              onerror="this.style.display='none'">
+              alt="Equipe de desenvolvimento da Anpha Web" decoding="async">
           </div>
         </div>
       </div>
@@ -647,8 +473,7 @@
         <div class="row gy-4">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/values-1.png" loading="lazy" class="img-fluid" alt="Qualidade Garantida"
-                onerror="this.style.display='none'">
+              <img src="assets/img/values-1.png" loading="lazy" class="img-fluid" alt="Qualidade Garantida">
               <h3>Qualidade Garantida</h3>
               <p>Entregamos produtos com código limpo, performance otimizada e seguindo as melhores práticas do mercado.
               </p>
@@ -656,16 +481,14 @@
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
-              <img src="assets/img/values-2.png" loading="lazy" class="img-fluid" alt="Suporte Contínuo"
-                onerror="this.style.display='none'">
+              <img src="assets/img/values-2.png" loading="lazy" class="img-fluid" alt="Suporte Contínuo">
               <h3>Suporte Contínuo</h3>
               <p>Oferecemos suporte técnico após a entrega para garantir que tudo funcione perfeitamente.</p>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
-              <img src="assets/img/values-3.png" loading="lazy" class="img-fluid" alt="Prazos Cumpridos"
-                onerror="this.style.display='none'">
+              <img src="assets/img/values-3.png" loading="lazy" class="img-fluid" alt="Prazos Cumpridos">
               <h3>Prazos Cumpridos</h3>
               <p>Respeitamos os prazos combinados e mantemos você informado sobre cada etapa do projeto.</p>
             </div>
@@ -798,8 +621,7 @@
       <div class="container">
         <div class="row gy-5">
           <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
-            <img src="assets/img/features.png" loading="lazy" class="img-fluid" alt="Tecnologias de desenvolvimento"
-              onerror="this.style.display='none'">
+            <img src="assets/img/features.png" loading="lazy" class="img-fluid" alt="Tecnologias de desenvolvimento">
           </div>
           <div class="col-xl-6 d-flex">
             <div class="row align-self-center gy-4">
@@ -943,12 +765,10 @@
           </ul>
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- Projetos do portfólio com fallback seguro -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
               <div class="portfolio-content h-100">
                 <div class="portfolio-image-wrapper">
-                  <img src="assets/img/imagem teste para colocar como site.jpg" loading="lazy" alt="Loja Virtual"
-                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmOGY5ZmEiLz48dGV4dCB4PSIyMDAiIHk9IjE1MCIgZmlsbD0iIzZjNzU3ZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiI+SW1hZ2VtIG5hbyBjYXJyZWdhZGE8L3RleHQ+PC9zdmc+'">
+                  <img src="assets/img/imagem teste para colocar como site.jpg" loading="lazy" alt="Loja Virtual">
                 </div>
                 <div class="portfolio-info">
                   <h4>Loja de Moda</h4>
@@ -964,8 +784,100 @@
               </div>
             </div>
 
-            <!-- Adicione os outros projetos do portfólio seguindo o mesmo padrão -->
-            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_ecomerce.jpg" loading="lazy" alt="Loja Virtual">
+                </div>
+                <div class="portfolio-info">
+                  <h4>Loja de Eletrônicos </h4>
+                  <p>E-commerce completo com integração</p>
+                  <a href="assets/img/imagem_site_ecomerce.jpg" title="Loja de Eletrônicos"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sistema">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_inovador.jpg" loading="lazy" alt="Sistema Inovador">
+                </div>
+                <div class="portfolio-info">
+                  <h4>Sistema Inovador</h4>
+                  <p>Desenvolvido com tecnologias modernas</p>
+                  <a href="assets/img/imagem_site_inovador.jpg" title="Sistema Inovador"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_land_page.jpg" loading="lazy" alt="Landing Page Profissional">
+                </div>
+                <div class="portfolio-info">
+                  <h4>Landing Page Profissional</h4>
+                  <p>Desenvolvida para conversão e presença digital</p>
+                  <a href="assets/img/imagem_land_page.jpg" title="Landing Page Profissional"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_diferente.jpg" loading="lazy" alt="Site Criativo">
+                </div>
+                <div class="portfolio-info">
+                  <h4>Site Criativo</h4>
+                  <p>Design moderno e navegação fluida</p>
+                  <a href="assets/img/imagem_site_diferente.jpg" title="Site Criativo"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <div class="portfolio-content h-100">
+                <div class="portfolio-image-wrapper">
+                  <img src="assets/img/imagem_site_ecoomerce.png" loading="lazy" alt="E-commerce Moderno">
+                </div>
+                <div class="portfolio-info">
+                  <h4>E-commerce Moderno</h4>
+                  <p>Experiência otimizada para vendas online</p>
+                  <a href="assets/img/imagem_site_ecoomerce.png" title="E-commerce Moderno"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <a href="portfolio-details.html" title="Mais Detalhes" class="details-link">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -995,8 +907,7 @@
                 </p>
                 <div class="profile d-flex align-items-center mt-auto">
                   <img src="assets/img/testimonials/testimonials-1.jpg" loading="lazy"
-                    class="testimonial-img rounded-circle me-3" alt="Cliente Carlos Silva"
-                    onerror="this.style.display='none'">
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Carlos Silva">
                   <div>
                     <h3 class="mb-0">Carlos Silva</h3>
                     <h4 class="mb-0 text-muted">Diretor Comercial</h4>
@@ -1004,7 +915,52 @@
                 </div>
               </div>
             </div>
-            <!-- Adicione os outros depoimentos seguindo o mesmo padrão -->
+            <div class="swiper-slide">
+              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
+                <div class="stars mb-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <p class="mb-3 flex-grow-1">
+                  "Precisávamos de um sistema personalizado para nossa clínica e a equipe da Anpha Web entregou uma
+                  solução perfeita. O atendimento foi excelente em todas as etapas."
+                </p>
+                <div class="profile d-flex align-items-center mt-auto">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" loading="lazy"
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Mariana Costa">
+                  <div>
+                    <h3 class="mb-0">Mariana Costa</h3>
+                    <h4 class="mb-0 text-muted">Gerente Administrativa</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
+                <div class="stars mb-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <p class="mb-3 flex-grow-1">
+                  "Nosso site institucional ficou incrível! A equipe foi muito profissional, atendeu todas as nossas
+                  solicitações e entregou antes do prazo. Recomendo totalmente!"
+                </p>
+                <div class="profile d-flex align-items-center mt-auto">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" loading="lazy"
+                    class="testimonial-img rounded-circle me-3" alt="Cliente Roberto Almeida">
+                  <div>
+                    <h3 class="mb-0">Roberto Almeida</h3>
+                    <h4 class="mb-0 text-muted">CEO</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="swiper-pagination mt-3"></div>
         </div>
@@ -1141,10 +1097,7 @@
                   <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required=""></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">
-                    <span class="btn-text">Enviar mensagem</span>
-                    <span class="loading d-none"></span>
-                  </button>
+                  <button type="submit" class="btn btn-primary">Enviar mensagem</button>
                 </div>
               </div>
               <div id="msgRetorno" class="mt-3 text-center"></div>
@@ -1165,10 +1118,7 @@
             <form id="newsletterForm" class="php-email-form">
               <div class="newsletter-form d-flex">
                 <input type="email" name="email" class="form-control me-2" placeholder="Seu e-mail" required>
-                <button type="submit" class="btn btn-primary">
-                  <span class="btn-text">Inscrever</span>
-                  <span class="loading d-none"></span>
-                </button>
+                <button type="submit" class="btn btn-primary">Inscrever</button>
               </div>
               <div id="newsletter-feedback" class="mt-3"></div>
             </form>
@@ -1181,8 +1131,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <img src="assets/img/logo_anphaweb.png" loading="lazy" alt="Anpha Web" style="height:50px; width:auto;"
-              onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTYwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iNTAiIGZpbGw9IiMwZDZlZmQiLz48dGV4dCB4PSI4MCIgeT0iMjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIj5BbnBoYSBXZWI8L3RleHQ+PC9zdmc+'">
+            <img src="assets/img/logo_anphaweb.png" loading="lazy" alt="Anpha Web" style="height:50px; width:auto;">
           </a>
           <div class="footer-contact pt-3">
             <p><strong>Atendimento Online:</strong> Segunda a Sexta, 9h às 18h</p>
@@ -1269,19 +1218,6 @@
    * Scripts personalizados otimizados
  ======================================================== -->
   <script>
-    // Service Worker para PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function(registration) {
-            console.log('ServiceWorker registrado com sucesso: ', registration.scope);
-          })
-          .catch(function(err) {
-            console.log('Falha ao registrar ServiceWorker: ', err);
-          });
-      });
-    }
-
     // Inicialização de plugins com fallback
     window.addEventListener('DOMContentLoaded', () => {
       try {
@@ -1356,47 +1292,6 @@
       setTimeout(initTestimonialsSwiper, 1000);
       window.addEventListener('load', initTestimonialsSwiper);
     });
-
-    // Função para mostrar feedback de formulário
-    function showFormFeedback(type, message) {
-      const feedback = document.createElement('div');
-      feedback.className = `alert alert-${type} alert-dismissible fade show`;
-      feedback.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      return feedback;
-    }
-
-    // Loading states para formulários
-    document.addEventListener('submit', function(e) {
-      const form = e.target;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const btnText = submitBtn.querySelector('.btn-text');
-      const loading = submitBtn.querySelector('.loading');
-      
-      if (btnText && loading) {
-        btnText.classList.add('d-none');
-        loading.classList.remove('d-none');
-        submitBtn.disabled = true;
-        
-        // Restaurar estado após 5 segundos (fallback)
-        setTimeout(() => {
-          btnText.classList.remove('d-none');
-          loading.classList.add('d-none');
-          submitBtn.disabled = false;
-        }, 5000);
-      }
-    });
-
-    // Monitoramento de Core Web Vitals
-    if (typeof webVitals !== 'undefined') {
-      webVitals.getCLS(console.log);
-      webVitals.getFID(console.log);
-      webVitals.getLCP(console.log);
-      webVitals.getFCP(console.log);
-      webVitals.getTTFB(console.log);
-    }
   </script>
 
   <script>
@@ -1405,14 +1300,13 @@
 
       const form = e.target;
       const feedback = document.getElementById('newsletter-feedback');
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const btnText = submitBtn.querySelector('.btn-text');
-      const loading = submitBtn.querySelector('.loading');
 
       // Spinner de carregamento
-      btnText.classList.add('d-none');
-      loading.classList.remove('d-none');
-      submitBtn.disabled = true;
+      feedback.innerHTML = `<div class="d-flex justify-content-center mt-2">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>`;
 
       fetch('newsletter.php', {
         method: 'POST',
@@ -1448,11 +1342,6 @@
         .catch(err => {
           feedback.innerHTML = `<div class="alert alert-danger text-center"><i class="bi bi-x-circle-fill me-2"></i>Erro inesperado. Tente novamente.</div>`;
           console.error(err);
-        })
-        .finally(() => {
-          btnText.classList.remove('d-none');
-          loading.classList.add('d-none');
-          submitBtn.disabled = false;
         });
     });
   </script>
@@ -1493,14 +1382,10 @@
 
       const msgBox = document.getElementById('msgRetorno');
       const btn = form.querySelector('button[type="submit"]');
-      const btnText = btn.querySelector('.btn-text');
-      const loading = btn.querySelector('.loading');
       const siteKey = '6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3';
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        btnText.classList.add('d-none');
-        loading.classList.remove('d-none');
         btn.disabled = true;
         msgBox.innerHTML = '<div class="alert alert-info fade show">Validando reCAPTCHA...</div>';
 
@@ -1526,6 +1411,7 @@
                 ${data.msg}
               </div>`;
 
+                btn.disabled = false;
                 if (data.status === 'sucesso') form.reset();
 
                 // ⏳ Oculta mensagem após 4 segundos
@@ -1540,12 +1426,8 @@
               })
               .catch(() => {
                 msgBox.innerHTML = '<div class="alert alert-danger fade show">Erro de rede. Tente novamente.</div>';
-                setTimeout(() => { msgBox.innerHTML = ''; }, 4000);
-              })
-              .finally(() => {
-                btnText.classList.remove('d-none');
-                loading.classList.add('d-none');
                 btn.disabled = false;
+                setTimeout(() => { msgBox.innerHTML = ''; }, 4000);
               });
           });
         });
