@@ -883,89 +883,152 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Depoimentos Section -->
     <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Depoimentos</h2>
-        <p>O que nossos clientes dizem<br></p>
+        <p>O que nossos clientes dizem sobre nós</p>
       </div>
+      <!-- End Section Title -->
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper testimonials-swiper">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": { "delay": 5000 },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": { "slidesPerView": 1, "spaceBetween": 40 },
+            "1200": { "slidesPerView": 3, "spaceBetween": 1 }
+          }
+        }
+      </script>
+
           <div class="swiper-wrapper">
+
+            <!-- Depoimento 1 -->
             <div class="swiper-slide">
-              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
-                <div class="stars mb-2">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
-                <p class="mb-3 flex-grow-1">
-                  "A Anpha Web desenvolveu nosso e-commerce e o resultado superou todas as expectativas. O site é
-                  rápido, intuitivo e as vendas aumentaram 40% no primeiro mês."
+                <p>
+                  A AnphaWeb superou nossas expectativas. O site ficou moderno, rápido e exatamente como queríamos.
+                  Atendimento excelente do início ao fim.
                 </p>
-                <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" loading="lazy"
-                    class="testimonial-img rounded-circle me-3" alt="Cliente Carlos Silva">
-                  <div>
-                    <h3 class="mb-0">Carlos Silva</h3>
-                    <h4 class="mb-0 text-muted">Diretor Comercial</h4>
-                  </div>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="Foto cliente 1">
+                  <h3>Saul Goodman</h3>
+                  <h4>CEO - Prime Consult</h4>
                 </div>
               </div>
             </div>
+            <!-- End -->
+
+            <!-- Depoimento 2 -->
             <div class="swiper-slide">
-              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
-                <div class="stars mb-2">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
-                <p class="mb-3 flex-grow-1">
-                  "Precisávamos de um sistema personalizado para nossa clínica e a equipe da Anpha Web entregou uma
-                  solução perfeita. O atendimento foi excelente em todas as etapas."
+                <p>
+                  Precisei de um site institucional e a entrega foi rápida, organizada e com uma identidade visual
+                  incrível.
+                  Recomendo demais o trabalho da AnphaWeb.
                 </p>
-                <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" loading="lazy"
-                    class="testimonial-img rounded-circle me-3" alt="Cliente Mariana Costa">
-                  <div>
-                    <h3 class="mb-0">Mariana Costa</h3>
-                    <h4 class="mb-0 text-muted">Gerente Administrativa</h4>
-                  </div>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="Foto cliente 2">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
                 </div>
               </div>
             </div>
+            <!-- End -->
+
+            <!-- Depoimento 3 -->
             <div class="swiper-slide">
-              <div class="testimonial-item p-4 border rounded shadow-sm h-100 d-flex flex-column">
-                <div class="stars mb-2">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
-                <p class="mb-3 flex-grow-1">
-                  "Nosso site institucional ficou incrível! A equipe foi muito profissional, atendeu todas as nossas
-                  solicitações e entregou antes do prazo. Recomendo totalmente!"
+                <p>
+                  Contratamos um sistema interno e ficou perfeito! Tudo funcionando, fácil de usar e exatamente conforme
+                  solicitado. Suporte muito ágil também.
                 </p>
-                <div class="profile d-flex align-items-center mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" loading="lazy"
-                    class="testimonial-img rounded-circle me-3" alt="Cliente Roberto Almeida">
-                  <div>
-                    <h3 class="mb-0">Roberto Almeida</h3>
-                    <h4 class="mb-0 text-muted">CEO</h4>
-                  </div>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="Foto cliente 3">
+                  <h3>Jena Karlis</h3>
+                  <h4>Empresária</h4>
                 </div>
               </div>
             </div>
+            <!-- End -->
+
+            <!-- Depoimento 4 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Ótima experiência! O site ficou com carregamento extremamente rápido e muito bem otimizado para SEO.
+                  Já
+                  estamos colhendo resultados.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="Foto cliente 4">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Depoimento 5 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  A AnphaWeb transformou nossas ideias em um site profissional e totalmente responsivo. Atendimento
+                  rápido
+                  e entrega impecável.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="Foto cliente 5">
+                  <h3>John Larson</h3>
+                  <h4>Empreendedor</h4>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
           </div>
-          <div class="swiper-pagination mt-3"></div>
+
+          <div class="swiper-pagination"></div>
         </div>
+
       </div>
+
     </section>
+    <!-- /Depoimentos Section -->
+
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
@@ -1037,6 +1100,201 @@
         </div>
       </div>
     </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Nossos Clientes</h2>
+        <p>Empresas que confiam na AnphaWeb</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 2,
+              "spaceBetween": 40
+            },
+            "480": {
+              "slidesPerView": 3,
+              "spaceBetween": 60
+            },
+            "640": {
+              "slidesPerView": 4,
+              "spaceBetween": 80
+            },
+            "992": {
+              "slidesPerView": 6,
+              "spaceBetween": 120
+            }
+          }
+        }
+      </script>
+
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt="Logo cliente 1">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt="Logo cliente 2">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt="Logo cliente 3">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt="Logo cliente 4">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt="Logo cliente 5">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt="Logo cliente 6">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt="Logo cliente 7">
+            </div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt="Logo cliente 8">
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Clients Section -->
+
+
+    <!-- Recent Posts Section -->
+    <section id="recent-posts" class="recent-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Conteúdos Recentes</h2>
+        <p>Confira as últimas novidades e artigos do nosso blog</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <!-- Post 1 -->
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="Imagem do artigo 1">
+                <span class="post-date">12 Dez</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+                <h3 class="post-title">Como um site profissional pode aumentar suas vendas</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Marketing Digital</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-detalhes-1.html" class="readmore stretched-link">
+                  <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End post item -->
+
+          <!-- Post 2 -->
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="Imagem do artigo 2">
+                <span class="post-date">17 Jul</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+                <h3 class="post-title">Por que sua empresa precisa de um sistema personalizado</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Tecnologia</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-detalhes-2.html" class="readmore stretched-link">
+                  <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End post item -->
+
+          <!-- Post 3 -->
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="post-item position-relative h-100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="Imagem do artigo 3">
+                <span class="post-date">05 Set</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+                <h3 class="post-title">Tendências modernas de design para sites em 2025</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Design</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-detalhes-3.html" class="readmore stretched-link">
+                  <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End post item -->
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Recent Posts Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
