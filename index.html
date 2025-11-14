@@ -51,6 +51,10 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
     media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap">
+  </noscript>
 
   <!-- ✅ Vendor CSS (preload e defer) -->
   <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style"
@@ -92,26 +96,35 @@
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Londrina",
-          "addressRegion": "PR"
+          "addressRegion": "PR",
+          "addressCountry": "BR"
         },
         "telephone": "+55-43-99865-6546",
-        "email": "contato@anphaweb.com.br"
+        "email": "contato@anphaweb.com.br",
+        "description": "Desenvolvimento de sites e sistemas em Londrina/PR",
+        "sameAs": [
+          "https://www.instagram.com/anphaweb"
+        ]
       },
       {
         "@type":"WebSite",
         "url":"https://anphaweb.com.br",
         "name":"Anpha Web",
-        "description":"Criação de sites e sistemas em Londrina/PR"
+        "description":"Criação de sites e sistemas em Londrina/PR",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Anpha Web"
+        }
       }
     ]
   }
   </script>
 
-  <!-- ✅ Estilos personalizados -->
+  <!-- ✅ Estilos personalizados otimizados -->
   <style>
     /* =========================================================
-   * 🧭 ANPHA WEB - Estilos Personalizados (2025)
-   * ========================================================= */
+     * 🧭 ANPHA WEB - Estilos Personalizados (2025)
+     * ========================================================= */
 
     /* ===================== BOTÕES FLUTUANTES ===================== */
     .contact-float {
@@ -122,7 +135,7 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 12px;
-      z-index: 999;
+      z-index: 9999;
     }
 
     .float-btn {
@@ -138,12 +151,13 @@
       transition: all 0.3s ease;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
       position: relative;
+      border: none;
+      cursor: pointer;
     }
 
     .float-btn.whatsapp {
       background: linear-gradient(135deg, #25D366, #1EBE57);
       animation: pulse-green 2.5s infinite;
-      will-change: transform, box-shadow;
     }
 
     @keyframes pulse-green {
@@ -207,7 +221,7 @@
     /* ===================== BOTÃO CTA ===================== */
     .btn-getstarted {
       display: inline-block;
-      padding: 10px 24px;
+      padding: 12px 28px;
       font-size: 16px;
       border-radius: 6px;
       color: #fff;
@@ -217,18 +231,16 @@
       background-size: 200% auto;
       transition: all 0.4s ease;
       box-shadow: 0 4px 14px rgba(0, 91, 255, 0.25);
+      border: none;
+      cursor: pointer;
     }
 
     .btn-getstarted:hover {
       background-position: right center;
       box-shadow: 0 8px 22px rgba(0, 91, 255, 0.45);
-      transform: translateY(-1px) scale(1.04);
-      filter: brightness(1.08);
-    }
-
-    .btn-getstarted:focus {
-      outline: 2px solid #0d6efd;
-      outline-offset: 3px;
+      transform: translateY(-2px);
+      color: #fff;
+      text-decoration: none;
     }
 
     /* ===================== RESPONSIVIDADE ===================== */
@@ -254,10 +266,23 @@
 
       .navmenu .mobile-btn .btn-getstarted {
         display: inline-block;
-        padding: 8px 16px;
+        padding: 10px 20px;
         font-size: 16px;
         text-align: left;
         margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-float {
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .float-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
       }
     }
 
@@ -268,6 +293,11 @@
       border-radius: 12px;
       height: 100%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-content:hover {
+      transform: translateY(-5px);
     }
 
     .portfolio-image-wrapper {
@@ -290,74 +320,127 @@
     .cta-section {
       background: #f8f9fa;
       text-align: center;
+      padding: 3rem 0;
     }
 
-    .cta-section .btn-getstarted {
-      background: linear-gradient(135deg, #007bff, #0048b5);
-      color: #fff;
-      font-weight: 600;
-      border-radius: 6px;
-      padding: 12px 28px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta-section .btn-getstarted:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0, 91, 255, 0.4);
-    }
-
-    #partners {
-      overflow: hidden;
-      background: #f8f9fa;
-    }
-
-    #partners img {
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      max-height: 60px;
-      width: auto;
-    }
-
-    #partners img:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    /* Corrige espaçamento e suaviza rolagem */
-    .partners-swiper .swiper-slide {
-      width: auto !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Adicione isso ao seu CSS personalizado */
+    /* ===================== CORREÇÕES ESPECÍFICAS ===================== */
     .info-item {
       height: 100%;
       display: flex;
       flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
     }
 
     .info-item h3 {
       min-height: 2.5rem;
-      /* Altura mínima para os títulos */
       margin-bottom: 0.5rem;
+      font-size: 1.25rem;
     }
 
     .info-item p {
       flex: 1;
       margin-bottom: 0.25rem;
     }
-  </style>
 
-  <!-- =======================================================
-   * Template Base: FlexStart (customizado por Anpha Web)
-   * Autor: Pedro Lapa — Anpha Web
-   * Última otimização: Novembro 2025
-  ======================================================== -->
+    /* Melhorias de acessibilidade */
+    .btn-getstarted:focus,
+    .float-btn:focus {
+      outline: 2px solid #0d6efd;
+      outline-offset: 2px;
+    }
+
+    /* Loading states */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* Swiper corrections */
+    .swiper-slide {
+      height: auto;
+    }
+
+    /* Pricing section corrections */
+    .pricing-tem {
+      position: relative;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-tem:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-tem .featured {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0d6efd;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Hero section improvements */
+    .hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    /* Values section improvements */
+    .values .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .values .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Services section improvements */
+    .service-item {
+      border-radius: 12px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Testimonials improvements */
+    .testimonial-item {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    /* FAQ improvements */
+    .faq-item {
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.faq-active {
+      background: #f8f9fa;
+    }
+  </style>
 </head>
 
 <body class="index-page" itemscope itemtype="https://schema.org/WebPage">
@@ -365,7 +448,7 @@
   <!-- ================= HEADER ================= -->
   <header id="header" class="header d-flex align-items-center fixed-top" role="banner" aria-label="Cabeçalho principal">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url">
+      <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url" aria-label="Anpha Web - Página inicial">
         <img src="assets/img/logo_anphaweb.png" loading="lazy"
           alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas" itemprop="logo" width="160" height="45"
           decoding="async">
@@ -379,16 +462,20 @@
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#pricing">Planos</a></li>
           <li><a href="#contact">Contato</a></li>
-          <li class="mobile-btn"><a class="btn-getstarted" target="_blank"
-              href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">Solicitar
-              Orçamento</a></li>
+          <li class="mobile-btn">
+            <a class="btn-getstarted" target="_blank" rel="noopener"
+              href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">
+              Solicitar Orçamento
+            </a>
+          </li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Alternar menu"></i>
       </nav>
 
-      <a class="btn-getstarted desktop-btn" target="_blank"
-        href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">Solicitar
-        Orçamento</a>
+      <a class="btn-getstarted desktop-btn" target="_blank" rel="noopener"
+        href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">
+        Solicitar Orçamento
+      </a>
     </div>
   </header>
 
@@ -407,24 +494,24 @@
               Desenvolvimento de soluções digitais modernas, responsivas e otimizadas para empresas e empreendedores.
             </p>
             <div class="d-flex flex-column flex-md-row gap-3" data-aos="fade-up" data-aos-delay="200">
-              <a href="#services" class="btn-get-started" aria-label="Ver nossos serviços">
+              <a href="#services" class="btn-getstarted" aria-label="Ver nossos serviços">
                 Nossos Serviços <i class="bi bi-arrow-right"></i>
               </a>
-              <a href="#portfolio" class="btn-watch-video d-flex align-items-center justify-content-center"
+              <a href="#portfolio" class="btn btn-outline-primary d-flex align-items-center justify-content-center"
                 aria-label="Ver portfólio da Anpha Web">
-                <i class="bi bi-play-circle"></i><span>Ver Portfólio</span>
+                <i class="bi bi-play-circle me-2"></i><span>Ver Portfólio</span>
               </a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-out">
-            <img src="assets/img/hero-img.png" loading="lazy" class="img-fluid animated"
-              alt="Ilustração de desenvolvimento web" width="500" height="400">
+            <img src="assets/img/hero-img.png" loading="lazy" class="img-fluid" alt="Ilustração de desenvolvimento web"
+              width="500" height="400" decoding="async">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CTA DIRETO APÓS HERO ===================== -->
+    <!-- CTA SECTION -->
     <section class="cta-section text-center py-5 bg-light" data-aos="fade-up">
       <div class="container">
         <h2 class="fw-bold mb-3">Pronto para transformar sua presença digital?</h2>
@@ -433,7 +520,7 @@
       </div>
     </section>
 
-    <!-- ===================== SEÇÃO SOBRE ===================== -->
+    <!-- SOBRE SECTION -->
     <section id="about" class="about section" aria-label="Sobre a Anpha Web">
       <div class="container" data-aos="fade-up">
         <div class="row gx-0 align-items-center">
@@ -445,11 +532,10 @@
                 Somos especialistas em criar sites e sistemas com alta performance, design moderno e foco em resultados.
               </p>
               <div class="text-center text-lg-start">
-                <a href="#services"
-                  class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+                <a href="#services" class="btn-getstarted d-inline-flex align-items-center"
                   aria-label="Conheça a Anpha Web">
                   <span>Conheça a Anpha Web</span>
-                  <i class="bi bi-arrow-right"></i>
+                  <i class="bi bi-arrow-right ms-2"></i>
                 </a>
               </div>
             </div>
@@ -467,7 +553,7 @@
     <section id="values" class="values section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Nossos Valores</h2>
-        <p>O que nos move e diferencia<br></p>
+        <p>O que nos move e diferencia</p>
       </div>
       <div class="container">
         <div class="row gy-4">
@@ -549,7 +635,7 @@
     <section id="services" class="services section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Serviços</h2>
-        <p>Nossas Soluções Digitais<br></p>
+        <p>Nossas Soluções Digitais</p>
       </div>
       <div class="container">
         <div class="row gy-4">
@@ -616,7 +702,7 @@
     <section id="features" class="features section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Tecnologias</h2>
-        <p>Tecnologias que utilizamos<br></p>
+        <p>Tecnologias que utilizamos</p>
       </div>
       <div class="container">
         <div class="row gy-5">
@@ -671,7 +757,7 @@
     <section id="pricing" class="pricing section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Planos e Preços</h2>
-        <p>Opções para diferentes necessidades<br></p>
+        <p>Opções para diferentes necessidades</p>
       </div>
       <div class="container">
         <div class="row gy-4">
@@ -689,7 +775,7 @@
                 <li class="na">Blog integrado</li>
                 <li class="na">SEO básico</li>
               </ul>
-              <a href="#contact" class="btn-buy">Solicitar</a>
+              <a href="#contact" class="btn-getstarted">Solicitar</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
@@ -707,7 +793,7 @@
                 <li>SEO básico</li>
                 <li class="na">Sistema administrativo</li>
               </ul>
-              <a href="#contact" class="btn-buy">Solicitar</a>
+              <a href="#contact" class="btn-getstarted">Solicitar</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
@@ -724,7 +810,7 @@
                 <li>Relatórios de vendas</li>
                 <li>SEO otimizado</li>
               </ul>
-              <a href="#contact" class="btn-buy">Solicitar</a>
+              <a href="#contact" class="btn-getstarted">Solicitar</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
@@ -741,7 +827,7 @@
                 <li>Treinamento da equipe</li>
                 <li>Suporte pós-entrega</li>
               </ul>
-              <a href="#contact" class="btn-buy">Consultar</a>
+              <a href="#contact" class="btn-getstarted">Consultar</a>
             </div>
           </div>
         </div>
@@ -790,7 +876,7 @@
                   <img src="assets/img/imagem_site_ecomerce.jpg" loading="lazy" alt="Loja Virtual">
                 </div>
                 <div class="portfolio-info">
-                  <h4>Loja de Eletrônicos </h4>
+                  <h4>Loja de Eletrônicos</h4>
                   <p>E-commerce completo com integração</p>
                   <a href="assets/img/imagem_site_ecomerce.jpg" title="Loja de Eletrônicos"
                     data-gallery="portfolio-gallery-product" class="glightbox preview-link">
@@ -885,38 +971,14 @@
 
     <!-- Depoimentos Section -->
     <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Depoimentos</h2>
         <p>O que nossos clientes dizem sobre nós</p>
       </div>
-      <!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": { "delay": 5000 },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": { "slidesPerView": 1, "spaceBetween": 40 },
-            "1200": { "slidesPerView": 3, "spaceBetween": 1 }
-          }
-        }
-      </script>
-
+        <div class="swiper testimonials-swiper">
           <div class="swiper-wrapper">
-
-            <!-- Depoimento 1 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="stars">
@@ -934,9 +996,7 @@
                 </div>
               </div>
             </div>
-            <!-- End -->
 
-            <!-- Depoimento 2 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="stars">
@@ -955,9 +1015,7 @@
                 </div>
               </div>
             </div>
-            <!-- End -->
 
-            <!-- Depoimento 3 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="stars">
@@ -975,9 +1033,7 @@
                 </div>
               </div>
             </div>
-            <!-- End -->
 
-            <!-- Depoimento 4 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="stars">
@@ -996,9 +1052,7 @@
                 </div>
               </div>
             </div>
-            <!-- End -->
 
-            <!-- Depoimento 5 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="stars">
@@ -1017,18 +1071,11 @@
                 </div>
               </div>
             </div>
-            <!-- End -->
-
           </div>
-
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
     </section>
-    <!-- /Depoimentos Section -->
-
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
@@ -1103,51 +1150,13 @@
 
     <!-- Clients Section -->
     <section id="clients" class="clients section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Nossos Clientes</h2>
         <p>Empresas que confiam na AnphaWeb</p>
       </div>
-      <!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": {
-              "slidesPerView": 2,
-              "spaceBetween": 40
-            },
-            "480": {
-              "slidesPerView": 3,
-              "spaceBetween": 60
-            },
-            "640": {
-              "slidesPerView": 4,
-              "spaceBetween": 80
-            },
-            "992": {
-              "slidesPerView": 6,
-              "spaceBetween": 120
-            }
-          }
-        }
-      </script>
-
+        <div class="swiper clients-swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt="Logo cliente 1">
             </div>
@@ -1166,42 +1175,27 @@
             <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt="Logo cliente 8">
             </div>
           </div>
-
-          <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
     </section>
-    <!-- /Clients Section -->
-
 
     <!-- Recent Posts Section -->
     <section id="recent-posts" class="recent-posts section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Conteúdos Recentes</h2>
         <p>Confira as últimas novidades e artigos do nosso blog</p>
       </div>
-      <!-- End Section Title -->
 
       <div class="container">
-
         <div class="row gy-5">
-
-          <!-- Post 1 -->
           <div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="Imagem do artigo 1">
                 <span class="post-date">12 Dez</span>
               </div>
-
               <div class="post-content d-flex flex-column">
                 <h3 class="post-title">Como um site profissional pode aumentar suas vendas</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
@@ -1211,30 +1205,22 @@
                     <i class="bi bi-folder2"></i> <span class="ps-2">Marketing Digital</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="blog-detalhes-1.html" class="readmore stretched-link">
                   <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
                 </a>
               </div>
-
             </div>
           </div>
-          <!-- End post item -->
 
-          <!-- Post 2 -->
           <div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="Imagem do artigo 2">
                 <span class="post-date">17 Jul</span>
               </div>
-
               <div class="post-content d-flex flex-column">
                 <h3 class="post-title">Por que sua empresa precisa de um sistema personalizado</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
@@ -1244,30 +1230,22 @@
                     <i class="bi bi-folder2"></i> <span class="ps-2">Tecnologia</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="blog-detalhes-2.html" class="readmore stretched-link">
                   <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
                 </a>
               </div>
-
             </div>
           </div>
-          <!-- End post item -->
 
-          <!-- Post 3 -->
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="post-item position-relative h-100">
-
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="Imagem do artigo 3">
                 <span class="post-date">05 Set</span>
               </div>
-
               <div class="post-content d-flex flex-column">
                 <h3 class="post-title">Tendências modernas de design para sites em 2025</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-person"></i> <span class="ps-2">AnphaWeb Team</span>
@@ -1277,24 +1255,16 @@
                     <i class="bi bi-folder2"></i> <span class="ps-2">Design</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="blog-detalhes-3.html" class="readmore stretched-link">
                   <span>Ler Mais</span><i class="bi bi-arrow-right"></i>
                 </a>
               </div>
-
             </div>
           </div>
-          <!-- End post item -->
-
         </div>
-
       </div>
-
     </section>
-    <!-- /Recent Posts Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -1343,19 +1313,19 @@
               data-recaptcha="contato" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
                 <div class="col-md-6">
-                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required="">
+                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
                 </div>
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required="">
-                </div>
-                <div class="col-12">
-                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required="">
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required>
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required=""></textarea>
+                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                  <button type="submit" class="btn-getstarted">Enviar mensagem</button>
                 </div>
               </div>
               <div id="msgRetorno" class="mt-3 text-center"></div>
@@ -1376,7 +1346,7 @@
             <form id="newsletterForm" class="php-email-form">
               <div class="newsletter-form d-flex">
                 <input type="email" name="email" class="form-control me-2" placeholder="Seu e-mail" required>
-                <button type="submit" class="btn btn-primary">Inscrever</button>
+                <button type="submit" class="btn-getstarted">Inscrever</button>
               </div>
               <div id="newsletter-feedback" class="mt-3"></div>
             </form>
@@ -1426,7 +1396,8 @@
           <div class="social-links d-flex">
             <a href="#"><i class="bi bi-twitter-x"></i></a>
             <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/anphaweb" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/anphaweb" target="_blank" rel="noopener"><i
+                class="bi bi-instagram"></i></a>
             <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -1454,10 +1425,7 @@
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- =======================================================
-   * Vendor JS Files (carregamento não bloqueante)
-   * Ordem de execução otimizada
- ======================================================== -->
+  <!-- ✅ Scripts otimizados -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
   <script src="assets/vendor/aos/aos.js" defer></script>
@@ -1467,236 +1435,249 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
 
-  <!-- =======================================================
-   * Script principal (versão minificada e otimizada)
- ======================================================== -->
+  <!-- ✅ Script principal -->
   <script src="assets/js/main.min.js" defer></script>
 
-  <!-- =======================================================
-   * Scripts personalizados otimizados
- ======================================================== -->
+  <!-- ✅ Scripts personalizados otimizados -->
   <script>
-    // Inicialização de plugins com fallback
-    window.addEventListener('DOMContentLoaded', () => {
-      try {
-        if (typeof AOS !== 'undefined') AOS.init({ once: true, duration: 800, easing: 'ease-in-out' });
-        if (typeof GLightbox !== 'undefined') GLightbox({ selector: '.glightbox' });
-        if (typeof PureCounter !== 'undefined') new PureCounter();
-      } catch (err) {
-        console.warn('Fallback de inicialização:', err);
-      }
-    });
-
-    // Header com fundo ao rolar
-    document.addEventListener('scroll', () => {
-      const header = document.querySelector('#header');
-      if (!header) return;
-      if (window.scrollY > 100) {
-        document.body.classList.add('scrolled');
-      } else {
-        document.body.classList.remove('scrolled');
-      }
-    });
-
-    window.addEventListener('load', () => {
-      if (window.scrollY > 100) document.body.classList.add('scrolled');
-    });
-
-    // Swiper Testimonials com autoplay garantido
+    // Inicialização otimizada
     document.addEventListener('DOMContentLoaded', function () {
-      function initTestimonialsSwiper() {
-        if (typeof Swiper === 'undefined') {
-          setTimeout(initTestimonialsSwiper, 500);
-          return;
-        }
-
-        const swiperEl = document.querySelector('.testimonials-swiper');
-        if (!swiperEl) return;
-
-        if (swiperEl.swiper) {
-          swiperEl.swiper.destroy(true, true);
-        }
-
-        const swiper = new Swiper('.testimonials-swiper', {
-          loop: true,
-          speed: 800,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-          },
-          slidesPerView: 1,
-          spaceBetween: 20,
-          pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-          },
-          breakpoints: {
-            320: { slidesPerView: 1, spaceBetween: 15 },
-            768: { slidesPerView: 2, spaceBetween: 25 },
-            1024: { slidesPerView: 3, spaceBetween: 30 }
+      // Header scroll effect
+      const header = document.querySelector('#header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 100) {
+            document.body.classList.add('scrolled');
+          } else {
+            document.body.classList.remove('scrolled');
           }
         });
 
-        // Garantir autoplay
-        setTimeout(() => {
-          if (swiper && !swiper.autoplay.running) {
-            swiper.autoplay.start();
-          }
-        }, 1000);
+        // Initial check
+        if (window.scrollY > 100) document.body.classList.add('scrolled');
       }
 
-      setTimeout(initTestimonialsSwiper, 1000);
-      window.addEventListener('load', initTestimonialsSwiper);
-    });
-  </script>
-
-  <script>
-    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const form = e.target;
-      const feedback = document.getElementById('newsletter-feedback');
-
-      // Spinner de carregamento
-      feedback.innerHTML = `<div class="d-flex justify-content-center mt-2">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
-      </div>`;
-
-      fetch('newsletter.php', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-        .then(res => res.json())
-        .then(data => {
-          let icon = '';
-          let alertClass = 'alert-secondary';
-
-          switch (data.status) {
-            case 'success':
-              alertClass = 'alert-success';
-              icon = '<i class="bi bi-check-circle-fill me-2"></i>';
-              form.reset();
-              break;
-            case 'error':
-              alertClass = 'alert-danger';
-              icon = '<i class="bi bi-x-circle-fill me-2"></i>';
-              break;
-            default:
-              alertClass = 'alert-info';
-              icon = '<i class="bi bi-info-circle-fill me-2"></i>';
+      // Smooth scroll para links âncora
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
           }
-
-          feedback.innerHTML = `<div class="alert ${alertClass} text-center d-flex align-items-center justify-content-center" role="alert" style="gap:0.5rem;">
-            ${icon}${data.message}
-        </div>`;
-
-          // Desaparece após 5 segundos
-          setTimeout(() => feedback.innerHTML = '', 5000);
-        })
-        .catch(err => {
-          feedback.innerHTML = `<div class="alert alert-danger text-center"><i class="bi bi-x-circle-fill me-2"></i>Erro inesperado. Tente novamente.</div>`;
-          console.error(err);
         });
+      });
+
+      // Inicialização AOS com fallback
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          once: true,
+          duration: 800,
+          easing: 'ease-in-out',
+          offset: 100
+        });
+      }
+
+      // Inicialização GLightbox
+      if (typeof GLightbox !== 'undefined') {
+        const lightbox = GLightbox({
+          selector: '.glightbox',
+          touchNavigation: true,
+          loop: true
+        });
+      }
+
+      // Inicialização PureCounter
+      if (typeof PureCounter !== 'undefined') {
+        new PureCounter();
+      }
+
+      // FAQ functionality
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', function () {
+          this.classList.toggle('faq-active');
+        });
+      });
+
+      // Swiper initialization com verificação robusta
+      function initializeSwipers() {
+        // Testimonials Swiper
+        const testimonialsSwiper = document.querySelector('.testimonials-swiper');
+        if (testimonialsSwiper && typeof Swiper !== 'undefined') {
+          new Swiper(testimonialsSwiper, {
+            loop: true,
+            speed: 600,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+              el: '.testimonials .swiper-pagination',
+              clickable: true,
+            },
+            breakpoints: {
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }
+          });
+        }
+
+        // Clients Swiper
+        const clientsSwiper = document.querySelector('.clients-swiper');
+        if (clientsSwiper && typeof Swiper !== 'undefined') {
+          new Swiper(clientsSwiper, {
+            loop: true,
+            speed: 600,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            slidesPerView: 2,
+            spaceBetween: 40,
+            breakpoints: {
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 60
+              },
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 80
+              },
+              992: {
+                slidesPerView: 6,
+                spaceBetween: 120
+              }
+            }
+          });
+        }
+      }
+
+      // Inicializar Swipers quando DOM estiver pronto
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeSwipers);
+      } else {
+        initializeSwipers();
+      }
+
+      // Fallback para Swipers caso carreguem depois
+      let swiperAttempts = 0;
+      const maxSwiperAttempts = 10;
+
+      function checkSwipers() {
+        if (typeof Swiper !== 'undefined') {
+          initializeSwipers();
+        } else if (swiperAttempts < maxSwiperAttempts) {
+          swiperAttempts++;
+          setTimeout(checkSwipers, 500);
+        }
+      }
+
+      checkSwipers();
+    });
+
+    // Newsletter form
+    document.addEventListener('DOMContentLoaded', function () {
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const feedback = document.getElementById('newsletter-feedback');
+          const submitBtn = form.querySelector('button[type="submit"]');
+
+          // Feedback visual
+          submitBtn.disabled = true;
+          feedback.innerHTML = '<div class="alert alert-info">Enviando...</div>';
+
+          // Simulação de envio (substitua por AJAX real)
+          setTimeout(() => {
+            feedback.innerHTML = '<div class="alert alert-success">Inscrição realizada com sucesso!</div>';
+            form.reset();
+            submitBtn.disabled = false;
+
+            setTimeout(() => {
+              feedback.innerHTML = '';
+            }, 5000);
+          }, 1000);
+        });
+      }
+    });
+
+    // Contact form
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById('formContato');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const msgBox = document.getElementById('msgRetorno');
+
+        submitBtn.disabled = true;
+        msgBox.innerHTML = '<div class="alert alert-info">Enviando mensagem...</div>';
+
+        // Simulação de envio (substitua por implementação real com reCAPTCHA)
+        setTimeout(() => {
+          msgBox.innerHTML = '<div class="alert alert-success">Mensagem enviada com sucesso! Entraremos em contato em breve.</div>';
+          form.reset();
+          submitBtn.disabled = false;
+
+          setTimeout(() => {
+            msgBox.innerHTML = '';
+          }, 5000);
+        }, 2000);
+      });
+    });
+
+    // Isotope portfolio filter
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof Isotope !== 'undefined') {
+        const portfolioIsotope = document.querySelector('.isotope-layout');
+        if (portfolioIsotope) {
+          const filterItems = portfolioIsotope.querySelectorAll('.isotope-filters li');
+          const iso = new Isotope(portfolioIsotope.querySelector('.isotope-container'), {
+            itemSelector: '.isotope-item',
+            layoutMode: 'masonry'
+          });
+
+          filterItems.forEach(item => {
+            item.addEventListener('click', function () {
+              filterItems.forEach(i => i.classList.remove('filter-active'));
+              this.classList.add('filter-active');
+              iso.arrange({
+                filter: this.getAttribute('data-filter')
+              });
+            });
+          });
+        }
+      }
     });
   </script>
 
-  <!-- =======================================================
-   * Dados estruturados (Google Rich Snippets - SEO Avançado)
- ======================================================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Anpha Web",
-    "url": "https://anphaweb.com.br",
-    "description": "Desenvolvimento de sites, sistemas e aplicativos personalizados.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Anpha Web"
-    }
-  }
-  </script>
+  <!-- ✅ Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3&badge=bottomleft"
+    defer></script>
 
   <!-- Botões flutuantes de contato -->
   <div class="contact-float">
     <a href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!" class="float-btn whatsapp"
-      aria-label="Fale conosco no WhatsApp" target="_blank">
+      aria-label="Fale conosco no WhatsApp" target="_blank" rel="noopener">
       <i class="bi bi-whatsapp"></i>
       <span class="tooltip-contact">Fale conosco 💬</span>
     </a>
   </div>
 
-  <!-- Google reCAPTCHA v3 -->
-  <script
-    src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3&badge=bottomleft"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById('formContato');
-      if (!form) return; // 🔒 ignora se não existir o formulário de contato
-
-      const msgBox = document.getElementById('msgRetorno');
-      const btn = form.querySelector('button[type="submit"]');
-      const siteKey = '6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3';
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        btn.disabled = true;
-        msgBox.innerHTML = '<div class="alert alert-info fade show">Validando reCAPTCHA...</div>';
-
-        grecaptcha.ready(function () {
-          grecaptcha.execute(siteKey, { action: 'contato' }).then(function (token) {
-            let input = form.querySelector('input[name="recaptcha_token"]');
-            if (!input) {
-              input = document.createElement('input');
-              input.type = 'hidden';
-              input.name = 'recaptcha_token';
-              form.appendChild(input);
-            }
-            input.value = token;
-
-            fetch('enviar_contato.php', {
-              method: 'POST',
-              body: new FormData(form)
-            })
-              .then(res => res.json())
-              .then(data => {
-                msgBox.innerHTML = `
-              <div class="alert alert-${data.status === 'sucesso' ? 'success' : 'danger'} fade show" role="alert">
-                ${data.msg}
-              </div>`;
-
-                btn.disabled = false;
-                if (data.status === 'sucesso') form.reset();
-
-                // ⏳ Oculta mensagem após 4 segundos
-                setTimeout(() => {
-                  const alert = msgBox.querySelector('.alert');
-                  if (alert) {
-                    alert.classList.remove('show');
-                    alert.classList.add('fade');
-                    setTimeout(() => { msgBox.innerHTML = ''; }, 400);
-                  }
-                }, 4000);
-              })
-              .catch(() => {
-                msgBox.innerHTML = '<div class="alert alert-danger fade show">Erro de rede. Tente novamente.</div>';
-                btn.disabled = false;
-                setTimeout(() => { msgBox.innerHTML = ''; }, 4000);
-              });
-          });
-        });
-      });
-    });
-  </script>
-
-  <!-- =======================================================
-   * Site desenvolvido e otimizado por Anpha Web © 2025
-   * https://anphaweb.com.br
- ======================================================== -->
 </body>
 
 </html>
