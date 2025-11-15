@@ -86,56 +86,48 @@
 
   <!-- 🔥🔥 SCHEMA LOCAL BUSINESS + SERVICE + WEBSITE (COMPLETO) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "name": "Anpha Web - Criação de Sites em Londrina",
-        "image": "https://anphaweb.com.br/assets/img/preview.jpg",
-        "url": "https://anphaweb.com.br",
-        "telephone": "+55-43-99997-1739",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Londrina - PR",
-          "addressLocality": "Londrina",
-          "addressRegion": "PR",
-          "addressCountry": "BR"
-        },
-        "priceRange": "$$",
-        "areaServed": "Londrina, Paraná",
-        "servesCuisine": "",
-        "openingHours": "Mo-Su 08:00-20:00",
-        "description": "Empresa especializada em criação de sites e desenvolvimento de sistemas em Londrina."
-      },
-      {
-        "@type": "Service",
-        "name": "Criação de Sites em Londrina",
-        "serviceType": "Web Design",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Anpha Web"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Londrina",
-          "address": { "@type": "PostalAddress", "addressRegion": "PR", "addressCountry": "BR" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Anpha Web",
+      "image": "https://anphaweb.com.br/assets/img/preview.jpg",
+      "url": "https://anphaweb.com.br",
+      "telephone": "+5543998656546",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+55-43-99865-6546",
+          "contactType": "sales",
+          "areaServed": "BR-PR-Londrina",
+          "availableLanguage": ["Portuguese"]
         }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Londrina",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
       },
-      {
-        "@type": "WebSite",
-        "name": "Anpha Web",
-        "url": "https://anphaweb.com.br",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://anphaweb.com.br/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+      "priceRange": "$$",
+      "areaServed": ["Londrina", "Cambé", "Rolândia", "Ibiporã", "Arapongas"],
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "description": "Anpha Web — Criação de sites, sistemas e soluções digitais para empresas em Londrina e região. Sites responsivos, desempenho e SEO."
+    },
+    {
+      "@type": "WebSite",
+      "name": "Anpha Web",
+      "url": "https://anphaweb.com.br",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://anphaweb.com.br/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
-    ]
-  }
-  </script>
-
+    }
+  ]
+}
+</script>
   <!-- ✅ Estilos personalizados -->
   <style>
     /* =========================================================
