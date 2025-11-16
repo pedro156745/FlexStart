@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post - Anpha Web</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #6c757d;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .blog-header {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 80px 0 40px;
+      margin-bottom: 40px;
+    }
+    
+    .post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .post-meta {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    .post-meta i {
+      margin-right: 5px;
+    }
+    
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .post-content h2, .post-content h3, .post-content h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .post-content blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #6c757d;
+    }
+    
+    .tags a {
+      display: inline-block;
+      background: #f8f9fa;
+      color: #495057;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .tags a:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .sidebar-widget {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    
+    .sidebar-widget h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .recent-post {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .recent-post:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .recent-post img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    
+    .recent-post h5 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    
+    .recent-post h5 a {
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .recent-post h5 a:hover {
+      color: var(--primary);
+    }
+    
+    .recent-post .date {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+    
+    .categories-list li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .categories-list li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .categories-list a {
+      color: #495057;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .categories-list a:hover {
+      color: var(--primary);
+    }
+    
+    .share-buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      color: #495057;
+      margin-right: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .share-buttons a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .author-box {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 3rem 0;
+    }
+    
+    .author-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .post-title {
+        font-size: 2rem;
+      }
+      
+      .author-box {
+        text-align: center;
+      }
+      
+      .author-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo_anphaweb.png" alt="Anpha Web" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#services">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#portfolio">Portfólio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+              <li class="breadcrumb-item active" id="breadcrumb-category">Categoria</li>
+            </ol>
+          </nav>
+          <h1 class="post-title" id="post-title">Título do Post</h1>
+          <div class="post-meta d-flex flex-wrap align-items-center">
+            <span class="me-3"><i class="bi bi-person"></i> <span id="post-author">AnphaWeb Team</span></span>
+            <span class="me-3"><i class="bi bi-calendar"></i> <span id="post-date">01 Jan 2025</span></span>
+            <span class="me-3"><i class="bi bi-clock"></i> <span id="post-read-time">5 min de leitura</span></span>
+            <span><i class="bi bi-chat"></i> <span id="post-comments">0 comentários</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <div class="container">
+    <div class="row">
+      <!-- Main Content -->
+      <div class="col-lg-8">
+        <article class="blog-post">
+          <div class="post-featured-image mb-4">
+            <img id="post-image" src="assets/img/blog/default.jpg" alt="Imagem do post" class="img-fluid rounded-3">
+          </div>
+          
+          <div class="post-content" id="post-content">
+            <p>Conteúdo do post será carregado aqui...</p>
+          </div>
+          
+          <div class="post-footer mt-5">
+            <div class="tags mb-4">
+              <strong class="me-2">Tags:</strong>
+              <div id="post-tags">
+                <!-- Tags serão carregadas aqui -->
+              </div>
+            </div>
+            
+            <div class="share-buttons d-flex align-items-center">
+              <strong class="me-3">Compartilhar:</strong>
+              <a href="#" title="Compartilhar no Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" title="Compartilhar no Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" title="Compartilhar no LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" title="Compartilhar no WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Author Box -->
+        <div class="author-box">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <img src="assets/img/team/author.jpg" alt="Autor" class="author-img">
+            <div>
+              <h4>AnphaWeb Team</h4>
+              <p class="text-muted">Especialistas em desenvolvimento web, criação de sites, e-commerce e sistemas personalizados. Atuamos em Londrina e região há mais de 5 anos, entregando soluções digitais de alta performance.</p>
+              <div class="social-links">
+                <a href="#" class="text-primary me-2"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-primary me-2"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-primary me-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Comments Section -->
+        <div class="comments-section mt-5">
+          <h3 class="mb-4">Comentários</h3>
+          <div id="comments-list">
+            <p class="text-muted">Seja o primeiro a comentar!</p>
+          </div>
+          
+          <div class="comment-form mt-5">
+            <h4 class="mb-3">Deixe seu comentário</h4>
+            <form id="commentForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <input type="text" class="form-control" placeholder="Seu nome" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="5" placeholder="Seu comentário" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar Comentário</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar-widget">
+          <h3>Pesquisar</h3>
+          <form class="d-flex">
+            <input type="search" class="form-control me-2" placeholder="Buscar...">
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Categorias</h3>
+          <ul class="list-unstyled categories-list" id="sidebar-categories">
+            <!-- Categorias serão carregadas aqui -->
+          </ul>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Posts Recentes</h3>
+          <div id="sidebar-recent-posts">
+            <!-- Posts recentes serão carregados aqui -->
+          </div>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Tags</h3>
+          <div class="tags" id="sidebar-tags">
+            <!-- Tags serão carregadas aqui -->
+          </div>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Newsletter</h3>
+          <p class="text-muted">Receba nossas atualizações por e-mail.</p>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Seu e-mail" required>
+              <button class="btn btn-primary" type="submit">Inscrever</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white mt-5 py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>Anpha Web</h5>
+          <p>Desenvolvimento de sites, sistemas e aplicativos personalizados em Londrina e região.</p>
+          <div class="social-links">
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white-50 text-decoration-none">Início</a></li>
+            <li><a href="index.html#about" class="text-white-50 text-decoration-none">Sobre</a></li>
+            <li><a href="index.html#services" class="text-white-50 text-decoration-none">Serviços</a></li>
+            <li><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> (43) 99865-6546</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> contato@anphaweb.com.br</li>
+            <li><i class="bi bi-clock me-2"></i> Seg-Sex: 9h-18h</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Localização</h5>
+          <p class="text-white-50">Londrina, PR e região</p>
+          <div class="mt-3">
+            <a href="index.html#contact" class="btn btn-outline-light btn-sm">Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Anpha Web. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="blog-detalhes.js"></script>
+</body>
+</html>

@@ -1,434 +1,528 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
+  <!-- =========================================================
+   * ANPHA WEB — Blog (totalmente padronizado com index)
+   ========================================================= -->
+
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Blog - FlexStart Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 🔥 SEO / TITLE -->
+  <title>Blog — Anpha Web | Conteúdos sobre Web, Sistemas e Marketing Digital</title>
+  <meta name="description" content="Artigos, guias e novidades sobre desenvolvimento web, e-commerce, SEO e tecnologia — Anpha Web, Londrina.">
+  <meta name="author" content="Anpha Web">
+  <meta name="robots" content="index, follow">
+
+  <!-- 🔥 SEO LOCAL -->
+  <meta name="geo.region" content="BR-PR">
+  <meta name="geo.placename" content="Londrina">
+  <meta name="geo.position" content="-23.304452;-51.169577">
+  <meta name="ICBM" content="-23.304452, -51.169577">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anphaweb.com.br/blog.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://anphaweb.com.br/blog.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Blog — Anpha Web">
+  <meta property="og:description" content="Artigos sobre criação de sites, e-commerce, sistemas e marketing digital — Anpha Web">
+  <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
+  <meta property="og:url" content="https://anphaweb.com.br/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — Anpha Web">
+  <meta name="twitter:description" content="Artigos sobre criação de sites, e-commerce, sistemas e marketing digital — Anpha Web">
+  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="icon" href="assets/img/favicon_anphaweb.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Performance — Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Google Fonts (async) -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
+    media="print" onload="this.media='all'">
 
-  <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Nov 01 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- CSS (preload + principal) -->
+  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+
+  <!-- Prefetch JS -->
+  <link rel="prefetch" href="assets/js/main.min.js" as="script">
+  <link rel="prefetch" href="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" as="script">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SE8L3VH4JE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SE8L3VH4JE', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Structured Data (Blog) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "url": "https://anphaweb.com.br/blog.html",
+    "name": "Blog — Anpha Web",
+    "description": "Artigos sobre criação de sites, e-commerce, sistemas e marketing digital.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Anpha Web",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://anphaweb.com.br/assets/img/logo_preview.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- ✅ Estilos personalizados (APENAS os necessários) -->
+  <style>
+    /* Apenas estilos específicos do blog que não existem no index */
+    .blog-page .page-title {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 100px 0 40px;
+    }
+
+    .blog-page .page-title h1 {
+      font-weight: 700;
+      color: #212529;
+    }
+
+    .blog-page .post-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .blog-page .post-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-page .post-img {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .blog-page .post-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-page .post-item:hover .post-img img {
+      transform: scale(1.05);
+    }
+
+    .blog-page .post-date {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(13, 110, 253, 0.9);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .blog-page .post-content {
+      padding: 25px;
+    }
+
+    .blog-page .post-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .blog-page .post-title a {
+      color: #212529;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .blog-page .post-title a:hover {
+      color: #0d6efd;
+    }
+
+    .blog-page .post-meta {
+      font-size: 0.875rem;
+      color: #6c757d;
+      margin-bottom: 15px;
+    }
+
+    .blog-page .post-meta i {
+      margin-right: 5px;
+    }
+
+    .blog-page .post-excerpt {
+      color: #6c757d;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .blog-page .read-more {
+      font-weight: 600;
+      color: #0d6efd;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .blog-page .read-more:hover {
+      color: #0048b5;
+    }
+
+    .blog-page .sidebar-widget {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .blog-page .widget-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #212529;
+    }
+
+    .blog-page .categories-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .blog-page .categories-list li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .blog-page .categories-list li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .blog-page .categories-list a {
+      color: #495057;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      transition: color 0.3s ease;
+    }
+
+    .blog-page .categories-list a:hover {
+      color: #0d6efd;
+    }
+
+    .blog-page .recent-post {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .blog-page .recent-post:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .blog-page .recent-post img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-right: 15px;
+    }
+
+    .blog-page .recent-post h5 {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+    .blog-page .recent-post h5 a {
+      color: #212529;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .blog-page .recent-post h5 a:hover {
+      color: #0d6efd;
+    }
+
+    .blog-page .recent-post .date {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .blog-page .tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .blog-page .tag {
+      display: inline-block;
+      background: #fff;
+      color: #495057;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      border: 1px solid #dee2e6;
+      transition: all 0.3s ease;
+    }
+
+    .blog-page .tag:hover {
+      background: #0d6efd;
+      color: white;
+      border-color: #0d6efd;
+      transform: translateY(-1px);
+    }
+
+    /* Estados de loading e vazio */
+    .blog-loading {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .blog-empty {
+      text-align: center;
+      padding: 80px 0;
+      color: #6c757d;
+    }
+
+    .blog-empty i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    /* Link do admin (apenas desenvolvimento) */
+    .admin-link {
+      position: fixed;
+      bottom: 90px;
+      left: 20px;
+      z-index: 1000;
+      background: #ffc107;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .admin-link:hover {
+      background: #e0a800;
+      transform: translateY(-2px);
+      color: #000;
+    }
+  </style>
 </head>
 
-<body class="blog-page">
+<body class="blog-page" itemscope itemtype="https://schema.org/WebPage">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+  <!-- ================= HEADER (idêntico ao index) ================= -->
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner" aria-label="Cabeçalho principal">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">FlexStart</h1>
+      <a href="/" class="logo d-flex align-items-center me-auto" itemprop="url">
+        <img src="assets/img/logo_anphaweb.png" loading="lazy"
+          alt="Logo Anpha Web - Desenvolvimento de Sites e Sistemas" itemprop="logo" width="160" height="45"
+          decoding="async">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menu principal">
         <ul>
-          <li><a href="#hero">Home<br></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#about">Sobre</a></li>
+          <li><a href="index.html#services">Serviços</a></li>
+          <li><a href="index.html#portfolio">Portfólio</a></li>
+          <li><a href="index.html#pricing">Planos</a></li>
           <li><a href="blog.html" class="active">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li class="listing-dropdown"><a href="#"><span>Listing Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 5 link 1</a>
-                <a href="#">Column 5 link 2</a>
-                <a href="#">Column 5 link 3</a>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li class="mobile-btn"><a class="btn-getstarted" target="_blank"
+              href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">Solicitar
+              Orçamento</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
-
+      <a class="btn-getstarted desktop-btn" target="_blank"
+        href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!">Solicitar
+        Orçamento</a>
     </div>
   </header>
 
-  <main class="main">
+  <!-- Link para Admin (apenas desenvolvimento) -->
+  <a href="blog-admin.html" class="admin-link" style="display: none;" id="adminLink">
+    <i class="bi bi-gear me-1"></i> Admin Blog
+  </a>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main" id="main" role="main">
 
     <!-- Page Title -->
-    <div class="page-title">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Blog</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
-            </div>
+    <section class="page-title section">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1 data-aos="fade-up">Blog</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-muted">
+              Artigos, guias e novidades sobre desenvolvimento web, sistemas e marketing digital.
+            </p>
+            <nav class="breadcrumbs" data-aos="fade-up" data-aos-delay="200" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Blog</li>
+              </ol>
+            </nav>
           </div>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Blog</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
+    </section>
 
-    <div class="container">
-      <div class="row">
+    <!-- Blog Content -->
+    <section class="blog-content section">
+      <div class="container">
+        <div class="row">
 
-        <div class="col-lg-8">
-
-          <!-- Blog Posts Section -->
-          <section id="blog-posts" class="blog-posts section">
-
-            <div class="container">
-
-              <div class="row gy-4">
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                        Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                      </p>
-
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-12">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                        Ad impedit qui officiis est in non aliquid veniam laborum. Id ipsum qui aut. Sit aliquam et quia molestias laboriosam. Tempora nam odit omnis eum corrupti qui aliquid excepturi molestiae. Facilis et sint quos sed voluptas. Maxime sed tempore enim omnis non alias odio quos distinctio.
-                      </p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
-                <div class="col-12">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
-                        Doloremque est saepe laborum aut. Ipsa cupiditate ex harum at recusandae nesciunt. Ut dolores velit.
-                      </p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
-                <div class="col-12">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                        Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
-                      </p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
-              </div><!-- End blog posts list -->
-
-            </div>
-
-          </section><!-- /Blog Posts Section -->
-
-          <!-- Blog Pagination Section -->
-          <section id="blog-pagination" class="blog-pagination section">
-
-            <div class="container">
-              <div class="d-flex justify-content-center">
-                <ul>
-                  <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#" class="active">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li>...</li>
-                  <li><a href="#">10</a></li>
-                  <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
-                </ul>
+          <!-- Posts List -->
+          <div class="col-lg-8">
+            <div class="row gy-4" id="posts-container">
+              <!-- Posts serão carregados dinamicamente aqui -->
+              <div class="col-12 blog-loading">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Carregando posts...</span>
+                </div>
+                <p class="mt-3">Carregando posts...</p>
               </div>
             </div>
 
-          </section><!-- /Blog Pagination Section -->
+            <!-- Paginação -->
+            <div class="row mt-5">
+              <div class="col-12">
+                <nav class="blog-pagination" aria-label="Paginação do blog">
+                  <ul class="pagination justify-content-center" id="pagination-container">
+                    <!-- Paginação será carregada dinamicamente -->
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
 
-        </div>
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <div class="sidebar">
 
-        <div class="col-lg-4 sidebar">
+              <!-- Search Widget -->
+              <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="widget-title">Pesquisar</h3>
+                <form class="d-flex search-form">
+                  <input type="search" class="form-control me-2" placeholder="Buscar artigos..." id="search-input">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </form>
+              </div>
 
-          <div class="widgets-container">
+              <!-- Categories Widget -->
+              <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="widget-title">Categorias</h3>
+                <ul class="categories-list" id="categories-list">
+                  <!-- Categorias serão carregadas dinamicamente -->
+                </ul>
+              </div>
 
-            <!-- Search Widget -->
-            <div class="search-widget widget-item">
-
-              <h3 class="widget-title">Search</h3>
-              <form action="">
-                <input type="text">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-              </form>
-
-            </div><!--/Search Widget -->
-
-            <!-- Categories Widget -->
-            <div class="categories-widget widget-item">
-
-              <h3 class="widget-title">Categories</h3>
-              <ul class="mt-3">
-                <li><a href="#">General <span>(25)</span></a></li>
-                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                <li><a href="#">Travel <span>(5)</span></a></li>
-                <li><a href="#">Design <span>(22)</span></a></li>
-                <li><a href="#">Creative <span>(8)</span></a></li>
-                <li><a href="#">Educaion <span>(14)</span></a></li>
-              </ul>
-
-            </div><!--/Categories Widget -->
-
-            <!-- Recent Posts Widget -->
-            <div class="recent-posts-widget widget-item">
-
-              <h3 class="widget-title">Recent Posts</h3>
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
+              <!-- Recent Posts Widget -->
+              <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="widget-title">Posts Recentes</h3>
+                <div id="recent-posts-list">
+                  <!-- Posts recentes serão carregados dinamicamente -->
                 </div>
-              </div><!-- End recent post item-->
+              </div>
 
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
+              <!-- Tags Widget -->
+              <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="250">
+                <h3 class="widget-title">Tags Populares</h3>
+                <div class="tags-list" id="tags-list">
+                  <!-- Tags serão carregadas dinamicamente -->
                 </div>
-              </div><!-- End recent post item-->
+              </div>
 
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
+              <!-- Newsletter Widget -->
+              <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="widget-title">Newsletter</h3>
+                <p class="text-muted">Receba nossas atualizações por e-mail.</p>
+                <form class="newsletter-form">
+                  <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                    <button class="btn btn-primary" type="submit">Inscrever</button>
+                  </div>
+                </form>
+              </div>
 
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-            </div><!--/Recent Posts Widget -->
-
-            <!-- Tags Widget -->
-            <div class="tags-widget widget-item">
-
-              <h3 class="widget-title">Tags</h3>
-              <ul>
-                <li><a href="#">App</a></li>
-                <li><a href="#">IT</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Mac</a></li>
-                <li><a href="#">Design</a></li>
-                <li><a href="#">Office</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Smart</a></li>
-                <li><a href="#">Tips</a></li>
-                <li><a href="#">Marketing</a></li>
-              </ul>
-
-            </div><!--/Tags Widget -->
-
+            </div>
           </div>
 
         </div>
-
       </div>
-    </div>
+    </section>
 
   </main>
 
+  <!-- ================= FOOTER (idêntico ao index) ================= -->
   <footer id="footer" class="footer">
-
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            <h4>Nossa Newsletter</h4>
+            <p>Receba dicas, novidades e promoções sobre desenvolvimento web!</p>
+            <form id="newsletterForm" class="php-email-form">
+              <div class="newsletter-form d-flex">
+                <input type="email" name="email" class="form-control me-2" placeholder="Seu e-mail" required>
+                <button type="submit" class="btn btn-primary">Inscrever</button>
+              </div>
+              <div id="newsletter-feedback" class="mt-3"></div>
             </form>
           </div>
         </div>
@@ -438,80 +532,396 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">FlexStart</span>
+          <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <img src="assets/img/logo_anphaweb.png" loading="lazy" alt="Anpha Web" style="height:50px; width:auto;">
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p><strong>Atendimento Online:</strong> Segunda a Sexta, 9h às 18h</p>
+            <div class="footer-contact pt-3">
+              <p class="mt-3"><strong>Telefone:</strong> <span>+55 (43) 99865-6546</span></p>
+              <p><strong>Email:</strong> <span>contato@anphaweb.com.br</span></p>
+            </div>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Links Úteis</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Início</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">Sobre</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Serviços</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#portfolio">Portfólio</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Nossos Serviços</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Sites Institucionais</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">E-commerce</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Sistemas Personalizados</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Aplicativos Mobile</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <h4>Siga-nos</h4>
+          <p>Fique por dentro das novidades e acompanhe nossos trabalhos</p>
           <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/anphaweb" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">FlexStart</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
-      </div>
-    </div>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Anpha Web</strong> <span>Todos os direitos
+          reservados</span></p>
 
+      <small class="text-secondary d-block mt-2" style="font-size: 13px; opacity: 0.9;">
+        <i class="bi bi-shield-check me-1 text-primary"></i>
+        Este site é protegido por <strong>Google reCAPTCHA</strong> — 
+        <a href="https://policies.google.com/privacy" class="text-decoration-none text-primary" target="_blank" rel="noopener">Política de Privacidade</a> ·
+        <a href="https://policies.google.com/terms" class="text-decoration-none text-primary" target="_blank" rel="noopener">Termos de Serviço</a>
+      </small>
+    </div>
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Voltar ao topo">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- Botões flutuantes -->
+  <div class="contact-float">
+    <a href="https://wa.me/5543998656546?text=Olá Anpha Web, quero solicitar um orçamento!" class="float-btn whatsapp"
+      aria-label="Fale conosco no WhatsApp" target="_blank">
+      <i class="bi bi-whatsapp"></i>
+      <span class="tooltip-contact">Fale conosco 💬</span>
+    </a>
+  </div>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- =======================================================
+   * Vendor JS Files
+ ======================================================== -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
 
+  <!-- =======================================================
+   * Script principal
+ ======================================================== -->
+  <script src="assets/js/main.min.js" defer></script>
+
+  <!-- =======================================================
+   * Script do Blog (simplificado)
+ ======================================================== -->
+  <script>
+    // Configurações
+    const POSTS_PER_PAGE = 6;
+    let currentPage = 1;
+    let allPosts = [];
+    let filteredPosts = [];
+
+    // Inicialização quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar componentes do template
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+        });
+      }
+
+      // Carregar posts
+      loadBlogPosts();
+      
+      // Configurar eventos
+      setupEventListeners();
+      
+      // Mostrar link do admin em desenvolvimento
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        document.getElementById('adminLink').style.display = 'block';
+      }
+    });
+
+    // Carregar posts do blog
+    function loadBlogPosts() {
+      // Carregar do localStorage
+      const savedPosts = localStorage.getItem('blogPosts');
+      allPosts = savedPosts ? JSON.parse(savedPosts) : [];
+      
+      // Filtrar apenas posts publicados e ordenar por data
+      allPosts = allPosts
+        .filter(post => post.status === 'published')
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+      
+      filteredPosts = [...allPosts];
+      
+      // Exibir posts
+      displayPosts();
+      
+      // Carregar sidebar
+      loadSidebar();
+    }
+
+    // Exibir posts
+    function displayPosts() {
+      const container = document.getElementById('posts-container');
+      const pagination = document.getElementById('pagination-container');
+      
+      if (filteredPosts.length === 0) {
+        container.innerHTML = `
+          <div class="col-12 blog-empty" data-aos="fade-up">
+            <i class="bi bi-file-text"></i>
+            <h3>Nenhum post encontrado</h3>
+            <p class="text-muted">Ainda não há posts publicados ou não encontramos resultados para sua busca.</p>
+            <a href="blog-admin.html" class="btn btn-primary mt-3">
+              <i class="bi bi-plus-circle me-1"></i>Criar Primeiro Post
+            </a>
+          </div>
+        `;
+        pagination.innerHTML = '';
+        return;
+      }
+      
+      // Calcular paginação
+      const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+      const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+      const postsToShow = filteredPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+      
+      // Gerar HTML dos posts
+      container.innerHTML = postsToShow.map((post, index) => `
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="${(index % 2) * 100}">
+          <article class="post-item">
+            <div class="post-img">
+              <img src="${post.image || 'assets/img/blog/default.jpg'}" alt="${post.title}" loading="lazy">
+              <span class="post-date">${formatPostDate(post.date)}</span>
+            </div>
+            <div class="post-content">
+              <h3 class="post-title">
+                <a href="blog-detalhes.html?id=${post.id}">${post.title}</a>
+              </h3>
+              <div class="post-meta">
+                <span><i class="bi bi-folder2"></i> ${post.category}</span>
+                <span class="ms-3"><i class="bi bi-clock"></i> ${formatDate(post.date)}</span>
+              </div>
+              <p class="post-excerpt">${post.excerpt || truncateText(post.content, 120)}</p>
+              <a href="blog-detalhes.html?id=${post.id}" class="read-more">
+                Ler mais <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      `).join('');
+      
+      // Gerar paginação
+      generatePagination(totalPages);
+    }
+
+    // Gerar paginação
+    function generatePagination(totalPages) {
+      const container = document.getElementById('pagination-container');
+      
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+      
+      let html = '';
+      
+      // Botão anterior
+      if (currentPage > 1) {
+        html += `<li class="page-item">
+          <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">
+            <i class="bi bi-chevron-left"></i>
+          </a>
+        </li>`;
+      }
+      
+      // Páginas
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === currentPage) {
+          html += `<li class="page-item active">
+            <a class="page-link" href="#">${i}</a>
+          </li>`;
+        } else {
+          html += `<li class="page-item">
+            <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+          </li>`;
+        }
+      }
+      
+      // Botão próximo
+      if (currentPage < totalPages) {
+        html += `<li class="page-item">
+          <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">
+            <i class="bi bi-chevron-right"></i>
+          </a>
+        </li>`;
+      }
+      
+      container.innerHTML = html;
+    }
+
+    // Mudar página
+    function changePage(page) {
+      currentPage = page;
+      displayPosts();
+      window.scrollTo({ top: document.getElementById('posts-container').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    // Carregar sidebar
+    function loadSidebar() {
+      loadCategories();
+      loadRecentPosts();
+      loadPopularTags();
+    }
+
+    function loadCategories() {
+      const categories = JSON.parse(localStorage.getItem('blogCategories') || '[]');
+      const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+      
+      const container = document.getElementById('categories-list');
+      container.innerHTML = categories.map(category => {
+        const count = posts.filter(post => post.category === category.name && post.status === 'published').length;
+        return `
+          <li>
+            <a href="blog.html?category=${encodeURIComponent(category.name)}">
+              ${category.name}
+              <span class="text-muted">(${count})</span>
+            </a>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function loadRecentPosts() {
+      const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]')
+        .filter(post => post.status === 'published')
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
+      
+      const container = document.getElementById('recent-posts-list');
+      
+      if (posts.length === 0) {
+        container.innerHTML = '<p class="text-muted">Nenhum post recente</p>';
+        return;
+      }
+      
+      container.innerHTML = posts.map(post => `
+        <div class="recent-post">
+          <img src="${post.image || 'assets/img/blog/default.jpg'}" alt="${post.title}">
+          <div>
+            <h5><a href="blog-detalhes.html?id=${post.id}">${post.title}</a></h5>
+            <div class="date">${formatDate(post.date)}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadPopularTags() {
+      const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+      const allTags = [];
+      
+      posts.forEach(post => {
+        if (post.tags && post.tags.length > 0) {
+          post.tags.forEach(tag => {
+            if (tag.trim()) allTags.push(tag.trim());
+          });
+        }
+      });
+      
+      const tagCounts = {};
+      allTags.forEach(tag => tagCounts[tag] = (tagCounts[tag] || 0) + 1);
+      
+      const popularTags = Object.entries(tagCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8)
+        .map(([tag]) => tag);
+      
+      const container = document.getElementById('tags-list');
+      container.innerHTML = popularTags.map(tag => `
+        <a href="blog.html?tag=${encodeURIComponent(tag)}" class="tag">${tag}</a>
+      `).join('');
+    }
+
+    // Configurar eventos
+    function setupEventListeners() {
+      // Busca
+      document.querySelector('.search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const term = document.getElementById('search-input').value.toLowerCase().trim();
+        
+        if (term) {
+          filteredPosts = allPosts.filter(post => 
+            post.title.toLowerCase().includes(term) ||
+            post.content.toLowerCase().includes(term) ||
+            post.excerpt.toLowerCase().includes(term) ||
+            (post.tags && post.tags.some(tag => tag.toLowerCase().includes(term)))
+          );
+        } else {
+          filteredPosts = [...allPosts];
+        }
+        
+        currentPage = 1;
+        displayPosts();
+      });
+      
+      // Newsletter
+      document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Obrigado por se inscrever em nossa newsletter!');
+        this.reset();
+      });
+    }
+
+    // Funções auxiliares
+    function formatDate(dateString) {
+      return new Date(dateString).toLocaleDateString('pt-BR');
+    }
+
+    function formatPostDate(dateString) {
+      const date = new Date(dateString);
+      const day = date.getDate();
+      const month = date.toLocaleDateString('pt-BR', { month: 'short' });
+      return `${day} ${month}`;
+    }
+
+    function truncateText(text, maxLength) {
+      if (text.length <= maxLength) return text;
+      return text.substr(0, maxLength) + '...';
+    }
+
+    // Header scroll effect (igual ao index)
+    document.addEventListener('scroll', () => {
+      const header = document.querySelector('#header');
+      if (header && window.scrollY > 100) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
+
+    // Inicializar scroll state
+    if (window.scrollY > 100) {
+      document.body.classList.add('scrolled');
+    }
+  </script>
+
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfNdgUsAAAAAMOAV9XCg4qfnhf3Mb-_XCau54w3&badge=bottomleft"></script>
 </body>
 
 </html>

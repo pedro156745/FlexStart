@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Blog - Anpha Web</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #6c757d;
+      --success: #198754;
+      --light: #f8f9fa;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .sidebar {
+      background: linear-gradient(135deg, #0d6efd, #0048b5);
+      color: white;
+      min-height: 100vh;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar .nav-link {
+      color: rgba(255,255,255,0.8);
+      padding: 12px 20px;
+      margin: 5px 0;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    
+    .sidebar .nav-link:hover, .sidebar .nav-link.active {
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+    
+    .sidebar .nav-link i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    
+    .main-content {
+      padding: 20px;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    
+    .card-header {
+      background: white;
+      border-bottom: 1px solid #eee;
+      font-weight: 600;
+      padding: 15px 20px;
+      border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #0d6efd, #0048b5);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0b5ed7, #003d99);
+      transform: translateY(-1px);
+    }
+    
+    .post-card {
+      transition: transform 0.3s;
+    }
+    
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .badge-status {
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    
+    .form-control, .form-select {
+      border-radius: 8px;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+    
+    #imagePreview {
+      max-height: 200px;
+      width: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .table th {
+      border-top: none;
+      font-weight: 600;
+      color: #495057;
+    }
+    
+    .action-buttons .btn {
+      padding: 5px 10px;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 sidebar p-0">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-4">
+          <a href="index.html" class="d-flex align-items-center pb-3 mb-4 text-white text-decoration-none border-bottom w-100">
+            <img src="assets/img/logo_anphaweb.png" alt="Anpha Web" height="40" class="me-2">
+            <span class="fs-5 fw-bold">Anpha Web</span>
+          </a>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+            <li class="w-100">
+              <a href="blog-admin.html" class="nav-link px-0 active">
+                <i class="bi bi-house-door"></i> <span class="ms-1">Dashboard</span>
+              </a>
+            </li>
+            <li class="w-100">
+              <a href="#posts" class="nav-link px-0" data-bs-toggle="collapse">
+                <i class="bi bi-file-text"></i> <span class="ms-1">Posts</span>
+              </a>
+              <ul class="collapse show nav flex-column ms-1" id="posts" data-bs-parent="#menu">
+                <li class="w-100">
+                  <a href="#list-posts" class="nav-link" onclick="showSection('list-posts')">
+                    <i class="bi bi-list-ul"></i> <span class="ms-1">Todos os Posts</span>
+                  </a>
+                </li>
+                <li class="w-100">
+                  <a href="#add-post" class="nav-link" onclick="showSection('add-post')">
+                    <i class="bi bi-plus-circle"></i> <span class="ms-1">Adicionar Novo</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="w-100">
+              <a href="#categories" class="nav-link px-0" onclick="showSection('categories')">
+                <i class="bi bi-tags"></i> <span class="ms-1">Categorias</span>
+              </a>
+            </li>
+            <li class="w-100 mt-4">
+              <a href="blog.html" class="nav-link px-0 text-warning">
+                <i class="bi bi-eye"></i> <span class="ms-1">Ver Blog</span>
+              </a>
+            </li>
+            <li class="w-100">
+              <a href="index.html" class="nav-link px-0 text-info">
+                <i class="bi bi-arrow-left"></i> <span class="ms-1">Voltar ao Site</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10 ms-sm-auto main-content">
+        <!-- Dashboard Section -->
+        <div class="section" id="dashboard">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard do Blog</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button class="btn btn-primary" onclick="showSection('add-post')">
+                <i class="bi bi-plus-circle me-1"></i> Novo Post
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="card bg-primary text-white">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h4 id="totalPosts">0</h4>
+                      <p class="mb-0">Total de Posts</p>
+                    </div>
+                    <div class="align-self-center">
+                      <i class="bi bi-file-text fs-1 opacity-50"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-success text-white">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h4 id="publishedPosts">0</h4>
+                      <p class="mb-0">Publicados</p>
+                    </div>
+                    <div class="align-self-center">
+                      <i class="bi bi-check-circle fs-1 opacity-50"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-warning text-dark">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h4 id="draftPosts">0</h4>
+                      <p class="mb-0">Rascunhos</p>
+                    </div>
+                    <div class="align-self-center">
+                      <i class="bi bi-pencil-square fs-1 opacity-50"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-info text-white">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h4 id="totalCategories">0</h4>
+                      <p class="mb-0">Categorias</p>
+                    </div>
+                    <div class="align-self-center">
+                      <i class="bi bi-tags fs-1 opacity-50"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Posts Recentes</h5>
+                  <a href="#" class="btn btn-sm btn-outline-primary" onclick="showSection('list-posts')">Ver Todos</a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Título</th>
+                          <th>Categoria</th>
+                          <th>Data</th>
+                          <th>Status</th>
+                          <th>Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody id="recentPostsTable">
+                        <!-- Posts serão carregados aqui -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- List Posts Section -->
+        <div class="section d-none" id="list-posts">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Todos os Posts</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button class="btn btn-primary" onclick="showSection('add-post')">
+                <i class="bi bi-plus-circle me-1"></i> Novo Post
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Gerenciar Posts</h5>
+              <div class="d-flex">
+                <select class="form-select form-select-sm me-2" style="width: auto;" id="filterStatus">
+                  <option value="all">Todos os Status</option>
+                  <option value="published">Publicados</option>
+                  <option value="draft">Rascunhos</option>
+                </select>
+                <select class="form-select form-select-sm me-2" style="width: auto;" id="filterCategory">
+                  <option value="all">Todas as Categorias</option>
+                </select>
+                <button class="btn btn-sm btn-outline-secondary" onclick="filterPosts()">
+                  <i class="bi bi-funnel"></i> Filtrar
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Categoria</th>
+                      <th>Data</th>
+                      <th>Status</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="allPostsTable">
+                    <!-- Posts serão carregados aqui -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add/Edit Post Section -->
+        <div class="section d-none" id="add-post">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2" id="formTitle">Adicionar Novo Post</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button class="btn btn-outline-secondary me-2" onclick="showSection('list-posts')">
+                <i class="bi bi-arrow-left me-1"></i> Voltar
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <form id="postForm">
+                <input type="hidden" id="postId">
+                
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="mb-3">
+                      <label for="postTitle" class="form-label">Título do Post</label>
+                      <input type="text" class="form-control" id="postTitle" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postContent" class="form-label">Conteúdo</label>
+                      <textarea class="form-control" id="postContent" rows="12" required></textarea>
+                      <div class="form-text">Use HTML para formatação avançada.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postExcerpt" class="form-label">Resumo</label>
+                      <textarea class="form-control" id="postExcerpt" rows="3"></textarea>
+                      <div class="form-text">Breve descrição que aparecerá na listagem do blog.</div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="postStatus" class="form-label">Status</label>
+                      <select class="form-select" id="postStatus">
+                        <option value="draft">Rascunho</option>
+                        <option value="published">Publicado</option>
+                      </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postCategory" class="form-label">Categoria</label>
+                      <select class="form-select" id="postCategory" required>
+                        <!-- Categorias serão carregadas aqui -->
+                      </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postTags" class="form-label">Tags</label>
+                      <input type="text" class="form-control" id="postTags" placeholder="Separe as tags com vírgula">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postImage" class="form-label">Imagem de Destaque</label>
+                      <input type="file" class="form-control" id="postImage" accept="image/*">
+                      <div class="form-text">Imagem que aparecerá como destaque no post.</div>
+                      <img id="imagePreview" class="img-fluid mt-2">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="postDate" class="form-label">Data de Publicação</label>
+                      <input type="datetime-local" class="form-control" id="postDate">
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                      <button type="submit" class="btn btn-primary" id="submitButton">
+                        <i class="bi bi-check-circle me-1"></i> Publicar Post
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
+                        <i class="bi bi-arrow-clockwise me-1"></i> Limpar Formulário
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="section d-none" id="categories">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Gerenciar Categorias</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                <i class="bi bi-plus-circle me-1"></i> Nova Categoria
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Slug</th>
+                      <th>Descrição</th>
+                      <th>Posts</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="categoriesTable">
+                    <!-- Categorias serão carregadas aqui -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Modal -->
+  <div class="modal fade" id="categoryModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="categoryModalTitle">Adicionar Categoria</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="categoryForm">
+            <input type="hidden" id="categoryId">
+            <div class="mb-3">
+              <label for="categoryName" class="form-label">Nome da Categoria</label>
+              <input type="text" class="form-control" id="categoryName" required>
+            </div>
+            <div class="mb-3">
+              <label for="categorySlug" class="form-label">Slug</label>
+              <input type="text" class="form-control" id="categorySlug">
+              <div class="form-text">Identificador único para URLs. Deixe em branco para gerar automaticamente.</div>
+            </div>
+            <div class="mb-3">
+              <label for="categoryDescription" class="form-label">Descrição</label>
+              <textarea class="form-control" id="categoryDescription" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="saveCategory()">Salvar Categoria</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="blog-admin.js"></script>
+</body>
+</html>
