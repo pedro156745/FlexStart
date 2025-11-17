@@ -92,73 +92,71 @@
        Schema — COMPLETO (LocalBusiness + Service + WebPage)
        ========================================================= -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
     {
-      "@type": "LocalBusiness",
-      "name": "Anpha Web",
-      "image": "https://anphaweb.com.br/assets/img/preview.jpg",
-      "url": "https://anphaweb.com.br",
-      "telephone": "+5543998656546",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-43-99865-6546",
-        "contactType": "sales",
-        "availableLanguage": ["Portuguese"],
-        "areaServed": "Londrina, Paraná"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Londrina",
-        "addressRegion": "PR",
-        "addressCountry": "BR"
-      },
-      "areaServed": ["Londrina", "Cambé", "Ibiporã", "Rolândia", "Arapongas"],
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00",
-      "description": "Criação de sites profissionais, e-commerce e sistemas personalizados para empresas de Londrina e região."
-    },
-
-    {
-      "@type": "Service",
-      "serviceType": "Criação de Sites",
-      "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
-      "areaServed": "Londrina"
-    },
-    {
-      "@type": "Service",
-      "serviceType": "Desenvolvimento de Sistemas",
-      "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
-      "areaServed": "Londrina"
-    },
-    {
-      "@type": "Service",
-      "serviceType": "E-commerce",
-      "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
-      "areaServed": "Londrina"
-    },
-
-    {
-      "@type": "WebSite",
-      "url": "https://anphaweb.com.br",
-      "name": "Anpha Web",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://anphaweb.com.br/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Criação de Sites em Londrina — Anpha Web",
-      "url": "https://anphaweb.com.br",
-      "description": "Desenvolvimento profissional de sites e sistemas em Londrina e região."
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "name": "Anpha Web",
+          "image": "https://anphaweb.com.br/assets/img/preview.jpg",
+          "url": "https://anphaweb.com.br",
+          "telephone": "+5543998656546",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-43-99865-6546",
+            "contactType": "sales",
+            "availableLanguage": ["Portuguese"],
+            "areaServed": "Londrina, Paraná"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Londrina",
+            "addressRegion": "PR",
+            "addressCountry": "BR"
+          },
+          "areaServed": ["Londrina", "Cambé", "Ibiporã", "Rolândia", "Arapongas"],
+          "priceRange": "$$",
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "description": "Criação de sites profissionais, e-commerce e sistemas personalizados para empresas de Londrina e região."
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Criação de Sites",
+          "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
+          "areaServed": "Londrina"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Desenvolvimento de Sistemas",
+          "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
+          "areaServed": "Londrina"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "E-commerce",
+          "provider": { "@type": "LocalBusiness", "name": "Anpha Web" },
+          "areaServed": "Londrina"
+        },
+        {
+          "@type": "WebSite",
+          "url": "https://anphaweb.com.br",
+          "name": "Anpha Web",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://anphaweb.com.br/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "name": "Criação de Sites em Londrina — Anpha Web",
+          "url": "https://anphaweb.com.br",
+          "description": "Desenvolvimento profissional de sites e sistemas em Londrina e região."
+        }
+      ]
     }
-  ]
-}
   </script>
+
   <!-- ✅ Estilos personalizados -->
   <style>
     /* =========================================================
@@ -402,6 +400,88 @@
     .info-item p {
       flex: 1;
       margin-bottom: 0.25rem;
+    }
+
+    /* Correções adicionais */
+    .btn-get-started {
+      display: inline-block;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #007bff, #0048b5);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-get-started:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 91, 255, 0.45);
+    }
+
+    .btn-watch-video {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #0d6efd;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-watch-video:hover {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .pricing-tem {
+      position: relative;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .pricing-tem:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .featured {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0dcaf0;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      padding: 10px 30px;
+      background: #0d6efd;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-buy:hover {
+      background: #0b5ed7;
+      color: white;
     }
   </style>
 
@@ -996,25 +1076,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": { "delay": 5000 },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": { "slidesPerView": 1, "spaceBetween": 40 },
-            "1200": { "slidesPerView": 3, "spaceBetween": 1 }
-          }
-        }
-      </script>
-
+        <div class="swiper testimonials-swiper">
           <div class="swiper-wrapper">
 
             <!-- Depoimento 1 -->
@@ -1371,16 +1433,16 @@
               data-recaptcha="contato" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
                 <div class="col-md-6">
-                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required="">
+                  <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
                 </div>
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required="">
+                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required>
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required="">
+                  <input type="text" class="form-control" name="assunto" placeholder="Assunto" required>
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required=""></textarea>
+                  <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem" required></textarea>
                 </div>
                 <div class="col-md-12 text-center">
                   <button type="submit" class="btn btn-primary">Enviar mensagem</button>
