@@ -151,7 +151,7 @@
     
     /* HERO SECTION */
     .hero {
-      padding: 140px 0 80px;
+      padding: 140px 0 100px;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       margin-top: 70px;
     }
@@ -204,7 +204,7 @@
     
     /* PROOF SECTION */
     .proof-section {
-      padding: 60px 0;
+      padding: 100px 0;
       background: white;
     }
     
@@ -223,7 +223,7 @@
     
     /* SERVICES */
     .services {
-      padding: 80px 0;
+      padding: 100px 0;
       background: #f8f9fa;
     }
     
@@ -269,7 +269,7 @@
     
     /* PRICING */
     .pricing {
-      padding: 80px 0;
+      padding: 100px 0;
       background: white;
     }
     
@@ -342,7 +342,7 @@
       border-radius: 15px;
       padding: 50px;
       text-align: center;
-      margin: 80px 0;
+      margin: 100px 0;
       position: relative;
       overflow: hidden;
     }
@@ -363,7 +363,7 @@
     
     /* PROCESS */
     .process-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background: white;
     }
     
@@ -400,7 +400,7 @@
     
     /* TESTIMONIALS */
     .testimonials {
-      padding: 80px 0;
+      padding: 100px 0;
       background: #f8f9fa;
     }
     
@@ -454,7 +454,7 @@
     
     /* ABOUT SECTION */
     .about-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background: white;
     }
     
@@ -470,7 +470,7 @@
     
     /* PORTFOLIO SECTION */
     .portfolio-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background: #f8f9fa;
     }
     
@@ -525,6 +525,10 @@
       border-bottom: 1px solid #f0f0f0;
     }
     
+    .comparison-table tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    
     .comparison-table .featured-col {
       background: #e7f3ff;
     }
@@ -558,7 +562,7 @@
     .footer {
       background: #212529;
       color: white;
-      padding: 60px 0 30px;
+      padding: 100px 0 30px;
     }
     
     .footer a {
@@ -617,7 +621,7 @@
     .cta-section {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 80px 0;
+      padding: 100px 0;
       text-align: center;
     }
     
@@ -674,6 +678,14 @@
       .countdown {
         flex-wrap: wrap;
       }
+      
+      .hero {
+        padding: 120px 0 80px;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
     }
     
     /* ANIMATIONS */
@@ -721,6 +733,74 @@
     .scroll-top.show {
       display: flex;
     }
+    
+    /* MOCKUP STYLES */
+    .mockup-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .mockup-browser {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    
+    .mockup-browser-header {
+      background: #f1f3f4;
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .mockup-browser-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .mockup-browser-dot:nth-child(1) { background: #ff5f57; }
+    .mockup-browser-dot:nth-child(2) { background: #ffbd2e; }
+    .mockup-browser-dot:nth-child(3) { background: #28ca42; }
+    
+    .mockup-browser-content {
+      padding: 0;
+      height: 300px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .mockup-phone {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 200px;
+      height: 400px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+      border: 8px solid #333;
+    }
+    
+    .mockup-phone-content {
+      height: 100%;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -757,7 +837,7 @@
         <div class="col-lg-6">
           <div class="urgency-badge">
             <i class="bi bi-clock"></i>
-            Promoção válida até 30/11/2024
+            Vagas limitadas para este mês
           </div>
           
           <h1 class="fade-in">
@@ -792,8 +872,23 @@
         </div>
         
         <div class="col-lg-6 text-center mt-5 mt-lg-0">
-          <div style="font-size: 12rem; line-height: 1;">🚀</div>
-          <p class="mt-3 text-muted">Sites desenvolvidos com foco em performance e conversão</p>
+          <div class="mockup-container">
+            <div class="mockup-browser">
+              <div class="mockup-browser-header">
+                <div class="mockup-browser-dot"></div>
+                <div class="mockup-browser-dot"></div>
+                <div class="mockup-browser-dot"></div>
+              </div>
+              <div class="mockup-browser-content">
+                Site Profissional
+              </div>
+            </div>
+            <div class="mockup-phone">
+              <div class="mockup-phone-content">
+                Mobile
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -909,7 +1004,9 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+            <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+              Boutique Elegância
+            </div>
             <div class="portfolio-content">
               <h4>Boutique Elegância</h4>
               <p class="text-muted">Site institucional para boutique feminina com catálogo de produtos e agendamento online.</p>
@@ -917,19 +1014,8 @@
                 <span class="badge bg-primary">Site Institucional</span>
                 <span class="badge bg-success">Responsivo</span>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-            <div class="portfolio-content">
-              <h4>Clínica Sorriso Saudável</h4>
-              <p class="text-muted">Site com sistema de agendamentos integrado para clínica odontológica.</p>
               <div class="mt-3">
-                <span class="badge bg-primary">Sistema de Agendamento</span>
-                <span class="badge bg-success">Integração WhatsApp</span>
+                <a href="#" class="btn btn-sm btn-outline-primary">Ver Projeto</a>
               </div>
             </div>
           </div>
@@ -937,13 +1023,37 @@
         
         <div class="col-lg-4 col-md-6">
           <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+            <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+              Clínica Sorriso Saudável
+            </div>
+            <div class="portfolio-content">
+              <h4>Clínica Sorriso Saudável</h4>
+              <p class="text-muted">Site com sistema de agendamentos integrado para clínica odontológica.</p>
+              <div class="mt-3">
+                <span class="badge bg-primary">Sistema de Agendamento</span>
+                <span class="badge bg-success">Integração WhatsApp</span>
+              </div>
+              <div class="mt-3">
+                <a href="#" class="btn btn-sm btn-outline-primary">Ver Projeto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <div class="portfolio-item">
+            <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+              TechStore Londrina
+            </div>
             <div class="portfolio-content">
               <h4>TechStore Londrina</h4>
               <p class="text-muted">E-commerce completo para loja de eletrônicos com gateway de pagamento.</p>
               <div class="mt-3">
                 <span class="badge bg-warning">E-commerce</span>
                 <span class="badge bg-success">Pagamento Online</span>
+              </div>
+              <div class="mt-3">
+                <a href="#" class="btn btn-sm btn-outline-primary">Ver Projeto</a>
               </div>
             </div>
           </div>
@@ -966,6 +1076,7 @@
           <div class="profile-image" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
             <i class="bi bi-person"></i>
           </div>
+          <p class="mt-3 text-muted">Substitua por sua foto profissional</p>
         </div>
         
         <div class="col-lg-8">
@@ -1195,37 +1306,37 @@
               <td>Ilimitadas</td>
             </tr>
             <tr>
-              <td><strong>Design Personalizado</strong></td>
+              <td><strong>Design</strong></td>
               <td><i class="bi bi-check text-success"></i></td>
               <td class="featured-col"><i class="bi bi-check text-success"></i></td>
               <td><i class="bi bi-check text-success"></i></td>
             </tr>
             <tr>
-              <td><strong>SEO Avançado</strong></td>
+              <td><strong>SEO</strong></td>
+              <td>Básico</td>
+              <td class="featured-col">Avançado</td>
+              <td>Avançado</td>
+            </tr>
+            <tr>
+              <td><strong>Analytics</strong></td>
               <td><i class="bi bi-x text-danger"></i></td>
               <td class="featured-col"><i class="bi bi-check text-success"></i></td>
               <td><i class="bi bi-check text-success"></i></td>
             </tr>
             <tr>
-              <td><strong>Google Analytics</strong></td>
+              <td><strong>Chat</strong></td>
               <td><i class="bi bi-x text-danger"></i></td>
               <td class="featured-col"><i class="bi bi-check text-success"></i></td>
               <td><i class="bi bi-check text-success"></i></td>
             </tr>
             <tr>
-              <td><strong>Chat Online</strong></td>
-              <td><i class="bi bi-x text-danger"></i></td>
-              <td class="featured-col"><i class="bi bi-check text-success"></i></td>
-              <td><i class="bi bi-check text-success"></i></td>
-            </tr>
-            <tr>
-              <td><strong>Gateway Pagamento</strong></td>
+              <td><strong>Pagamentos</strong></td>
               <td><i class="bi bi-x text-danger"></i></td>
               <td class="featured-col"><i class="bi bi-x text-danger"></i></td>
               <td><i class="bi bi-check text-success"></i></td>
             </tr>
             <tr>
-              <td><strong>Tempo de Suporte</strong></td>
+              <td><strong>Suporte</strong></td>
               <td>30 dias</td>
               <td class="featured-col">30 dias</td>
               <td>60 dias</td>
@@ -1389,7 +1500,7 @@
         </div>
       </div>
       
-      <p class="mb-4">⚡ Promoção válida até 30/11/2024</p>
+      <p class="mb-4">⚡ Promoção por tempo limitado</p>
       
       <a href="https://wa.me/5543998656546?text=Olá%20Anpha%20Web,%20quero%20garantir%20minha%20vaga%20com%2015%25%20OFF!" class="btn-whatsapp" style="font-size: 1.3rem; padding: 18px 40px;">
         <i class="bi bi-whatsapp"></i>
