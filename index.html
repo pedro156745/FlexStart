@@ -1,1006 +1,532 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <!-- =========================================================
-   * ANPHA WEB — SEO Master + Alta Performance (2025)
-   * Otimizado para Core Web Vitals e Rich Snippets do Google
-   ========================================================= -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d6efd">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura - Agência Digital Premium</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- 🔥 SEO / TITLE & META -->
-  <title>Criação de Sites em Londrina | Anpha Web — Desenvolvimento Profissional</title>
-  
-  <meta name="description" content="Criação de sites em Londrina com foco em vendas. Desenvolvimento de sistemas web, e-commerce e landing pages otimizadas para o Google. Solicite orçamento!">
-  <meta name="keywords" content="criação de sites londrina, desenvolvedor web londrina, agência de sites paraná, seo londrina, e-commerce, sistemas web">
-  <meta name="author" content="Anpha Web - Pedro Lapa">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+    <!-- Configurações Customizadas do Tailwind e Fontes -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap');
 
-  <!-- 🔥 SEO LOCAL (GeoTags) -->
-  <meta name="geo.region" content="BR-PR">
-  <meta name="geo.placename" content="Londrina">
-  <meta name="geo.position" content="-23.304452;-51.169577">
-  <meta name="ICBM" content="-23.304452, -51.169577">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://anphaweb.com.br/">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anphaweb.com.br/">
-  <meta property="og:title" content="Criação de Sites Profissionais em Londrina — Anpha Web">
-  <meta property="og:description" content="Sites rápidos que convertem visitantes em clientes. Especialista em SEO Local e Performance em Londrina.">
-  <meta property="og:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Anpha Web">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Anpha Web | Desenvolvimento de Sites em Londrina">
-  <meta name="twitter:description" content="Transforme seu negócio com um site profissional de alta performance.">
-  <meta name="twitter:image" content="https://anphaweb.com.br/assets/img/preview.jpg">
-
-  <!-- Favicons -->
-  <link rel="icon" href="assets/img/favicon_anphaweb.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-
-  <!-- Fonts (Otimizado com display swap) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS (CDNs para performance e cache) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- =========================================================
-       SCHEMA.ORG JSON-LD (O SEGREDO DO GOOGLE)
-       Combinação de LocalBusiness, FAQPage, Breadcrumb e Rating
-       ========================================================= -->
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Anpha Web",
-      "image": "https://anphaweb.com.br/assets/img/logo_anphaweb.png",
-      "url": "https://anphaweb.com.br",
-      "telephone": "+5543998656546",
-      "email": "contato@anphaweb.com.br",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Londrina",
-        "addressRegion": "PR",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -23.304452,
-        "longitude": -51.169577
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "42",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "sameAs": [
-        "https://www.instagram.com/anphaweb",
-        "https://www.facebook.com/anphaweb"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Quanto tempo leva para desenvolver um site?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O prazo varia de acordo com a complexidade. Sites institucionais levam em média 2 a 3 semanas, enquanto e-commerces podem levar de 4 a 8 semanas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Os sites são otimizados para o Google (SEO)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim! Todos os projetos são desenvolvidos com estrutura semântica correta, carregamento rápido e meta tags otimizadas para facilitar o ranqueamento no Google."
-          }
+        body {
+            font-family: 'Inter', sans-serif;
         }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://anphaweb.com.br" },
-        { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://anphaweb.com.br/#services" },
-        { "@type": "ListItem", "position": 3, "name": "Contato", "item": "https://anphaweb.com.br/#contact" }
-      ]
-    }
-  ]
-  </script>
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
 
-  <!-- CSS TOTAL (Substituindo main.min.css por código limpo e otimizado) -->
-  <style>
-    :root {
-      --color-primary: #0d6efd;
-      --color-secondary: #012970;
-      --color-accent: #4154f1;
-      --color-bg-light: #f6f9ff;
-      --font-default: 'Nunito', system-ui, -apple-system, sans-serif;
-      --font-heading: 'Poppins', sans-serif;
-      --shadow-card: 0px 5px 30px rgba(1, 41, 112, 0.08);
-      --shadow-hover: 0px 8px 35px rgba(1, 41, 112, 0.15);
-    }
+        /* Animações Customizadas */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
 
-    /* --- RESET & BASE --- */
-    body {
-      font-family: var(--font-default);
-      color: #444444;
-      overflow-x: hidden;
-    }
-    
-    a { text-decoration: none; color: var(--color-accent); transition: 0.3s; }
-    a:hover { color: #717ff5; }
+        /* Utilitários para esconder scrollbar se necessário */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-      color: var(--color-secondary);
-    }
-
-    /* --- HEADER & NAV --- */
-    #header {
-      background: #fff;
-      transition: all 0.5s;
-      z-index: 997;
-      padding: 15px 0;
-      box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-    }
-    
-    .logo img { max-height: 50px; }
-    
-    .navmenu ul { margin: 0; padding: 0; display: flex; list-style: none; align-items: center; }
-    .navmenu li { position: relative; }
-    
-    .navmenu a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0 10px 30px;
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--color-secondary);
-      white-space: nowrap;
-      transition: 0.3s;
-    }
-    
-    .navmenu a:hover, .navmenu .active { color: var(--color-accent); }
-    
-    .mobile-nav-toggle {
-      display: none;
-      font-size: 28px;
-      color: var(--color-secondary);
-      cursor: pointer;
-      margin-left: 15px;
-    }
-
-    /* --- HERO SECTION --- */
-    .hero {
-      width: 100%;
-      height: 100vh;
-      min-height: 600px; /* Previne layout quebrado em telas pequenas */
-      background: url('assets/img/hero-bg.png') top center no-repeat;
-      background-size: cover;
-      background-attachment: fixed; /* Efeito parallax leve */
-      padding: 120px 0 60px 0;
-      display: flex;
-      align-items: center;
-    }
-    
-    .hero h1 {
-      margin: 0 0 20px 0;
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--color-secondary);
-    }
-    
-    .hero p {
-      color: #444444;
-      margin-bottom: 30px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    
-    .hero-img { text-align: right; }
-    .hero-mockup {
-      max-width: 85%;
-      animation: float 6s ease-in-out infinite;
-      border-radius: 15px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
-
-    /* --- BUTTONS --- */
-    .btn-getstarted {
-      line-height: 0;
-      padding: 15px 40px;
-      border-radius: 50px;
-      transition: 0.5s;
-      color: #fff;
-      background: var(--color-accent);
-      box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .btn-getstarted:hover {
-      background: var(--color-secondary);
-      box-shadow: 0px 5px 15px rgba(1, 41, 112, 0.4);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    
-    .btn-watch-video {
-      font-size: 16px;
-      transition: 0.5s;
-      margin-left: 25px;
-      color: var(--color-secondary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    
-    .btn-watch-video i {
-      font-size: 32px;
-      line-height: 0;
-      margin-right: 8px;
-      color: var(--color-accent);
-    }
-
-    /* --- SECTIONS GENERAL --- */
-    .section { padding: 60px 0; overflow: hidden; }
-    .section-title { text-align: center; padding-bottom: 40px; }
-    .section-title h2 { font-size: 13px; letter-spacing: 1px; font-weight: 700; padding: 8px 20px; margin: 0; background: #e7f1ff; color: var(--color-accent); display: inline-block; text-transform: uppercase; border-radius: 50px; }
-    .section-title p { margin: 15px 0 0 0; font-size: 32px; font-weight: 700; color: var(--color-secondary); }
-
-    /* --- VALUES / FEATURES --- */
-    .value-real {
-      box-shadow: var(--shadow-card);
-      padding: 30px;
-      border-radius: 10px;
-      background: #fff;
-      height: 100%;
-      transition: 0.4s;
-      text-align: center;
-    }
-    .value-real:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
-    .value-real img { transition: 0.4s; max-width: 80px; margin-bottom: 20px; }
-
-    /* --- SERVICES --- */
-    .service-item {
-      background: #fff;
-      box-shadow: var(--shadow-card);
-      height: 100%;
-      padding: 60px 30px;
-      text-align: center;
-      transition: 0.3s;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-item:hover { transform: scale(1.02); }
-    .service-item .icon { font-size: 48px; line-height: 1; color: var(--color-accent); margin-bottom: 20px; display: inline-block; }
-    .service-item h3 { font-size: 22px; font-weight: 700; margin-bottom: 15px; }
-    
-    /* Cores específicas para serviços */
-    .item-cyan { border-bottom: 3px solid #0dcaf0; }
-    .item-orange { border-bottom: 3px solid #fd7e14; }
-    .item-teal { border-bottom: 3px solid #20c997; }
-
-    /* --- PRICING --- */
-    .pricing-tem {
-      box-shadow: var(--shadow-card);
-      padding: 40px;
-      background: #fff;
-      text-align: center;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-    .pricing-featured { transform: scale(1.1); z-index: 10; border: 2px solid var(--color-accent); }
-    .pricing-tem h3 { font-weight: 600; margin-bottom: 15px; font-size: 20px; }
-    .pricing-tem .price { font-size: 36px; color: var(--color-secondary); font-weight: 600; font-family: var(--font-heading); }
-    .pricing-tem .price sup { font-size: 20px; top: -15px; left: -3px; }
-    .pricing-tem ul { list-style: none; padding: 0; color: #6c757d; margin: 20px 0; }
-    .pricing-tem ul li { padding: 10px 0; border-bottom: 1px solid #eee; }
-    .btn-buy {
-      display: inline-block;
-      padding: 8px 35px;
-      border-radius: 50px;
-      color: var(--color-accent);
-      transition: none;
-      font-size: 16px;
-      font-weight: 500;
-      font-family: var(--font-heading);
-      transition: 0.3s;
-      border: 1px solid var(--color-accent);
-    }
-    .btn-buy:hover { background: var(--color-accent); color: #fff; }
-
-    /* --- PORTFOLIO --- */
-    .portfolio-content {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: var(--shadow-card);
-    }
-    .portfolio-image-wrapper { height: 260px; overflow: hidden; }
-    .portfolio-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-    .portfolio-content:hover img { transform: scale(1.1); }
-    .portfolio-info {
-      padding: 20px;
-      background: #fff;
-      border-top: 1px solid #eee;
-      z-index: 3;
-    }
-
-    /* --- CONTACT FLOAT BUTTONS --- */
-    .contact-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .float-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 28px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-    }
-    .float-btn:hover { transform: scale(1.1); }
-    .whatsapp { background: #25D366; }
-    .whatsapp:hover { background: #1ebe57; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
-    
-    .tooltip-contact {
-      position: absolute;
-      right: 75px;
-      background: #333;
-      color: #fff;
-      padding: 5px 12px;
-      border-radius: 5px;
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s;
-      white-space: nowrap;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .float-btn:hover .tooltip-contact { opacity: 1; right: 80px; }
-
-    /* --- FOOTER --- */
-    .footer { background: #f6f9ff; padding-top: 50px; font-size: 14px; }
-    .footer .footer-newsletter { padding: 50px 0; background: #f6f9ff; border-bottom: 1px solid #e1ecff; }
-    .social-links a {
-      font-size: 18px;
-      display: inline-block;
-      background: var(--color-primary);
-      color: #fff;
-      line-height: 1;
-      padding: 8px 0;
-      margin-right: 4px;
-      border-radius: 50%;
-      text-align: center;
-      width: 36px;
-      height: 36px;
-      transition: 0.3s;
-    }
-
-    /* --- RESPONSIVE --- */
-    @media (max-width: 991px) {
-      .hero { height: auto; padding: 100px 0 60px; }
-      .hero h1 { font-size: 32px; }
-      .hero-img { text-align: center; margin-top: 40px; }
-      .mobile-nav-toggle { display: block; }
-      
-      .navmenu ul { display: none; position: absolute; top: 60px; right: 15px; bottom: 15px; left: 15px; padding: 10px 0; border-radius: 10px; background-color: #fff; overflow-y: auto; transition: 0.3s; box-shadow: 0px 0px 30px rgba(1, 41, 112, 0.1); z-index: 9999; flex-direction: column; align-items: flex-start; }
-      .navmenu.mobile-nav-active ul { display: flex; }
-      .navmenu a { width: 100%; padding: 12px 20px; }
-      .desktop-btn { display: none; }
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            900: '#111827',
+                            50: '#F9FAFB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
+<body class="text-gray-900 bg-white selection:bg-black selection:text-white antialiased">
 
-<body class="index-page">
-
-  <!-- ================= HEADER ================= -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="/" class="logo d-flex align-items-center" aria-label="Anpha Web Home">
-        <img src="assets/img/logo_anphaweb.png" alt="Logo Anpha Web - Desenvolvimento Web" width="160" height="45" loading="eager">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Início</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#pricing">Planos</a></li>
-          <li><a href="#diferencial">Por que eu?</a></li>
-          <li><a href="#contact">Contato</a></li>
-          <!-- Botão Mobile dentro do menu -->
-          <li class="d-lg-none mt-3 w-100 px-3">
-             <a class="btn-getstarted w-100 justify-content-center" href="https://wa.me/5543998656546?text=Olá%20Anpha%20Web,%20quero%20solicitar%20um%20orçamento!" target="_blank">
-               Solicitar Orçamento
-             </a>
-          </li>
-        </ul>
-        <i class="mobile-nav-toggle bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted desktop-btn d-none d-lg-inline-flex" href="https://wa.me/5543998656546?text=Olá%20Anpha%20Web,%20quero%20solicitar%20um%20orçamento!" target="_blank">
-        Solicitar Orçamento
-      </a>
-
-    </div>
-  </header>
-
-  <main id="main">
-
-    <!-- ================= HERO SECTION ================= -->
-    <section id="hero" class="hero d-flex align-items-center">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Sites Profissionais que Geram Confiança e Vendas</h1>
-            <p data-aos="fade-up" data-aos-delay="100">
-              Desenvolvimento web moderno em Londrina. Sites rápidos, seguros e otimizados para o Google. Aumente sua autoridade digital hoje.
-            </p>
-            <div data-aos="fade-up" data-aos-delay="200" class="d-flex flex-wrap gap-3">
-              <a href="#contact" class="btn-getstarted">
-                <span>Fazer Orçamento Gratuito</span>
-                <i class="bi bi-arrow-right ms-2"></i>
-              </a>
-              <a href="#portfolio" class="btn-watch-video d-flex align-items-center">
-                <i class="bi bi-collection-play"></i><span>Ver Projetos</span>
-              </a>
+    <!-- HEADER / NAV -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter cursor-pointer">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white">
+                    <span class="font-serif italic text-lg">A</span>
+                </div>
+                Aura.
             </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <!-- Adicionei width/height explícitos para CLS -->
-            <img src="assets/img/mockup-site-real.png" class="img-fluid hero-mockup" alt="Mockup Responsivo de Site" width="600" height="450">
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ================= VALUES SECTION ================= -->
-    <section id="values" class="values section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Diferenciais</h2>
-          <p>Por que escolher a Anpha Web?</p>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#servicos" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Serviços</a>
+                <a href="#portfolio" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Portfólio</a>
+                <a href="#depoimentos" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Depoimentos</a>
+                <button class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                    Agendar Consultoria
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-black">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
 
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="value-real">
-              <img src="assets/img/codigo-limpo.png" class="img-fluid" alt="Ícone Código Limpo" width="80" height="80">
-              <h3>Código Otimizado</h3>
-              <p>Sites ultrarrápidos que carregam instantaneamente, melhorando sua posição no Google.</p>
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl md:hidden">
+            <div class="flex flex-col p-6 gap-4">
+                <a href="#servicos" class="text-lg font-medium text-gray-900 hover:text-gray-600">Serviços</a>
+                <a href="#portfolio" class="text-lg font-medium text-gray-900 hover:text-gray-600">Portfólio</a>
+                <a href="#depoimentos" class="text-lg font-medium text-gray-900 hover:text-gray-600">Depoimentos</a>
+                <button class="w-full px-8 py-4 text-base font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all">
+                    Agendar Consultoria
+                </button>
             </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="value-real">
-              <img src="assets/img/suporte-direto.png" class="img-fluid" alt="Ícone Suporte" width="80" height="80">
-              <h3>Atendimento Direto</h3>
-              <p>Fale diretamente com o desenvolvedor (Eu!). Sem burocracia de agências grandes.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="value-real">
-              <img src="assets/img/entrega-rapida.png" class="img-fluid" alt="Ícone Entrega" width="80" height="80">
-              <h3>Foco em Conversão</h3>
-              <p>Não fazemos apenas "bonito". Criamos estruturas desenhadas para vender seu serviço.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- ================= SERVICES SECTION ================= -->
-    <section id="services" class="services section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Serviços</h2>
-          <p>Soluções Digitais Completas</p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-cyan">
-              <i class="bi bi-laptop icon"></i>
-              <h3>Sites Institucionais</h3>
-              <p>A apresentação perfeita para sua empresa. Design moderno, responsivo e profissional.</p>
-              <a href="#contact" class="stretched-link text-primary fw-bold mt-3 d-block">Saiba mais <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-orange">
-              <i class="bi bi-cart-check icon"></i>
-              <h3>Lojas Virtuais (E-commerce)</h3>
-              <p>Venda 24h por dia. Integração com pagamentos, cálculo de frete e gestão de estoque.</p>
-              <a href="#contact" class="stretched-link text-warning fw-bold mt-3 d-block">Saiba mais <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-teal">
-              <i class="bi bi-code-square icon"></i>
-              <h3>Sistemas Web</h3>
-              <p>Painéis administrativos, CRMs e automações personalizadas para a regra do seu negócio.</p>
-              <a href="#contact" class="stretched-link text-success fw-bold mt-3 d-block">Saiba mais <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PRICING SECTION ================= -->
-    <section id="pricing" class="pricing section bg-light">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Investimento</h2>
-          <p>Planos Transparentes</p>
-        </div>
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-tem">
-              <h3 style="color: #20c997;">Site One Page</h3>
-              <div class="price"><sup>R$</sup>1.299<span></span></div>
-              <div class="icon"><i class="bi bi-box" style="color: #20c997;"></i></div>
-              <ul>
-                <li>Página Única com Seções</li>
-                <li>Otimizado para Celular</li>
-                <li>Botão WhatsApp Flutuante</li>
-                <li>Hospedagem Grátis (1 ano)</li>
-              </ul>
-              <a href="#contact" class="btn-buy">Solicitar Agora</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-tem pricing-featured">
-              <span class="badge bg-primary position-absolute top-0 start-50 translate-middle-x mt-3">MAIS VENDIDO</span>
-              <h3 style="color: #0d6efd;">Site Institucional</h3>
-              <div class="price"><sup>R$</sup>2.499<span></span></div>
-              <div class="icon"><i class="bi bi-rocket" style="color: #0d6efd;"></i></div>
-              <ul>
-                <li>Até 7 Páginas</li>
-                <li>Blog de Notícias</li>
-                <li>Painel Gerenciável</li>
-                <li><strong>SEO Otimizado (Google)</strong></li>
-                <li>Integração Redes Sociais</li>
-              </ul>
-              <a href="#contact" class="btn-buy text-white bg-primary border-0">Solicitar Agora</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-tem">
-              <h3 style="color: #fd7e14;">E-commerce</h3>
-              <div class="price"><sup>R$</sup>3.999<span></span></div>
-              <div class="icon"><i class="bi bi-shop" style="color: #fd7e14;"></i></div>
-              <ul>
-                <li>Loja Completa</li>
-                <li>Meios de Pagamento (Pix/Cartão)</li>
-                <li>Cálculo de Frete</li>
-                <li>Área do Cliente</li>
-              </ul>
-              <a href="#contact" class="btn-buy">Solicitar Agora</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PORTFOLIO SECTION ================= -->
-    <section id="portfolio" class="portfolio section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Portfólio</h2>
-          <p>Últimos Projetos Entregues</p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6">
-             <div class="portfolio-content">
-                <div class="portfolio-image-wrapper">
-                   <img src="assets/img/portfolio/espaco-luz.jpg" alt="Site Clínica de Estética" loading="lazy">
-                </div>
-                <div class="portfolio-info">
-                   <h4>Espaço Luz</h4>
-                   <p>Site Institucional - Clínica</p>
-                   <a href="https://espacoluzlondrina.com.br" target="_blank" class="text-primary"><i class="bi bi-link-45deg"></i> Visitar site</a>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-             <div class="portfolio-content">
-                <div class="portfolio-image-wrapper">
-                   <img src="assets/img/portfolio/candy-motel.jpg" alt="Site de Hotelaria" loading="lazy">
-                </div>
-                <div class="portfolio-info">
-                   <h4>Candy Motel</h4>
-                   <p>Site Institucional - Hotelaria</p>
-                   <a href="https://candymotel.com.br" target="_blank" class="text-primary"><i class="bi bi-link-45deg"></i> Visitar site</a>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="portfolio-content">
-               <div class="portfolio-image-wrapper">
-                  <img src="assets/img/portfolio/bootslander.jpg" alt="Landing Page Tech" loading="lazy">
-               </div>
-               <div class="portfolio-info">
-                  <h4>Bootslander</h4>
-                  <p>Landing Page Alta Conversão</p>
-                  <a href="#" class="text-primary"><i class="bi bi-link-45deg"></i> Ver Detalhes</a>
-               </div>
-            </div>
-         </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FAQ SECTION (CRUCIAL PARA SEO) ================= -->
-    <section id="faq" class="faq section bg-light">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Dúvidas</h2>
-          <p>Perguntas Frequentes</p>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="accordion" id="faqAccordion">
-              
-              <div class="accordion-item mb-3 border-0 shadow-sm rounded">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                    Quanto tempo demora para criar um site?
-                  </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Depende da complexidade. Sites institucionais geralmente levam de 10 a 20 dias úteis. Lojas virtuais e sistemas complexos podem levar de 30 a 45 dias. Prezamos pela qualidade e testes rigorosos.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item mb-3 border-0 shadow-sm rounded">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                    O site funciona no celular (Responsivo)?
-                  </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Sim! Usamos a abordagem "Mobile First". Seu site se adaptará perfeitamente a qualquer tamanho de tela (Celulares, Tablets e Desktops), o que é essencial para aparecer bem no Google.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item mb-3 border-0 shadow-sm rounded">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                    Eu consigo atualizar o conteúdo do site depois?
-                  </button>
-                </h2>
-                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Com certeza. Desenvolvemos painéis administrativos intuitivos (como WordPress ou personalizados) e oferecemos treinamento em vídeo para que você tenha total autonomia sobre seu conteúdo.
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT SECTION ================= -->
-    <section id="contact" class="contact section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Fale Comigo</h2>
-          <p>Solicite seu Orçamento</p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <div class="info-box card border-0 shadow-sm p-4 text-center h-100">
-                  <i class="bi bi-geo-alt fs-2 text-primary"></i>
-                  <h3 class="fs-5 mt-3">Localização</h3>
-                  <p>Londrina, PR - Brasil<br>Atendimento Remoto para todo país</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box card border-0 shadow-sm p-4 text-center h-100">
-                  <i class="bi bi-telephone fs-2 text-success"></i>
-                  <h3 class="fs-5 mt-3">WhatsApp</h3>
-                  <p>+55 (43) 99865-6546<br>Seg-Sex, 9h às 18h</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box card border-0 shadow-sm p-4 text-center h-100">
-                  <i class="bi bi-envelope fs-2 text-warning"></i>
-                  <h3 class="fs-5 mt-3">Email</h3>
-                  <p>contato@anphaweb.com.br<br>vendas@anphaweb.com.br</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box card border-0 shadow-sm p-4 text-center h-100">
-                  <i class="bi bi-clock fs-2 text-info"></i>
-                  <h3 class="fs-5 mt-3">Horário</h3>
-                  <p>Segunda - Sexta<br>09:00 - 18:00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <!-- Formulário com feedback visual em JS -->
-            <form id="contactForm" class="card border-0 shadow-sm p-4 h-100">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control p-3" placeholder="Seu Nome" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control p-3" name="email" placeholder="Seu Email" required>
-                </div>
-                <div class="col-12">
-                  <input type="text" class="form-control p-3" name="subject" placeholder="Assunto (Ex: Orçamento Site)" required>
-                </div>
-                <div class="col-12">
-                  <textarea class="form-control p-3" name="message" rows="6" placeholder="Descreva seu projeto..." required></textarea>
-                </div>
-                <div class="col-12 text-center">
-                   <button type="submit" class="btn-getstarted border-0 w-100 justify-content-center">Enviar Mensagem</button>
-                </div>
-                <div class="col-12">
-                  <div id="formFeedback" class="mt-3" style="display: none;"></div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer id="footer" class="footer">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-info">
-          <a href="/" class="logo d-flex align-items-center mb-3">
-            <img src="assets/img/logo_anphaweb.png" alt="Anpha Web" height="40">
-            <span class="ms-2 fs-4 fw-bold text-dark">Anpha Web</span>
-          </a>
-          <p>Transformando ideias em soluções digitais de alta performance. Especialistas em alavancar negócios locais através da tecnologia.</p>
-          <div class="social-links d-flex mt-4">
-            <a href="https://instagram.com/anphaweb" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            <a href="#" class="twitter"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Links Úteis</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#hero" class="text-secondary">Início</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#about" class="text-secondary">Sobre</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#services" class="text-secondary">Serviços</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#pricing" class="text-secondary">Planos</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Serviços</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#" class="text-secondary">Web Design</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#" class="text-secondary">E-commerce</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#" class="text-secondary">Gestão de Tráfego</a></li>
-            <li class="mb-2"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="#" class="text-secondary">SEO Local</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contato</h4>
-          <p>
-            Londrina - Paraná <br>
-            Brasil <br><br>
-            <strong>Whatsapp:</strong> +55 (43) 99865-6546<br>
-            <strong>Email:</strong> contato@anphaweb.com.br<br>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container mt-4 border-top pt-4">
-      <div class="copyright text-center">
-        &copy; Copyright <strong><span>Anpha Web 2025</span></strong>. Todos os direitos reservados.
-      </div>
-      <div class="credits text-center mt-2 text-muted small">
-        Desenvolvido com ❤️ em Londrina
-      </div>
-    </div>
-  </footer>
-
-  <!-- Botão Flutuante WhatsApp -->
-  <div class="contact-float">
-    <a href="https://wa.me/5543998656546?text=Olá%20Pedro,%20vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento!" 
-       class="float-btn whatsapp" target="_blank" aria-label="Conversar no WhatsApp">
-      <i class="bi bi-whatsapp"></i>
-      <span class="tooltip-contact">Orçamento Rápido ⚡</span>
-    </a>
-  </div>
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- JS LIBRARIES (CDNs para cache otimizado) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
-
-  <!-- MAIN JS LOGIC -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      "use strict";
-
-      /**
-       * Inicialização AOS (Animate On Scroll)
-       */
-      function aosInit() {
-        AOS.init({
-          duration: 800,
-          easing: 'ease-in-out',
-          once: true,
-          mirror: false
-        });
-      }
-      aosInit();
-
-      /**
-       * Sticky Header on Scroll
-       */
-      const selectHeader = document.querySelector('#header');
-      if (selectHeader) {
-        document.addEventListener('scroll', () => {
-          window.scrollY > 100 ? selectHeader.classList.add('header-scrolled') : selectHeader.classList.remove('header-scrolled');
-        });
-      }
-
-      /**
-       * Mobile Nav Toggle
-       */
-      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-      const navMenu = document.querySelector('#navmenu');
-      
-      if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('mobile-nav-active');
-          this.classList.toggle('bi-list');
-          this.classList.toggle('bi-x');
-        });
-      }
-
-      /**
-       * Close Mobile Nav on Link Click
-       */
-      document.querySelectorAll('.navmenu a').forEach(navLink => {
-        navLink.addEventListener('click', () => {
-          if (navMenu.classList.contains('mobile-nav-active')) {
-            navMenu.classList.remove('mobile-nav-active');
-            mobileNavToggle.classList.toggle('bi-list');
-            mobileNavToggle.classList.toggle('bi-x');
-          }
-        });
-      });
-
-      /**
-       * Inicializar Lightbox
-       */
-      const lightbox = GLightbox({
-        selector: '.glightbox'
-      });
-
-      /**
-       * Tratamento do Formulário (Mockup para UX)
-       */
-      const form = document.getElementById('contactForm');
-      const feedback = document.getElementById('formFeedback');
-      
-      if(form){
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Simula envio (Substituir por Fetch real para o PHP)
-          const btn = form.querySelector('button[type="submit"]');
-          const originalText = btn.innerText;
-          
-          btn.disabled = true;
-          btn.innerText = 'Enviando...';
-          
-          setTimeout(() => {
-            feedback.style.display = 'block';
-            feedback.innerHTML = '<div class="alert alert-success"><i class="bi bi-check-circle me-2"></i>Mensagem enviada com sucesso! Entrarei em contato em breve.</div>';
-            form.reset();
-            btn.innerText = originalText;
-            btn.disabled = false;
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
             
-            setTimeout(() => {
-              feedback.style.display = 'none';
-            }, 5000);
-          }, 1500);
+            <!-- Badge de Autoridade -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 mb-8 animate-fade-in-up">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-sm font-medium text-gray-600">Disponível para novos projetos em 2025</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 max-w-4xl mx-auto leading-[1.1] animate-fade-in-up" style="animation-delay: 0.1s;">
+                Transforme visitantes em <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900">
+                    clientes fiéis e recorrentes.
+                </span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Unimos design minimalista, psicologia do consumidor e tecnologia de ponta para criar experiências digitais que vendem por você.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                <button class="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                    Iniciar Transformação
+                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-medium text-gray-900 bg-transparent border-2 border-gray-200 rounded-full hover:border-gray-900 transition-all">
+                    Ver Portfólio
+                </button>
+            </div>
+
+            <!-- Social Proof Logos -->
+            <div class="mt-20 pt-10 border-t border-gray-100 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <p class="text-sm text-gray-500 mb-6 font-medium">CONFIADO POR LÍDERES DE MERCADO</p>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale select-none">
+                    <div class="text-xl font-bold tracking-widest">NETFLIX</div>
+                    <div class="text-xl font-bold tracking-widest">SPOTIFY</div>
+                    <div class="text-xl font-bold tracking-widest">AIRBNB</div>
+                    <div class="text-xl font-bold tracking-widest">UBER</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abstract Background Blobs -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-purple-100/50 rounded-full blur-[100px] mix-blend-multiply"></div>
+            <div class="absolute top-[20%] right-[20%] w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] mix-blend-multiply"></div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION (Grid) -->
+    <section id="servicos" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">O padrão de excelência que você busca</h2>
+                <p class="text-lg text-gray-600">
+                    Não fazemos apenas "bonito". Criamos sistemas de design funcionais focados em métricas reais de crescimento.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Velocidade Relâmpago</h3>
+                    <p class="text-gray-600 leading-relaxed">Otimização extrema para carregar em milissegundos. Seu cliente não espera.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Segurança Militar</h3>
+                    <p class="text-gray-600 leading-relaxed">Proteção de dados de ponta a ponta. Construímos confiança desde o primeiro clique.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Analytics Preditivo</h3>
+                    <p class="text-gray-600 leading-relaxed">Não apenas veja o passado. Entenda o futuro do comportamento do seu usuário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEEP DIVE SECTION -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Feature 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-16 mb-24">
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-100 aspect-[4/3] group">
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-50">
+                            <div class="w-3/4 h-3/4 bg-white rounded-xl shadow-lg p-6 flex flex-col gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="w-1/3 h-4 bg-gray-200 rounded-full"></div>
+                                <div class="w-full h-32 bg-gray-100 rounded-lg"></div>
+                                <div class="flex gap-2">
+                                    <div class="w-1/2 h-4 bg-gray-200 rounded-full"></div>
+                                    <div class="w-1/4 h-4 bg-blue-100 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 order-1 lg:order-2">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Design que guia o olhar e gera ação</h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        A maioria dos sites confunde o usuário. Nós utilizamos hierarquia visual científica para guiar seu visitante exatamente para onde você quer: o botão de compra.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                            Arquitetura da informação simplificada
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                            Call-to-actions estratégicos
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                            Copywriting focado em quebra de objeções
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 2 - Inverted -->
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Performance de nível global</h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Um segundo de atraso pode custar 7% das suas conversões. Desenvolvemos códigos limpos, modernos e otimizados para garantir que você não perca nenhum cliente por lentidão.
+                    </p>
+                    <button class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-gray-900 bg-gray-100 rounded-full hover:bg-gray-200 transition-all gap-2">
+                        Ver Relatório de Performance
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-900 aspect-[4/3] p-8 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-6xl font-bold mb-2 text-green-400">100%</div>
+                            <div class="text-gray-400 font-medium tracking-widest uppercase text-sm">Google Lighthouse Score</div>
+                            <div class="mt-8 grid grid-cols-3 gap-4 text-xs text-gray-500">
+                                <div class="bg-gray-800 p-2 rounded">SEO</div>
+                                <div class="bg-gray-800 p-2 rounded">Access</div>
+                                <div class="bg-gray-800 p-2 rounded">Speed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="depoimentos" class="py-24 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">O impacto real nos negócios</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
+                    <div class="flex gap-1 mb-6 text-yellow-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed relative z-10">
+                        A Aura transformou completamente nossa presença digital. O design é impecável e as conversões subiram 150%.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 flex items-center justify-center text-xs font-bold">RS</div>
+                        <div>
+                            <div class="font-bold">Ricardo Silva</div>
+                            <div class="text-sm text-gray-500">CEO da TechFlow</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
+                    <div class="flex gap-1 mb-6 text-yellow-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed relative z-10">
+                        Simplesmente o melhor investimento do ano. Eles entendem a estética premium como ninguém no mercado.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 flex items-center justify-center text-xs font-bold">MC</div>
+                        <div>
+                            <div class="font-bold">Mariana Costa</div>
+                            <div class="text-sm text-gray-500">Diretora de Marketing</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
+                    <div class="flex gap-1 mb-6 text-yellow-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed relative z-10">
+                        O nível de detalhe e a experiência do usuário são incomparáveis. É o padrão Apple aplicado a serviços.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 flex items-center justify-center text-xs font-bold">CM</div>
+                        <div>
+                            <div class="font-bold">Carlos Mendes</div>
+                            <div class="text-sm text-gray-500">Fundador Startup</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">Perguntas Frequentes</h2>
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item">
+                    <button class="w-full flex items-center justify-between p-6 text-left font-medium text-lg hover:bg-gray-50 transition-colors faq-trigger">
+                        Qual o prazo médio de implementação?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out faq-content">
+                        <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                            Nosso processo 'Sprint Premium' garante o lançamento da sua nova plataforma em até 4 semanas, sem comprometer a qualidade.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item">
+                    <button class="w-full flex items-center justify-between p-6 text-left font-medium text-lg hover:bg-gray-50 transition-colors faq-trigger">
+                        Vocês oferecem suporte contínuo?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out faq-content">
+                        <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                            Sim. Não entregamos apenas um site, entregamos uma parceria. Temos planos de evolução contínua e monitoramento 24/7.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item">
+                    <button class="w-full flex items-center justify-between p-6 text-left font-medium text-lg hover:bg-gray-50 transition-colors faq-trigger">
+                        O design é totalmente personalizado?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out faq-content">
+                        <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                            Absolutamente. Não usamos templates prontos. Cada pixel é desenhado pensando na identidade única e exclusiva da sua marca.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-32 text-center px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
+                Pronto para elevar seu posicionamento?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Sua marca merece um site que reflete a qualidade do seu produto. Vamos construir isso juntos.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="w-full sm:w-auto px-10 py-5 text-lg text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium">
+                    Agendar Consultoria Gratuita
+                </button>
+            </div>
+            <p class="mt-6 text-sm text-gray-500">
+                Vagas limitadas para este trimestre. Sem compromisso.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 font-bold text-xl mb-4">
+                        <div class="w-6 h-6 bg-black rounded flex items-center justify-center text-white text-xs">
+                            <span class="font-serif italic">A</span>
+                        </div>
+                        Aura.
+                    </div>
+                    <p class="text-gray-500 max-w-sm mb-6">
+                        Agência de design estratégico e desenvolvimento focada em marcas que buscam liderança de mercado.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors cursor-pointer">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Serviços</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li class="hover:text-black cursor-pointer">Web Design</li>
+                        <li class="hover:text-black cursor-pointer">Desenvolvimento</li>
+                        <li class="hover:text-black cursor-pointer">CRO & Analytics</li>
+                        <li class="hover:text-black cursor-pointer">Branding</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li class="hover:text-black cursor-pointer">Sobre nós</li>
+                        <li class="hover:text-black cursor-pointer">Carreiras</li>
+                        <li class="hover:text-black cursor-pointer">Blog</li>
+                        <li class="hover:text-black cursor-pointer">Contato</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2025 Aura Digital. Todos os direitos reservados.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <span class="cursor-pointer hover:text-black">Privacidade</span>
+                    <span class="cursor-pointer hover:text-black">Termos</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script>
+        // Inicializar Ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Header (Scroll)
+        const header = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-4');
+                header.classList.remove('bg-transparent', 'py-6');
+            } else {
+                header.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-4');
+                header.classList.add('bg-transparent', 'py-6');
+            }
         });
-      }
 
-    });
-  </script>
+        // Lógica do Menu Mobile
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIcon = mobileBtn.querySelector('i');
 
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Alternar ícone (apenas visual, re-renderizando lucide se necessário, ou trocando atributo)
+            // Maneira simples: apenas toggle da visibilidade
+        });
+
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica da FAQ (Accordion)
+        const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+        faqTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('i');
+                
+                // Fecha todos os outros
+                document.querySelectorAll('.faq-content').forEach(item => {
+                    if (item !== content) {
+                        item.style.maxHeight = null;
+                        item.style.opacity = '0';
+                        item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle do atual
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.style.opacity = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.opacity = '1';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
