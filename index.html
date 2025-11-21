@@ -3,83 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura - Design & Estratégia Digital</title>
     
-    <!-- Tailwind CSS via CDN -->
+    <!-- SEO & Meta Tags Otimizados para Venda de Sistemas -->
+    <title>Aura | Desenvolvimento de Sistemas Web & Design Estratégico</title>
+    <meta name="description" content="Estúdio de tecnologia liderado por Pedro Lapa. Especialistas em desenvolvimento de sistemas web, dashboards, automação e interfaces de alta performance.">
+    <meta name="author" content="Pedro Lapa">
+    <meta name="keywords" content="desenvolvimento de sistemas, software web, dashboard, C#, .NET, PHP, criação de sites premium, automação">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aura - Engenharia de Software & Design">
+    <meta property="og:description" content="Transformamos processos complexos em softwares elegantes e lucrativos.">
+    
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Fontes Premium -->
+    <!-- Estilos Premium -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
         body { font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* --- ANIMAÇÕES E MICROINTERAÇÕES --- */
-        
-        /* Fade Up Suave */
+        /* Animações */
         @keyframes fade-in-up {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in-up { animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
         
-        /* Hover Holográfico nos Cards */
-        .apple-card {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .apple-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
-        }
-        .apple-card:hover .mockup-content {
-            transform: scale(1.03);
-        }
-
-        /* Botão Spring */
-        .btn-spring {
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        .apple-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .apple-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); }
+        
+        .btn-spring { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .btn-spring:active { transform: scale(0.96); }
 
-        /* Glassmorphism Premium */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Floating CTA Invisível inicialmente */
+        /* Grid de Tecnologias */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 2rem;
+            opacity: 0.6;
+        }
+        .tech-item:hover { opacity: 1; transform: translateY(-2px); transition: all 0.3s; }
+
         #floating-cta {
-            transform: translateY(100px);
-            opacity: 0;
+            transform: translateY(100px); opacity: 0;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        #floating-cta.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        #floating-cta.visible { transform: translateY(0); opacity: 1; }
 
-        /* Utilitários de Delay */
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         
-        /* Mockup CSS Transitions */
-        .mockup-content { transition: transform 0.7s ease-out; }
+        /* Mockup Específico para Sistemas */
+        .system-ui-sidebar { background-color: #0f172a; }
+        .system-ui-header { border-bottom: 1px solid #e2e8f0; }
     </style>
 
     <script>
+        // CONFIGURAÇÃO DE CONTATO
+        const whatsappNumber = "5511999999999"; 
+        const whatsappMessage = encodeURIComponent("Olá Pedro, preciso de um orçamento para um sistema/site.");
+        
+        function openWhatsApp() {
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+        }
+
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        gray: { 900: '#050505', 50: '#F5F5F7', 100: '#E8E8ED' } /* Cores Apple Ajustadas */
-                    },
+                    colors: { gray: { 900: '#050505', 50: '#F5F5F7' } },
                     letterSpacing: { tightest: '-0.03em' }
                 }
             }
@@ -88,10 +97,9 @@
 </head>
 <body class="text-[#1d1d1f] bg-white selection:bg-black selection:text-white antialiased overflow-x-hidden">
 
-    <!-- HEADER / NAV (Optimized Glass) -->
+    <!-- HEADER -->
     <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-            <!-- Logo SVG Minimalista -->
             <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
                 <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-500 group-hover:rotate-90">
                     <rect x="0" y="0" width="40" height="40" rx="12" fill="black"/>
@@ -102,11 +110,11 @@
             </div>
 
             <nav class="hidden md:flex items-center gap-8">
-                <a href="#processo" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Método</a>
-                <a href="#portfolio" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Projetos</a>
-                <a href="#sobre" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Studio</a>
-                <button onclick="window.location.href='#contato'" class="btn-spring inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
-                    Consultoria
+                <a href="#solucoes" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Soluções</a>
+                <a href="#tech" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Tecnologia</a>
+                <a href="#cases" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">Cases</a>
+                <button onclick="openWhatsApp()" class="btn-spring inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
+                    Orçamento Técnico
                 </button>
             </nav>
 
@@ -118,328 +126,332 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-2xl md:hidden transition-all">
             <div class="flex flex-col p-8 gap-6 text-center">
-                <a href="#processo" class="text-xl font-medium text-gray-900">Método</a>
-                <a href="#portfolio" class="text-xl font-medium text-gray-900">Projetos</a>
-                <a href="#sobre" class="text-xl font-medium text-gray-900">Studio</a>
-                <button class="w-full py-4 text-base font-medium text-white bg-black rounded-full">Agendar Consultoria</button>
+                <a href="#solucoes" class="text-xl font-medium text-gray-900">Soluções</a>
+                <a href="#tech" class="text-xl font-medium text-gray-900">Tecnologia</a>
+                <a href="#cases" class="text-xl font-medium text-gray-900">Cases</a>
+                <button onclick="openWhatsApp()" class="w-full py-4 text-base font-medium text-white bg-black rounded-full">Falar com Engenheiro</button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Comercial + Técnico) -->
     <section class="relative pt-40 pb-20 lg:pt-52 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
             
-            <!-- Badge Minimalista -->
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-50 border border-gray-200 mb-8 animate-fade-in-up shadow-sm cursor-default select-none">
                 <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-30"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-30"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                 </span>
-                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Agenda Q1 2025 Disponível</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Disponível para Novos Projetos</span>
             </div>
 
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tightest text-gray-900 mb-8 max-w-5xl mx-auto leading-[1.05] animate-fade-in-up delay-100">
-                Não criamos sites. <br />
+                Design Estratégico. <br />
                 <span class="text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-500">
-                    Criamos impérios digitais.
+                    Engenharia Robusta.
                 </span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light animate-fade-in-up delay-200">
-                Estratégia invisível. Design inesquecível. Transformamos sua autoridade em uma plataforma de alta conversão.
+            <p class="text-xl md:text-2xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed font-light animate-fade-in-up delay-200">
+                Desenvolvemos <strong>sistemas web complexos</strong>, dashboards de gestão e sites de alta performance que geram lucro real para sua empresa.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
-                <button onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})" class="btn-spring group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl">
-                    Ver Trabalhos Recentes
-                    <i data-lucide="arrow-down" class="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                <button onclick="openWhatsApp()" class="btn-spring group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl">
+                    Cotar Meu Sistema
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                 </button>
-                <button onclick="document.getElementById('processo').scrollIntoView({behavior: 'smooth'})" class="btn-spring w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-full transition-all">
-                    Como Funciona
+                <button onclick="document.getElementById('cases').scrollIntoView({behavior: 'smooth'})" class="btn-spring w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-full transition-all">
+                    Ver Dashboards
                 </button>
             </div>
-
-            <!-- Credibilidade Real -->
-            <div class="mt-24 pt-12 border-t border-gray-100/50 animate-fade-in-up delay-300 max-w-4xl mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="group">
-                        <div class="text-3xl font-bold tracking-tight text-gray-900 group-hover:scale-110 transition-transform">+40</div>
-                        <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Projetos Entregues</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold tracking-tight text-gray-900 group-hover:scale-110 transition-transform">4</div>
-                        <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Anos de Estúdio</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold tracking-tight text-gray-900 group-hover:scale-110 transition-transform">5x</div>
-                        <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">ROI Médio</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold tracking-tight text-gray-900 group-hover:scale-110 transition-transform">100%</div>
-                        <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Exclusivo</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Background Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
-            <div class="absolute top-[-10%] left-[10%] w-[800px] h-[800px] bg-gray-100/80 rounded-full blur-[120px]"></div>
         </div>
     </section>
 
-    <!-- SECTION: PROCESSO -->
-    <section id="processo" class="py-32 bg-gray-50">
+    <!-- SEÇÃO: SOLUÇÕES (O QUE VENDEMOS) -->
+    <section id="solucoes" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-20">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">O Método Aura</h2>
-                <h3 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Ordem no caos.</h3>
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Ecossistema de Soluções</h2>
+                <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">O que construímos para você.</h3>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <!-- Linha conectora (Desktop) -->
-                <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gray-200 -z-10"></div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1: Sistemas -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all apple-card group">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Sistemas Web & SaaS</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Plataformas completas sob medida. Gestão de usuários, assinaturas, automação de processos e painéis administrativos complexos.</p>
+                    <ul class="space-y-2 text-xs font-medium text-gray-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Áreas de Membros</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> CRMs Personalizados</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> ERPs Cloud</li>
+                    </ul>
+                </div>
 
-                <!-- Steps -->
-                <div class="group">
-                    <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300 relative z-10">
-                        <span class="font-serif text-2xl italic">01</span>
+                <!-- Card 2: Dashboards -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all apple-card group">
+                    <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-2">Diagnóstico</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Entendemos onde está o dinheiro e a dor do seu negócio.</p>
+                    <h4 class="text-xl font-bold mb-3">Dashboards & BI</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Transforme dados em decisão. Criamos painéis visuais interativos para você acompanhar o pulso da sua empresa em tempo real.</p>
+                    <ul class="space-y-2 text-xs font-medium text-gray-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Relatórios em Tempo Real</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Gráficos Interativos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Exportação PDF/Excel</li>
+                    </ul>
                 </div>
-                <div class="group">
-                    <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300 relative z-10">
-                        <span class="font-serif text-2xl italic">02</span>
+
+                <!-- Card 3: Conversão -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all apple-card group">
+                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
+                        <i data-lucide="layout" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-2">Estratégia</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Arquitetura da informação focada em retenção e venda.</p>
-                </div>
-                <div class="group">
-                    <div class="w-16 h-16 bg-black text-white border border-black rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 relative z-10">
-                        <span class="font-serif text-2xl italic">03</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2">Craft & Code</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Design minimalista e código limpo de alta performance.</p>
-                </div>
-                <div class="group">
-                    <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300 relative z-10">
-                        <span class="font-serif text-2xl italic">04</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2">Escala</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Lançamento, testes A/B e otimização contínua.</p>
+                    <h4 class="text-xl font-bold mb-3">Sites & Landing Pages</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Não apenas bonitos: rápidos e persuasivos. Focados 100% em performance (SEO) e taxa de conversão de vendas.</p>
+                    <ul class="space-y-2 text-xs font-medium text-gray-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Institucionais Premium</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Páginas de Vendas</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3"></i> Otimização Mobile</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION: PORTFÓLIO COM MOCKUPS CSS (Sem Imagens Externas) -->
-    <section id="portfolio" class="py-32">
+    <!-- SEÇÃO: TECNOLOGIA (AUTORIDADE TÉCNICA) -->
+    <section id="tech" class="py-16 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Stack Tecnológica Robusta</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 items-center">
+                <!-- Tech Items (Texto + Icone Simulado) -->
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="code-2" class="text-blue-600"></i> PHP</div>
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="database" class="text-purple-600"></i> .NET / C#</div>
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="server" class="text-orange-600"></i> MySQL</div>
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="wind" class="text-cyan-500"></i> Tailwind</div>
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="layers" class="text-green-600"></i> Node.js</div>
+                <div class="flex items-center gap-2 text-lg font-bold hover:grayscale-0 hover:opacity-100 transition-all"><i data-lucide="cloud" class="text-gray-600"></i> AWS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: CASES & SISTEMAS (PROVA VISUAL) -->
+    <section id="cases" class="py-32">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
                 <div>
-                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Selected Works</h2>
-                    <h3 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Estética com propósito.</h3>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Portfólio Técnico</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Funcionalidade encontra a estética.</h3>
                 </div>
-                <button class="btn-spring text-sm font-medium border-b border-gray-300 hover:border-black pb-1 transition-colors">
-                    Ver Todos os Projetos
-                </button>
+                <a href="#solucoes" class="btn-spring text-sm font-medium border-b border-gray-300 hover:border-black pb-1 transition-colors">
+                    Solicitar Demo
+                </a>
             </div>
 
-            <!-- Grid de Projetos -->
             <div class="grid md:grid-cols-2 gap-x-12 gap-y-20">
                 
-                <!-- Project 1: Fintech Dashboard (CSS Only) -->
+                <!-- CASE 1: DASHBOARD FINANCEIRO (SYSTEM MOCKUP) -->
                 <div class="group cursor-pointer apple-card">
                     <div class="bg-gray-50 rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-gray-200">
-                        <div class="absolute top-4 left-4 flex gap-2 z-10">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                        </div>
-                        <!-- Mockup Content -->
-                        <div class="mockup-content absolute top-12 left-4 right-4 bottom-0 bg-white rounded-t-xl shadow-[0_0_40px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden p-6 flex flex-col gap-4">
-                            <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                                <div class="w-24 h-4 bg-gray-900 rounded-full"></div>
-                                <div class="w-8 h-8 rounded-full bg-gray-100"></div>
+                        <!-- UI Window -->
+                        <div class="absolute inset-0 flex flex-col p-6">
+                            <div class="flex gap-2 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
                             </div>
-                            <div class="flex gap-4">
-                                <div class="w-1/3 h-32 bg-gray-50 rounded-xl p-4 flex flex-col justify-between">
-                                    <div class="w-8 h-8 bg-gray-200 rounded-lg"></div>
-                                    <div class="w-16 h-2 bg-gray-200 rounded-full"></div>
+                            <!-- System UI -->
+                            <div class="flex-1 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden flex">
+                                <!-- Sidebar -->
+                                <div class="w-16 bg-slate-900 flex flex-col items-center py-4 gap-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-lg"></div>
+                                    <div class="w-8 h-0.5 bg-slate-700 mt-2"></div>
+                                    <div class="w-6 h-6 bg-slate-800 rounded"></div>
+                                    <div class="w-6 h-6 bg-slate-800 rounded"></div>
+                                    <div class="w-6 h-6 bg-slate-800 rounded"></div>
                                 </div>
-                                <div class="w-2/3 h-32 bg-gray-900 rounded-xl p-4 flex flex-col justify-between relative overflow-hidden">
-                                    <div class="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                                    <div class="w-24 h-3 bg-white/20 rounded-full"></div>
-                                    <div class="w-32 h-6 bg-white rounded-full"></div>
+                                <!-- Main Content -->
+                                <div class="flex-1 p-6 bg-slate-50">
+                                    <div class="flex justify-between mb-6">
+                                        <div class="w-32 h-6 bg-slate-200 rounded"></div>
+                                        <div class="w-8 h-8 bg-slate-200 rounded-full"></div>
+                                    </div>
+                                    <!-- Cards Stats -->
+                                    <div class="grid grid-cols-3 gap-4 mb-6">
+                                        <div class="h-20 bg-white rounded-lg border border-slate-100 p-3">
+                                            <div class="w-8 h-8 bg-blue-100 rounded-full mb-2"></div>
+                                            <div class="w-16 h-3 bg-slate-200 rounded"></div>
+                                        </div>
+                                        <div class="h-20 bg-white rounded-lg border border-slate-100 p-3">
+                                            <div class="w-8 h-8 bg-green-100 rounded-full mb-2"></div>
+                                            <div class="w-16 h-3 bg-slate-200 rounded"></div>
+                                        </div>
+                                        <div class="h-20 bg-white rounded-lg border border-slate-100 p-3">
+                                            <div class="w-8 h-8 bg-purple-100 rounded-full mb-2"></div>
+                                            <div class="w-16 h-3 bg-slate-200 rounded"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Data Table Mockup -->
+                                    <div class="bg-white rounded-lg border border-slate-100 p-4 h-full">
+                                        <div class="w-full h-8 bg-slate-50 rounded mb-3"></div>
+                                        <div class="space-y-2">
+                                            <div class="w-full h-4 bg-slate-100 rounded"></div>
+                                            <div class="w-full h-4 bg-slate-100 rounded"></div>
+                                            <div class="w-full h-4 bg-slate-100 rounded"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex-1 bg-gray-50 rounded-xl p-4 flex flex-col gap-3">
-                                <div class="w-full h-2 bg-gray-200 rounded-full"></div>
-                                <div class="w-3/4 h-2 bg-gray-200 rounded-full"></div>
-                                <div class="w-1/2 h-2 bg-gray-200 rounded-full"></div>
                             </div>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold mb-1 group-hover:text-gray-600 transition-colors">Nexus Fintech</h4>
-                    <p class="text-gray-500 text-sm">App Design • Dashboard System</p>
+                    <h4 class="text-2xl font-bold mb-1">FinControl ERP</h4>
+                    <p class="text-gray-500 text-sm">Sistema de Gestão Financeira • .NET & React</p>
                 </div>
 
-                <!-- Project 2: Real Estate (Dark Mode CSS) -->
+                <!-- CASE 2: MOBILE APP / SaaS -->
                 <div class="group cursor-pointer apple-card md:mt-16">
-                    <div class="bg-[#111] rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-gray-800">
-                        <div class="absolute top-4 left-4 flex gap-2 z-10">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-                        </div>
-                        <div class="mockup-content absolute top-12 left-4 right-4 bottom-0 bg-[#1a1a1a] rounded-t-xl shadow-2xl border border-gray-800 overflow-hidden flex flex-col">
-                            <!-- Hero Image Simulator -->
-                            <div class="h-2/3 bg-gray-800 relative">
-                                <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-serif italic text-4xl opacity-20">Maison</div>
-                                <div class="absolute bottom-6 left-6 text-white">
-                                    <div class="w-48 h-8 bg-white/10 backdrop-blur mb-2 rounded"></div>
-                                    <div class="w-24 h-4 bg-white/10 backdrop-blur rounded"></div>
-                                </div>
-                            </div>
-                            <div class="h-1/3 p-6 flex gap-4">
-                                <div class="flex-1 bg-white/5 rounded-lg"></div>
-                                <div class="flex-1 bg-white/5 rounded-lg"></div>
-                            </div>
-                        </div>
+                    <div class="bg-slate-900 rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-slate-800">
+                         <div class="absolute inset-0 flex items-center justify-center gap-6 p-8">
+                             <!-- Mobile Mockup 1 -->
+                             <div class="w-1/3 h-full bg-white rounded-2xl border-4 border-gray-800 overflow-hidden flex flex-col relative shadow-2xl transform translate-y-4">
+                                 <div class="h-12 bg-blue-600 w-full"></div>
+                                 <div class="p-3 space-y-2">
+                                     <div class="w-full h-24 bg-gray-100 rounded-lg"></div>
+                                     <div class="w-full h-12 bg-gray-50 rounded-lg"></div>
+                                     <div class="w-full h-12 bg-gray-50 rounded-lg"></div>
+                                 </div>
+                                 <div class="mt-auto h-12 border-t border-gray-100 w-full flex justify-around items-center">
+                                     <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                     <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                     <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                 </div>
+                             </div>
+                             <!-- Mobile Mockup 2 -->
+                             <div class="w-1/3 h-full bg-slate-800 rounded-2xl border-4 border-gray-700 overflow-hidden flex flex-col relative shadow-2xl transform -translate-y-4 opacity-80">
+                                 <div class="p-4 space-y-3">
+                                     <div class="w-12 h-12 bg-slate-700 rounded-full mb-4"></div>
+                                     <div class="w-3/4 h-4 bg-slate-700 rounded"></div>
+                                     <div class="w-1/2 h-4 bg-slate-700 rounded"></div>
+                                 </div>
+                             </div>
+                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold mb-1 group-hover:text-gray-600 transition-colors">Maison Real Estate</h4>
-                    <p class="text-gray-500 text-sm">Branding • High Conversion LP</p>
+                    <h4 class="text-2xl font-bold mb-1">TaskFlow Mobile</h4>
+                    <p class="text-gray-500 text-sm">App de Produtividade • PWA & API</p>
                 </div>
 
-                 <!-- Project 3: Architecture (Minimal Grid CSS) -->
-                 <div class="group cursor-pointer apple-card">
+                <!-- CASE 3: LANDING PAGE ALTA CONVERSÃO -->
+                <div class="group cursor-pointer apple-card">
                     <div class="bg-gray-100 rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-gray-200">
-                        <div class="absolute top-4 left-4 flex gap-2 z-10">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                        </div>
-                        <div class="mockup-content absolute top-12 left-4 right-4 bottom-0 bg-white rounded-t-xl shadow-xl border border-gray-100 overflow-hidden p-8 flex flex-col justify-between">
-                            <div class="flex justify-between">
-                                <div class="w-8 h-8 border border-black rounded-none"></div>
-                                <div class="space-y-1">
-                                    <div class="w-6 h-0.5 bg-black"></div>
-                                    <div class="w-6 h-0.5 bg-black"></div>
+                         <!-- Mockup Content -->
+                         <div class="absolute top-12 left-4 right-4 bottom-0 bg-white rounded-t-lg shadow-lg border border-gray-100 overflow-hidden flex flex-col">
+                            <div class="h-64 bg-cover bg-center relative">
+                                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center p-6">
+                                    <div class="w-32 h-4 bg-white/20 mb-2 rounded"></div>
+                                    <div class="w-48 h-8 bg-white rounded mb-4"></div>
+                                    <div class="w-24 h-8 bg-green-500 rounded-full"></div>
                                 </div>
                             </div>
-                            <div class="text-center self-center">
-                                <div class="font-serif text-3xl italic text-gray-900 mb-2">Vanguard</div>
-                                <div class="w-12 h-0.5 bg-black mx-auto"></div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 h-24">
-                                <div class="bg-gray-100 h-full"></div>
-                                <div class="bg-gray-200 h-full"></div>
-                                <div class="bg-gray-100 h-full"></div>
-                            </div>
-                        </div>
+                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold mb-1 group-hover:text-gray-600 transition-colors">Vanguard Arch</h4>
-                    <p class="text-gray-500 text-sm">Minimalist Portfolio</p>
+                    <h4 class="text-2xl font-bold mb-1">Imobiliária Prestige</h4>
+                    <p class="text-gray-500 text-sm">Landing Page Vendas • Otimização SEO</p>
                 </div>
 
-                 <!-- Project 4: Health Tech (Soft UI CSS) -->
+                 <!-- CASE 4: E-COMMERCE -->
                  <div class="group cursor-pointer apple-card md:mt-16">
-                    <div class="bg-blue-50 rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-blue-100">
-                        <div class="absolute top-4 left-4 flex gap-2 z-10">
-                            <div class="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
-                        </div>
-                        <div class="mockup-content absolute top-12 left-12 right-12 bottom-0 bg-white rounded-t-[2rem] shadow-2xl shadow-blue-900/10 border border-white overflow-hidden p-6 flex flex-col items-center pt-10">
-                            <div class="w-16 h-16 bg-blue-500 rounded-2xl mb-6 shadow-lg shadow-blue-500/30 flex items-center justify-center text-white">
-                                <i data-lucide="heart-pulse" class="w-8 h-8"></i>
-                            </div>
-                            <div class="w-32 h-4 bg-gray-900 rounded-full mb-3"></div>
-                            <div class="w-48 h-2 bg-gray-200 rounded-full mb-8"></div>
-                            <div class="w-full h-full bg-gray-50 rounded-t-xl p-4 space-y-3">
-                                <div class="w-full h-12 bg-white rounded-lg shadow-sm"></div>
-                                <div class="w-full h-12 bg-white rounded-lg shadow-sm"></div>
-                            </div>
-                        </div>
+                    <div class="bg-white rounded-3xl overflow-hidden aspect-[4/3] relative mb-6 border border-gray-200">
+                         <div class="absolute inset-0 flex flex-col p-8">
+                             <div class="flex justify-between items-center mb-6">
+                                 <div class="w-24 h-6 bg-black rounded"></div>
+                                 <div class="flex gap-2">
+                                     <div class="w-6 h-6 bg-gray-100 rounded-full"></div>
+                                     <div class="w-6 h-6 bg-gray-100 rounded-full"></div>
+                                 </div>
+                             </div>
+                             <div class="grid grid-cols-2 gap-4">
+                                 <div class="aspect-square bg-gray-50 rounded-lg p-2">
+                                     <div class="w-full h-2/3 bg-gray-200 rounded mb-2"></div>
+                                     <div class="w-full h-2 bg-gray-300 rounded"></div>
+                                 </div>
+                                 <div class="aspect-square bg-gray-50 rounded-lg p-2">
+                                     <div class="w-full h-2/3 bg-gray-200 rounded mb-2"></div>
+                                     <div class="w-full h-2 bg-gray-300 rounded"></div>
+                                 </div>
+                             </div>
+                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold mb-1 group-hover:text-gray-600 transition-colors">Lumina Health</h4>
-                    <p class="text-gray-500 text-sm">SaaS Platform • MedTech</p>
+                    <h4 class="text-2xl font-bold mb-1">Urban Store</h4>
+                    <p class="text-gray-500 text-sm">E-commerce • Integração Pagamento</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECTION: O CRIADOR (PERSONAL / MANIFESTO) -->
-    <section id="sobre" class="py-32 bg-[#050505] text-white relative overflow-hidden">
+    <!-- PROCESSO TÉCNICO -->
+    <section class="py-32 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+             <div class="mb-20">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Metodologia Ágil</h2>
+                <h3 class="text-4xl md:text-5xl font-bold tracking-tight text-white">Como construímos seu software.</h3>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 text-gray-400">
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="text-4xl font-bold text-white mb-4">01</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Arquitetura & Requisitos</h4>
+                    <p class="text-sm leading-relaxed">Mapeamento completo do banco de dados, regras de negócio e fluxos do usuário antes de digitar uma linha de código.</p>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="text-4xl font-bold text-white mb-4">02</div>
+                    <h4 class="text-lg font-bold text-white mb-2">UX/UI System</h4>
+                    <p class="text-sm leading-relaxed">Criação de protótipos de alta fidelidade. Você aprova o visual de cada tela do sistema.</p>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="text-4xl font-bold text-white mb-4">03</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Full-Stack Dev</h4>
+                    <p class="text-sm leading-relaxed">Desenvolvimento robusto (Front e Back-end). Integração de APIs, segurança e performance.</p>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="text-4xl font-bold text-white mb-4">04</div>
+                    <h4 class="text-lg font-bold text-white mb-2">QA & Deploy</h4>
+                    <p class="text-sm leading-relaxed">Testes de carga, segurança e lançamento oficial em servidores cloud escaláveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE PEDRO LAPA (AUTORIDADE TÉCNICA) -->
+    <section id="sobre" class="py-32 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Texto Manifesto -->
                 <div class="order-2 lg:order-1">
-                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Studio Director</h2>
-                    <blockquote class="text-3xl md:text-4xl font-serif italic leading-tight mb-8 text-gray-200">
-                        "O design não deve apenas preencher espaço. Ele deve resolver problemas de negócios com elegância silenciosa."
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Lead Developer & Founder</h2>
+                    <blockquote class="text-3xl md:text-4xl font-serif italic leading-tight mb-8 text-gray-900">
+                        "Um sistema bonito que não funciona é arte. Nós não fazemos arte, fazemos ferramentas de negócios."
                     </blockquote>
-                    <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                    <div class="space-y-6 text-gray-600 text-lg font-light leading-relaxed">
                         <p>
-                            Olá, sou o fundador da Aura. Depois de anos vendo agências entregarem o "padrão", decidi criar um estúdio boutique focado no extraordinário.
+                            Sou Pedro Lapa, desenvolvedor e estrategista digital. Fundo a Aura para preencher a lacuna entre o design de agência e a engenharia de software pesada.
                         </p>
                         <p>
-                            Eu supervisiono cada pixel. Não trabalhamos com volume, trabalhamos com impacto e legado.
+                            Não entregamos templates. Entregamos código proprietário, seguro e escalável para empresas que não podem se dar ao luxo de parar.
                         </p>
                     </div>
-                    <div class="mt-12">
-                        <!-- Assinatura SVG Premium -->
-                        <svg width="200" height="60" viewBox="0 0 200 60" fill="none" stroke="white" stroke-width="2" class="opacity-60">
-                            <path d="M10,40 C30,30 40,10 50,30 C60,50 50,60 40,50 C30,40 60,20 80,30 C100,40 90,50 110,40 C130,30 140,50 160,40 C170,35 180,45 190,30" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <div class="mt-8 flex gap-4">
+                        <div class="px-4 py-2 bg-gray-100 rounded text-xs font-bold text-gray-600">Full-Stack</div>
+                        <div class="px-4 py-2 bg-gray-100 rounded text-xs font-bold text-gray-600">Product Manager</div>
                     </div>
                 </div>
 
-                <!-- Foto Pessoal (Mockup Abstrato) -->
                 <div class="order-1 lg:order-2 relative">
-                    <div class="aspect-[3/4] bg-[#111] rounded-2xl overflow-hidden border border-white/10 relative group grayscale hover:grayscale-0 transition-all duration-700">
-                        <!-- Placeholder de foto estilizado -->
-                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" alt="Workspace" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        
-                        <div class="absolute bottom-0 left-0 w-full p-8">
-                            <p class="text-white font-bold text-xl">Sua Foto Aqui</p>
-                            <p class="text-gray-400 text-sm">Troque pelo seu retrato P&B</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-32 bg-white">
-        <div class="max-w-3xl mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-16 text-center tracking-tight">Dúvidas frequentes</h2>
-            <div class="space-y-4">
-                <div class="border-b border-gray-100 pb-4 faq-item group">
-                    <button class="w-full flex items-center justify-between py-4 text-left font-medium text-xl hover:text-gray-600 transition-colors faq-trigger">
-                        Qual o investimento inicial?
-                        <i data-lucide="plus" class="w-5 h-5 text-gray-400 transition-transform duration-300 group-hover:text-black"></i>
-                    </button>
-                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out faq-content">
-                        <div class="pb-6 pt-2 text-gray-500 leading-relaxed font-light">
-                            Trabalhamos com projetos a partir de R$ 3.000. Cada orçamento é personalizado baseado no retorno que traremos para o seu negócio.
-                        </div>
-                    </div>
-                </div>
-                <div class="border-b border-gray-100 pb-4 faq-item group">
-                    <button class="w-full flex items-center justify-between py-4 text-left font-medium text-xl hover:text-gray-600 transition-colors faq-trigger">
-                        Qual o prazo de entrega?
-                        <i data-lucide="plus" class="w-5 h-5 text-gray-400 transition-transform duration-300 group-hover:text-black"></i>
-                    </button>
-                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out faq-content">
-                        <div class="pb-6 pt-2 text-gray-500 leading-relaxed font-light">
-                            Média de 15 a 20 dias úteis. Qualidade artesanal requer tempo, mas nosso processo é otimizado para agilidade.
-                        </div>
+                    <div class="aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden relative group grayscale hover:grayscale-0 transition-all duration-700">
+                        <!-- FOTO DO PEDRO -->
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" alt="Pedro Lapa" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
             </div>
@@ -449,20 +461,17 @@
     <!-- FINAL CTA -->
     <section id="contato" class="py-32 text-center px-6 relative overflow-hidden bg-gray-50">
         <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-5xl md:text-7xl font-bold mb-8 tracking-tightest">
-                Vamos criar o seu <br>melhor trabalho?
+            <h2 class="text-5xl md:text-6xl font-bold mb-8 tracking-tightest">
+                Tem um projeto complexo? <br>Nós simplificamos.
             </h2>
             <p class="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-light">
-                Sua marca está pronta para o próximo nível. Nós temos o mapa.
+                De sites institucionais a sistemas de gestão completos.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="btn-spring px-12 py-6 text-xl text-white bg-black rounded-full hover:bg-gray-900 transition-all shadow-2xl hover:-translate-y-1 font-medium">
-                    Solicitar Proposta VIP
+                <button onclick="openWhatsApp()" class="btn-spring px-12 py-6 text-xl text-white bg-black rounded-full hover:bg-gray-900 transition-all shadow-2xl hover:-translate-y-1 font-medium">
+                    Agendar Análise de Projeto
                 </button>
             </div>
-            <p class="mt-8 text-xs text-gray-400 uppercase tracking-widest font-medium">
-                Agenda Q1 2025: Poucas Vagas
-            </p>
         </div>
     </section>
 
@@ -470,27 +479,24 @@
     <footer class="bg-white border-t border-gray-100 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-2 font-bold text-xl">
-                <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="40" height="40" rx="12" fill="black"/>
-                    <path d="M20 10L30 30H10L20 10Z" fill="white"/>
-                </svg>
-                Aura.
+                <span class="w-6 h-6 bg-black rounded flex items-center justify-center text-white text-xs font-serif italic">A</span>
+                Aura Tech.
             </div>
             <div class="text-sm text-gray-400 font-medium">
-                &copy; 2025 Aura Design. São Paulo, Brasil.
+                &copy; 2025 Pedro Lapa. Todos os direitos reservados.
             </div>
             <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-black transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="text-gray-400 hover:text-black transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="https://instagram.com/seu_perfil" target="_blank" class="text-gray-400 hover:text-black transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://linkedin.com/in/seu_perfil" target="_blank" class="text-gray-400 hover:text-black transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
             </div>
         </div>
     </footer>
 
     <!-- FLOATING CTA -->
     <div id="floating-cta" class="fixed bottom-8 right-8 z-40">
-        <button class="glass-panel px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 text-sm font-bold text-gray-900 hover:bg-white transition-all cursor-pointer btn-spring">
+        <button onclick="openWhatsApp()" class="glass-panel px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 text-sm font-bold text-gray-900 hover:bg-white transition-all cursor-pointer btn-spring">
             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            Falar no WhatsApp
+            Orçamento via WhatsApp
             <i data-lucide="message-circle" class="w-4 h-4"></i>
         </button>
     </div>
@@ -505,10 +511,10 @@
             const scrollY = window.scrollY;
 
             if (scrollY > 50) {
-                header.classList.add('bg-white/80', 'backdrop-blur-xl', 'border-b', 'border-gray-100', 'py-4');
+                header.classList.add('bg-white/90', 'backdrop-blur-xl', 'border-b', 'border-gray-100', 'py-4');
                 header.classList.remove('bg-transparent', 'py-6');
             } else {
-                header.classList.remove('bg-white/80', 'backdrop-blur-xl', 'border-b', 'border-gray-100', 'py-4');
+                header.classList.remove('bg-white/90', 'backdrop-blur-xl', 'border-b', 'border-gray-100', 'py-4');
                 header.classList.add('bg-transparent', 'py-6');
             }
 
@@ -523,31 +529,6 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const content = trigger.nextElementSibling;
-                const icon = trigger.querySelector('i');
-                
-                document.querySelectorAll('.faq-content').forEach(c => {
-                    if(c !== content) {
-                        c.style.maxHeight = null;
-                        c.style.opacity = '0';
-                        c.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    content.style.opacity = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.style.opacity = '1';
-                    icon.style.transform = 'rotate(45deg)';
-                }
-            });
         });
     </script>
 </body>
